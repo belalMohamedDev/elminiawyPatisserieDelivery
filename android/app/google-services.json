@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "274043185653",
+    "project_id": "driver",
+    "storage_bucket": "driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274043185653:android:70c64f456ccece1eb798bc",
+        "android_client_info": {
+          "package_name": "com.driver.patisserie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274043185653-e20kquhbs0jbvtjndnrs5o622h9oetgb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.driver.patisserie",
+            "certificate_hash": "381b78197ecb00b77abc258fe3740e077a3b530d"
+          }
+        },
+        {
+          "client_id": "274043185653-vclem08s9voiuv427d46ur0g8eqge0b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBsADXjnjR0Wv0pnl2rzmONBwoSvE7TJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274043185653-vclem08s9voiuv427d46ur0g8eqge0b6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "274043185653-ov8o0grh9tepaqo6e9a839oo26m4cjje.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.coder.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
