@@ -1,11 +1,11 @@
 import 'package:driver/core/common/shared/shared_imports.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:driver/core/common/sharedWidget/custom_dropdown_button_form_field.dart';
 
 class DeliveryManRegistration extends StatefulWidget {
   const DeliveryManRegistration({super.key});
 
   @override
-  _DeliveryManRegistrationState createState() =>
+  State<DeliveryManRegistration> createState() =>
       _DeliveryManRegistrationState();
 }
 
@@ -39,51 +39,21 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
               Row(
                 children: [
                   Expanded(
-                      child: DropdownButtonFormField2(
-                    decoration: const InputDecoration(
-                      labelText: 'Select delivery type',
-                      border: OutlineInputBorder(),
+                    child: CustomDropdownButtonFormField(
+                      items: deliveryTypes,
+                      value: 'Select Delivery type',
+                      onChanged: (value) {
+                        setState(() {
+                          deliveryType = value;
+                        });
+                      },
                     ),
-                    isExpanded: true,
-                    dropdownStyleData: DropdownStyleData(
-                        useSafeArea: true,
-                        decoration: BoxDecoration(
-                          color: ColorManger.white,
-                        )),
-                   
-
-                    // dropdownDirection: DropdownDirection
-                    //     .bottom, // تحديد اتجاه الفتح للأسفل دائمًا
-                    items: deliveryTypes
-                        .map((String type) => DropdownMenuItem<String>(
-                              value: type,
-                              child: Text(type),
-                            ))
-                        .toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedValue = newValue;
-                      });
-                    },
-                    // // تخصيص القائمة المنسدلة إذا كنت بحاجة
-                    // buttonHeight: 60,
-                    // dropdownMaxHeight: 200,
-                    // dropdownWidth: MediaQuery.of(context).size.width * 0.9,
-                  )),
-                  responsive.setSizeBox(width: 5),
+                  ),
+                  responsive.setSizeBox(width: 2),
                   Expanded(
-                    child: DropdownButtonFormField<String>(
-                      value: deliveryType,
-                      decoration: const InputDecoration(
-                        labelText: 'Select delivery type',
-                        border: OutlineInputBorder(),
-                      ),
-                      items: deliveryTypes
-                          .map((type) => DropdownMenuItem(
-                                value: type,
-                                child: Text(type),
-                              ))
-                          .toList(),
+                    child: CustomDropdownButtonFormField(
+                      items: deliveryTypes,
+                      value: 'Select Region',
                       onChanged: (value) {
                         setState(() {
                           deliveryType = value;
@@ -94,28 +64,20 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
                 ],
               ),
               const SizedBox(height: 16.0),
-              DropdownButtonFormField<String>(
-                value: idType,
-                decoration: const InputDecoration(
-                  labelText: 'Select ID type',
-                  border: OutlineInputBorder(),
-                ),
-                items: idTypes
-                    .map((type) => DropdownMenuItem(
-                          value: type,
-                          child: Text(type),
-                        ))
-                    .toList(),
+
+              CustomDropdownButtonFormField(
+                items: idTypes,
+                value: 'Select ID type',
                 onChanged: (value) {
                   setState(() {
                     idType = value;
                   });
                 },
               ),
+
               const SizedBox(height: 16.0),
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Enter your ID number',
                   border: OutlineInputBorder(),
                   hintText: 'Ex: XXXXX-XXXXXXXX-X',
                 ),

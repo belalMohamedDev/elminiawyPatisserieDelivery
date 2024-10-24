@@ -113,6 +113,7 @@ dependencies:
   dotted_border: ^2.1.0
   image_picker: ^1.1.2
   dropdown_button2: ^2.3.9
+  decorated_dropdownbutton: ^0.0.3
 
 
 dev_dependencies:

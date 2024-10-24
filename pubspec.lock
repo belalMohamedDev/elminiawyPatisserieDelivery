@@ -329,6 +329,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.10"
+  decorated_dropdownbutton:
+    dependency: "direct main"
+    description:
+      name: decorated_dropdownbutton
+      sha256: "03844d031650f2561cf74b3480734bab5b8b40cc52bdf2af197f3345ab0e9418"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   device_frame:
     dependency: transitive
     description:
