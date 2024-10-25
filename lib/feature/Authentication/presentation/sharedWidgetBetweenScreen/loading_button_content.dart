@@ -52,8 +52,6 @@ class LoadingButtonContent extends StatelessWidget {
         state is VerifyCodeLoadingData ||
         state is NewPasswordLoadingData) {
       return loadingWidget();
-    } else if (state is AuthenticationWithGoogleLoading) {
-      return loadingWidget(signWithGoogleOrApple: true);
     } else {
       return defultWidget ??
           Text(

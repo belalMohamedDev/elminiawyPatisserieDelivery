@@ -107,13 +107,9 @@ dependencies:
   rxdart: ^0.28.0
   flutter_localizations:
     sdk: flutter
-  dart_ping: ^9.0.1
-  google_sign_in: ^6.2.1
-  firebase_auth: ^5.3.1
   dotted_border: ^2.1.0
   image_picker: ^1.1.2
-  dropdown_button2: ^2.3.9
-  decorated_dropdownbutton: ^0.0.3
+
 
 
 dev_dependencies:

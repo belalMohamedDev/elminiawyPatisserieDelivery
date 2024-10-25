@@ -25,14 +25,5 @@ class RegisterRequestBody {
   //to json
   Map<String, dynamic> toJson() => _$RegisterRequestBodyToJson(this);
 
-  Map<String, dynamic> toFilteredJson() {
-    final json = <String, dynamic>{};
 
-    if (name != null && name!.isNotEmpty) json['name'] = name;
-    if (email != null && email!.isNotEmpty) json['email'] = email;
-    if (password != null && password!.isNotEmpty) json['password'] = password;
-    if (phone != null && phone!.isNotEmpty) json['phone'] = phone;
-
-    return json;
-  }
 }

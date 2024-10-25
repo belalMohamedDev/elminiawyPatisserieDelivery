@@ -1,3 +1,4 @@
+
 import '../../../../core/common/shared/shared_imports.dart';
 
 final instance = GetIt.instance;
@@ -78,8 +79,8 @@ Future<void> _initSignInWithGoogleAndApple() async {
   instance
     ..registerLazySingleton<AuthenticationRepositoryImplement>(
         () => AuthenticationRepositoryImplement(instance()))
-    ..registerFactory<AuthenticationWithGoogleAndAppleCubit>(
-        () => AuthenticationWithGoogleAndAppleCubit(
+    ..registerFactory<CompleteRegistrationProcessCubit>(
+        () => CompleteRegistrationProcessCubit(
               instance(),
             ));
 }

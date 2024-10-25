@@ -161,7 +161,7 @@ class AccountInfomationBody extends StatelessWidget {
             ShowToast.showToastSuccessTop(
                 message: data.message!, context: context);
 
-            context.read<AuthenticationWithGoogleAndAppleCubit>().signOut();
+
 
             await AppLogout().logOutThenNavigateToLogin();
           },

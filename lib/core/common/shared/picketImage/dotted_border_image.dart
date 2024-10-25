@@ -2,9 +2,11 @@ import 'package:driver/core/common/shared/shared_imports.dart';
 
 class DottedBorderImage extends StatelessWidget {
   final File? image;
+  final bool isRegisterComplete;
   const DottedBorderImage({
     super.key,
     this.image,
+    this.isRegisterComplete = false,
   });
 
   @override
@@ -19,8 +21,8 @@ class DottedBorderImage extends StatelessWidget {
           : ColorManger.brownLight,
       strokeWidth: 2,
       child: SizedBox(
-        height: responsive.setHeight(13),
-        width: responsive.setWidth(30),
+        height: responsive.setHeight(isRegisterComplete ? 15 : 13),
+        width: isRegisterComplete ? double.infinity : responsive.setWidth(30),
         child: image != null && image!.path.isNotEmpty
             ? Container(
                 decoration: BoxDecoration(
@@ -39,11 +41,12 @@ class DottedBorderImage extends StatelessWidget {
                     color: Colors.grey,
                     size: responsive.setIconSize(13),
                   ),
-                  responsive.setSizeBox(height: 0.5),
+                  responsive.setSizeBox(height: isRegisterComplete ? 1.5 : 0.5),
                   Text(context.translate(AppStrings.uploadProfilePicture),
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: responsive.setTextSize(3.4),
+                            fontSize: responsive
+                                .setTextSize(isRegisterComplete ? 3 : 3.4),
                           ))
                 ],
               ),

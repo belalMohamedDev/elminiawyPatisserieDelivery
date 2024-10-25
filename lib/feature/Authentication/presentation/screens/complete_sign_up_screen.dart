@@ -1,5 +1,4 @@
 import 'package:driver/core/common/shared/shared_imports.dart';
-import 'package:driver/core/common/sharedWidget/custom_dropdown_button_form_field.dart';
 
 class DeliveryManRegistration extends StatefulWidget {
   const DeliveryManRegistration({super.key});
@@ -15,14 +14,44 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
   bool agreedToTerms = false;
 
   final List<String> deliveryTypes = ['Freelancer', 'Salary Based'];
-  final List<String> idTypes = ['Passport', 'National ID'];
+  final List<String> idTypes = ['Passport', 'National ID', 'Driving license'];
   String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
     // Initialize the ResponsiveUtils to handle responsive layout adjustments
     final responsive = ResponsiveUtils(context);
+    File? image;
+
     return Scaffold(
+      bottomNavigationBar: SizedBox(
+        height: responsive.setHeight(18),
+        child: Padding(
+          padding: responsive.setPadding(left: 4, right: 4),
+          child: Column(
+            children: [
+              CheckboxListTile(
+                title: const Text('I agree with all the Terms & Conditions'),
+                value: agreedToTerms,
+                onChanged: (bool? value) {
+                  setState(() {
+                    agreedToTerms = value ?? false;
+                  });
+                },
+              ),
+              responsive.setSizeBox(height: 1),
+              CustomButton(
+                onPressed: agreedToTerms
+                    ? () {
+                        // Action on submit
+                      }
+                    : null,
+                defaultText: "Submit",
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Padding(
         padding: responsive.setPadding(top: 8, right: 4, left: 4),
         child: Form(
@@ -63,7 +92,7 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16.0),
+              responsive.setSizeBox(height: 1),
 
               CustomDropdownButtonFormField(
                 items: idTypes,
@@ -75,48 +104,64 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
                 },
               ),
 
+              responsive.setSizeBox(height: 1),
+
+              CustomDropdownButtonFormField(
+                items: idTypes,
+                value: 'Select vehicle type',
+                onChanged: (value) {
+                  setState(() {
+                    idType = value;
+                  });
+                },
+              ),
+
               const SizedBox(height: 16.0),
               TextFormField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Ex: XXXXX-XXXXXXXX-X',
+                  hintText: 'Ex: XXX-X-XXX-XXX-XXXX', // Example format
                 ),
                 keyboardType: TextInputType.number,
+                inputFormatters: [
+                  CustomMaskFormatter(mask: '###-#-###-###-####'),
+                ],
               ),
               const SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: () {
-                  // Action to upload image
+
+              BlocBuilder<CompleteRegistrationProcessCubit,
+                  CompleteRegistrationProcessState>(
+                builder: (context, state) {
+                  state.whenOrNull(
+                    imagePath: (imagePath) {
+                      image = imagePath;
+                    },
+                  );
+                  return MaterialButton(
+                    onPressed: () => showPicker(
+                      context: context,
+                      listTileCamera: () {
+                        context
+                            .read<CompleteRegistrationProcessCubit>()
+                            .camera();
+                        // .add(const SignUpEvent.cameraImagePickEvent());
+                        Navigator.of(context).pop();
+                      },
+                      listTileGallery: () {
+                        context
+                            .read<CompleteRegistrationProcessCubit>()
+                            .gallery();
+                        // .add(const SignUpEvent.galleryImagePickEvent());
+
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    child: DottedBorderImage(
+                      isRegisterComplete: true,
+                      image: image,
+                    ),
+                  );
                 },
-                child: Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: const Center(
-                    child: Icon(Icons.camera_alt),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              CheckboxListTile(
-                title: const Text('I agree with all the Terms & Conditions'),
-                value: agreedToTerms,
-                onChanged: (bool? value) {
-                  setState(() {
-                    agreedToTerms = value ?? false;
-                  });
-                },
-              ),
-              const SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: agreedToTerms
-                    ? () {
-                        // Action on submit
-                      }
-                    : null,
-                child: const Text('Submit'),
               ),
             ],
           ),

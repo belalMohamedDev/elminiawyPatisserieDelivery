@@ -2,8 +2,7 @@
 import '../../../../../core/common/shared/shared_imports.dart';
 
 abstract class AuthenticationRepository {
-  Future<ApiResult<AuthResponse>> authenticationWithGoogleRepo(
-      RegisterRequestBody registerRequestBody);
+
 
   Future<ApiResult<AuthResponse>> registerToNewAccountRepo(
     RegisterRequestBody registerRequestBody,
@@ -29,17 +28,7 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
   AuthenticationRepositoryImplement(this._apiService);
   final AppServiceClient _apiService;
 
-  @override
-  Future<ApiResult<AuthResponse>> authenticationWithGoogleRepo(
-      RegisterRequestBody registerRequestBody) async {
-    try {
-      final response =
-          await _apiService.googleService(registerRequestBody.toFilteredJson());
-      return ApiResult.success(response);
-    } catch (error) {
-      return ApiResult.failure(ApiErrorHandler.handle(error));
-    }
-  }
+
 
   @override
   Future<ApiResult<AuthResponse>> registerToNewAccountRepo(

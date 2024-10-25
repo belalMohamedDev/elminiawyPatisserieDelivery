@@ -10,9 +10,7 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<LoginBloc>(),
               ),
-              BlocProvider(
-                  create: (context) =>
-                      instance<AuthenticationWithGoogleAndAppleCubit>()),
+        
             ],
             child: const LoginView(),
           ),
@@ -95,10 +93,7 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<AccountInformationCubit>(),
               ),
-              BlocProvider(
-                create: (context) =>
-                    instance<AuthenticationWithGoogleAndAppleCubit>(),
-              ),
+         
             ],
             child: const AccountInfomation(),
           ),

@@ -5,12 +5,15 @@ export '../../../../feature/notification/presentation/refactor/notification_scre
 export '../../../../core/application/env.variables.dart';
 export '../../../../core/common/statsScreen/no_internet_connection.dart';
 export 'dart:async';
+export '../../../../core/common/sharedWidget/custom_dropdown_button_form_field.dart';
+export '../../../../feature/Authentication/logic/CompleteRgistrationProcess/complete_registration_process_cubit.dart';
+
+export '../../../../core/utils/custom_mask_formatter.dart';
 export '../../../../feature/cart/presentation/widget/row_text_order_summary.dart';
 export '../../../../feature/search/bloc/search_bloc.dart';
 export '../../../../core/language/app_localizations.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export '../../../../feature/search/model/repository/repositry.dart';
-export 'package:dart_ping/dart_ping.dart';
 export '../../../../core/language/app_localizations_setup.dart';
 export '../../../../core/utils/app_logout.dart';
 export '../../../../core/utils/app_initial_route.dart';
@@ -28,9 +31,6 @@ export '../../../../feature/Authentication/presentation/refactors/restEmail/forg
 export '../../../../core/common/shared/picketImage/dotted_border_image.dart';
 
 export 'package:firebase_core/firebase_core.dart';
-export 'package:google_sign_in/google_sign_in.dart';
-export 'package:firebase_auth/firebase_auth.dart';
-export '../../../feature/Authentication/logic/authenticationWithGoogleAndAppleCubit/authentication_with_google_and_apple_cubit.dart';
 export '../../../feature/Authentication/data/repository/authentication_repository.dart';
 export '../../../feature/Authentication/data/model/authResponse/auth_response.dart';
 export '../../../feature/Authentication/data/model/bodyRequest/login/login_body_request.dart';

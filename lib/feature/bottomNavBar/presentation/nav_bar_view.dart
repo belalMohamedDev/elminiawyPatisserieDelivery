@@ -150,10 +150,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BlocProvider.value(
               value: instance<PaymentCubit>(),
             ),
-            BlocProvider(
-              create: (context) =>
-                  instance<AuthenticationWithGoogleAndAppleCubit>(),
-            ),
+          
           ],
           child: const ProfileView(),
         ),
