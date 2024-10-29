@@ -24,7 +24,6 @@ class CompleteRegistrationProcessCubit
 
   void setDeliveryType(String value) {
     _deliveryType = value;
-    print(_deliveryType);
   }
 
   void setDeliveryRegion(String value) {

@@ -18,8 +18,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final context = instance<GlobalKey<NavigatorState>>().currentState!.context;
   // Repository for handling the registration process
   final AuthenticationRepositoryImplement _registerRepository;
-  dynamic image = '';
-  File newImage = File('');
+
+  File profileImage = File('');
 
   // UI-related flags
   bool showPass = true; // Toggles the visibility of the password field
@@ -143,30 +143,26 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   Future<void> camera(Emitter<SignUpState> emit) async {
     final pickedImage =
         await _imagePicker.pickImage(source: ImageSource.camera);
-    await setUserPicture(File(pickedImage?.path ?? ''));
-    emit(
-      SignUpState.imagePath(File(pickedImage?.path ?? '')),
-    );
+
+    if (pickedImage != null) {
+      final imageFile = File(pickedImage.path);
+      profileImage = imageFile;
+
+      emit(
+        SignUpState.imagePath(imageFile),
+      );
+    }
   }
 
   Future<void> gallery(Emitter<SignUpState> emit) async {
     final pickedImage =
         await _imagePicker.pickImage(source: ImageSource.gallery);
-    await setUserPicture(File(pickedImage?.path ?? ''));
-    emit(
-      SignUpState.imagePath(File(pickedImage?.path ?? '')),
-    );
-  }
+    if (pickedImage != null) {
+      final imageFile = File(pickedImage.path);
+      profileImage = imageFile;
 
-  ////return path and upload image
-  Future<dynamic> setUserPicture(File userPicture) async {
-    if (userPicture.path.isNotEmpty) {
-      //update register view object
-      newImage = userPicture;
-
-      image = MultipartFile.fromFileSync(
-        userPicture.path,
-        filename: userPicture.path.split(Platform.pathSeparator).last,
+      emit(
+        SignUpState.imagePath(imageFile),
       );
     }
   }
@@ -201,34 +197,34 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   /// Handles the registration process when the user clicks the sign-up button.
   Future<void> registerButton(
       SignUpEvent event, Emitter<SignUpState> emit) async {
-    // await event.whenOrNull(
-    //   userRegisterButton: () async {
-    //     // Emit loading state
-    //     emit(const SignUpState.loading());
+    await event.whenOrNull(
+      userRegisterButton: () async {
+        // Emit loading state
+        emit(const SignUpState.loading());
 
-    //     // Call the repository to handle user registration
-    //     final response = await _registerRepository.registerToNewAccountRepo(
-    //       RegisterRequestBody(
-    //         name:
-    //             '${userSignUpFirstName.text.trim()} ${userSignUpLastName.text.trim()}',
-    //         phone: userSignUpPhone.text.trim(),
-    //         email: userSignUpEmailAddress.text.trim(),
-    //         password: userSignUpPassword.text.trim(),
-    //       ),
-    //     );
+        // Call the repository to handle user registration
+        final response = await _registerRepository.registerToNewAccountRepo(
+            RegisterRequestBody(
+              name:
+                  '${userSignUpFirstName.text.trim()} ${userSignUpLastName.text.trim()}',
+              phone: userSignUpPhone.text.trim(),
+              email: userSignUpEmailAddress.text.trim(),
+              password: userSignUpPassword.text.trim(),
+            ),
+            profileImage);
 
-    //     // Handle the response from the registration API
-    //     response.when(
-    //       success: (registerResponse) async {
-    //         // Emit success state
-    //         emit(SignUpState.suceess(registerResponse));
-    //       },
-    //       failure: (error) {
-    //         // Emit error state in case of failure
-    //         emit(SignUpState.error(error));
-    //       },
-    //     );
-    //   },
-    // );
+        // Handle the response from the registration API
+        response.when(
+          success: (registerResponse) async {
+            // Emit success state
+            emit(SignUpState.suceess(registerResponse));
+          },
+          failure: (error) {
+            // Emit error state in case of failure
+            emit(SignUpState.error(error));
+          },
+        );
+      },
+    );
   }
 }

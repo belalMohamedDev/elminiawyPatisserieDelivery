@@ -40,9 +40,9 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
     File imageFile,
   ) async {
     try {
-      final MultipartFile image = await MultipartFile.fromFile(
+      final MultipartFile image =  MultipartFile.fromFileSync(
         imageFile.path,
-        filename: imageFile.path.split('/').last,
+        filename: imageFile.path.split(Platform.pathSeparator).last,
       );
       final response =
           await _apiService.registerService(registerRequestBody, image);
@@ -110,9 +110,9 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
       List<MultipartFile> multipartFiles = [];
 
       for (File imageFile in imageFiles) {
-        final MultipartFile image = await MultipartFile.fromFile(
+        final MultipartFile image =  MultipartFile.fromFileSync(
           imageFile.path,
-          filename: imageFile.path.split('/').last,
+          filename: imageFile.path.split(Platform.pathSeparator).last,
         );
         multipartFiles.add(image);
       }
