@@ -20,6 +20,7 @@ class GetAllRegionsRsponse {
 
 @JsonSerializable()
 class GetAllRegionsData {
+  @JsonKey(name: "BranchArea")
   String? branchArea;
 
   GetAllRegionsData({this.branchArea});

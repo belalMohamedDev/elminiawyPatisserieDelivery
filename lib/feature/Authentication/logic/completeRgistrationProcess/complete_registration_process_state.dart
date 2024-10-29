@@ -13,4 +13,11 @@ class CompleteRegistrationProcessState with _$CompleteRegistrationProcessState {
 
   const factory CompleteRegistrationProcessState.getAllRegionSuccess(
       GetAllRegionsRsponse data) = GetAllRegionSuccess;
+
+  const factory CompleteRegistrationProcessState.completeRegisterLoading() = CompleteRegisterLoading;
+  const factory CompleteRegistrationProcessState.completeRegisterError(
+      ApiErrorModel apiErrorModel) = CompleteRegisterError;
+
+  const factory CompleteRegistrationProcessState.completeRegisterSuccess(
+      CompleteRegisterResponse data) = CompleteRegisterSuccess;
 }

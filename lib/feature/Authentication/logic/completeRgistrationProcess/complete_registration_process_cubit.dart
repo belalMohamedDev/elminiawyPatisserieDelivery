@@ -6,15 +6,46 @@ part 'complete_registration_process_cubit.freezed.dart';
 
 class CompleteRegistrationProcessCubit
     extends Cubit<CompleteRegistrationProcessState> {
-  CompleteRegistrationProcessCubit(this._imagePicker, this._authenticationRepositoryImplement)
+  CompleteRegistrationProcessCubit(
+      this._imagePicker, this._authenticationRepositoryImplement)
       : super(const CompleteRegistrationProcessState.initial());
 
   final AuthenticationRepositoryImplement _authenticationRepositoryImplement;
   final ImagePicker _imagePicker;
-  dynamic image = '';
-  File newImage = File('');
 
   List<File> images = [];
+  List<String?> regionValues = [];
+  String? _deliveryType;
+  String? _deliveryRegion;
+  String? _deliveryTypeOfTheVehicle;
+  final TextEditingController deliveryNationalId = TextEditingController();
+
+  // bool validationData = false;
+
+  void setDeliveryType(String value) {
+    _deliveryType = value;
+    print(_deliveryType);
+  }
+
+  void setDeliveryRegion(String value) {
+    _deliveryRegion = value;
+  }
+
+  void setDeliveryTypeOfTheVehicle(String value) {
+    _deliveryTypeOfTheVehicle = value;
+  }
+
+  bool isDataVaildation() {
+    if (_deliveryType != null &&
+        _deliveryRegion != null &&
+        _deliveryTypeOfTheVehicle != null &&
+        deliveryNationalId.text.isNotEmpty &&
+        images.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   Future<void> pickImage(ImageSource source) async {
     final pickedImage = await _imagePicker.pickImage(source: source);
@@ -33,12 +64,16 @@ class CompleteRegistrationProcessCubit
   Future<void> getAllRegionsRequest() async {
     emit(const CompleteRegistrationProcessState.getAllRegionLoading());
 
-    final response = await _authenticationRepositoryImplement.getStoreRegionsRepo();
+    final response =
+        await _authenticationRepositoryImplement.getStoreRegionsRepo();
 
     response.when(
       success: (dataResponse) {
-        emit(CompleteRegistrationProcessState.getAllRegionSuccess(
-            dataResponse));
+        regionValues =
+            dataResponse.data!.map((region) => region.branchArea).toList();
+
+        emit(
+            CompleteRegistrationProcessState.getAllRegionSuccess(dataResponse));
       },
       failure: (error) {
         emit(
@@ -48,22 +83,28 @@ class CompleteRegistrationProcessCubit
     );
   }
 
-  //   Future<void> sendCompleteRegisterRequest() async {
-  //   emit(const CompleteRegistrationProcessState.getAllRegionLoading());
+  Future<void> sendCompleteRegisterRequest() async {
+    emit(const CompleteRegistrationProcessState.completeRegisterLoading());
 
-  //   final response =
-  //       await _authenticationRepositoryImplement.getStoreRegionsRepo();
+    final response =
+        await _authenticationRepositoryImplement.completeRegisterRepo(
+            CompleteRegisterRequestBody(
+                deliveryType: _deliveryType,
+                nationalId: deliveryNationalId.text,
+                region: _deliveryRegion,
+                typeOfTheVehicle: _deliveryTypeOfTheVehicle),
+            images);
 
-  //   response.when(
-  //     success: (dataResponse) {
-  //       emit(
-  //           CompleteRegistrationProcessState.getAllRegionSuccess(dataResponse));
-  //     },
-  //     failure: (error) {
-  //       emit(
-  //         CompleteRegistrationProcessState.getAllRegionError(error),
-  //       );
-  //     },
-  //   );
-  // }
+    response.when(
+      success: (dataResponse) {
+        emit(CompleteRegistrationProcessState.completeRegisterSuccess(
+            dataResponse));
+      },
+      failure: (error) {
+        emit(
+          CompleteRegistrationProcessState.completeRegisterError(error),
+        );
+      },
+    );
+  }
 }

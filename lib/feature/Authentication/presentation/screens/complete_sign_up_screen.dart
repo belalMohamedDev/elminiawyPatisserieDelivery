@@ -9,15 +9,9 @@ class DeliveryManRegistration extends StatefulWidget {
 }
 
 class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
-  String? deliveryType;
-  String? idType;
-  bool agreedToTerms = false;
   final ScrollController _scrollController = ScrollController();
 
-  final List<String> deliveryTypes = ['Freelancer', 'Salary Based'];
-  final List<String> deliveryregion = ['fakous'];
-  final List<String> idTypes = ['Passport', 'National ID', 'Driving license'];
-  String? selectedValue;
+  // String? selectedValue;
 
   @override
   void dispose() {
@@ -38,6 +32,8 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
   @override
   Widget build(BuildContext context) {
     final responsive = ResponsiveUtils(context);
+    final completeRegistrationProcessCubit =
+        context.read<CompleteRegistrationProcessCubit>();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -56,44 +52,56 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
                 children: [
                   Expanded(
                     child: CustomDropdownButtonFormField(
-                      items: deliveryTypes,
+                      items: const ["freelancer", "salaryBased"],
                       value: 'Select Delivery type',
                       onChanged: (value) {
-                        setState(() {
-                          deliveryType = value;
-                        });
+                        completeRegistrationProcessCubit
+                            .setDeliveryType(value!);
                       },
                     ),
                   ),
                   responsive.setSizeBox(width: 2),
-                  Expanded(
-                    child: CustomDropdownButtonFormField(
-                      items: deliveryregion,
-                      value: 'Select Region',
-                      onChanged: (value) {
-                        setState(() {
-                          deliveryType = value;
-                        });
-                      },
-                    ),
+                  BlocBuilder<CompleteRegistrationProcessCubit,
+                      CompleteRegistrationProcessState>(
+                    builder: (context, state) {
+                      if (state is GetAllRegionError ||
+                          state is GetAllRegionLoading) {
+                        return const CircularProgressIndicator();
+                      }
+                      return Expanded(
+                        child: CustomDropdownButtonFormField(
+                          items: completeRegistrationProcessCubit.regionValues,
+                          value: 'Select Region',
+                          onChanged: (value) {
+                            completeRegistrationProcessCubit
+                                .setDeliveryRegion(value!);
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
               responsive.setSizeBox(height: 1),
               CustomDropdownButtonFormField(
-                items: idTypes,
+                items: const [
+                  "car",
+                  "withOutAVehicle",
+                  "bicycle",
+                  "motorcycle"
+                ],
                 value: 'Select vehicle type',
                 onChanged: (value) {
-                  setState(() {
-                    idType = value;
-                  });
+                  completeRegistrationProcessCubit
+                      .setDeliveryTypeOfTheVehicle(value!);
                 },
               ),
               responsive.setSizeBox(height: 1),
               TextFormField(
+                controller: completeRegistrationProcessCubit.deliveryNationalId,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Ex: XXX-X-XXX-XXX-XXXX',
+                  hintText: 'Please Enter National Id',
                 ),
                 keyboardType: TextInputType.number,
                 inputFormatters: [
@@ -104,8 +112,7 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
               BlocBuilder<CompleteRegistrationProcessCubit,
                   CompleteRegistrationProcessState>(
                 builder: (context, state) {
-                  final images =
-                      context.read<CompleteRegistrationProcessCubit>().images;
+                  final images = completeRegistrationProcessCubit.images;
 
                   return Column(
                     children: [
@@ -173,16 +180,23 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
                 },
               ),
               responsive.setSizeBox(height: 3),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: CustomButton(
-                  onPressed: agreedToTerms
-                      ? () {
-                          // Action on submit
-                        }
-                      : null,
-                  defaultText: "Submit",
-                ),
+              BlocBuilder<CompleteRegistrationProcessCubit,
+                  CompleteRegistrationProcessState>(
+                builder: (context, state) {
+                  return Align(
+                    alignment: Alignment.bottomCenter,
+                    child: CustomButton(
+                      onPressed:
+                          completeRegistrationProcessCubit.isDataVaildation()
+                              ? () {
+                                  completeRegistrationProcessCubit
+                                      .sendCompleteRegisterRequest();
+                                }
+                              : null,
+                      defaultText: "Submit",
+                    ),
+                  );
+                },
               ),
             ],
           ),

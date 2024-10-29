@@ -26,10 +26,10 @@ Map<String, dynamic> _$GetAllRegionsRsponseToJson(
 
 GetAllRegionsData _$GetAllRegionsDataFromJson(Map<String, dynamic> json) =>
     GetAllRegionsData(
-      branchArea: json['branchArea'] as String?,
+      branchArea: json['BranchArea'] as String?,
     );
 
 Map<String, dynamic> _$GetAllRegionsDataToJson(GetAllRegionsData instance) =>
     <String, dynamic>{
-      'branchArea': instance.branchArea,
+      'BranchArea': instance.branchArea,
     };

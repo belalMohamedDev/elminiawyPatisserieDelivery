@@ -1,7 +1,7 @@
 import 'package:driver/core/common/shared/shared_imports.dart';
 
 class CustomDropdownButtonFormField extends StatefulWidget {
-  final List<String> items;
+  final List<String?> items;
   final String? value;
   final Function(String?)? onChanged;
   final InputDecoration? decoration;
@@ -70,7 +70,7 @@ class _CustomDropdownButtonFormFieldState
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: widget.items.map((String item) {
+                        children: widget.items.map((String? item) {
                           return InkWell(
                             onTap: () {
                               setState(() {
@@ -88,12 +88,12 @@ class _CustomDropdownButtonFormFieldState
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  item,
+                                  item!,
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleLarge!
                                       .copyWith(
-                                        fontSize: responsive.setTextSize(3.5),
+                                        fontSize: responsive.setTextSize(3.8),
                                       ),
                                 ),
                               ),
@@ -151,7 +151,7 @@ class _CustomDropdownButtonFormFieldState
 
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontSize: responsive.setTextSize(
-                      3,
+                      3.2,
                     ),
                     color: ColorManger.black26),
               ),

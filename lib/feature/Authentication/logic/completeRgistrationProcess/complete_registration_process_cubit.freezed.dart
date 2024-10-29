@@ -23,6 +23,11 @@ mixin _$CompleteRegistrationProcessState {
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +37,9 @@ mixin _$CompleteRegistrationProcessState {
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +49,9 @@ mixin _$CompleteRegistrationProcessState {
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +63,12 @@ mixin _$CompleteRegistrationProcessState {
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +78,9 @@ mixin _$CompleteRegistrationProcessState {
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +90,9 @@ mixin _$CompleteRegistrationProcessState {
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +162,11 @@ class _$InitialImpl implements _Initial {
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) {
     return initial();
   }
@@ -151,6 +179,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) {
     return initial?.call();
   }
@@ -163,6 +194,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -180,6 +214,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) {
     return initial(this);
   }
@@ -192,6 +232,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) {
     return initial?.call(this);
   }
@@ -204,6 +247,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -300,6 +346,11 @@ class _$CompleteRegistrationProcessImagePathImpl
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) {
     return imagePath(imagesPath);
   }
@@ -312,6 +363,9 @@ class _$CompleteRegistrationProcessImagePathImpl
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) {
     return imagePath?.call(imagesPath);
   }
@@ -324,6 +378,9 @@ class _$CompleteRegistrationProcessImagePathImpl
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (imagePath != null) {
@@ -341,6 +398,12 @@ class _$CompleteRegistrationProcessImagePathImpl
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) {
     return imagePath(this);
   }
@@ -353,6 +416,9 @@ class _$CompleteRegistrationProcessImagePathImpl
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) {
     return imagePath?.call(this);
   }
@@ -365,6 +431,9 @@ class _$CompleteRegistrationProcessImagePathImpl
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (imagePath != null) {
@@ -431,6 +500,11 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) {
     return getAllRegionLoading();
   }
@@ -443,6 +517,9 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) {
     return getAllRegionLoading?.call();
   }
@@ -455,6 +532,9 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionLoading != null) {
@@ -472,6 +552,12 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) {
     return getAllRegionLoading(this);
   }
@@ -484,6 +570,9 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) {
     return getAllRegionLoading?.call(this);
   }
@@ -496,6 +585,9 @@ class _$GetAllRegionLoadingImpl implements GetAllRegionLoading {
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionLoading != null) {
@@ -581,6 +673,11 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) {
     return getAllRegionError(apiErrorModel);
   }
@@ -593,6 +690,9 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) {
     return getAllRegionError?.call(apiErrorModel);
   }
@@ -605,6 +705,9 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionError != null) {
@@ -622,6 +725,12 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) {
     return getAllRegionError(this);
   }
@@ -634,6 +743,9 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) {
     return getAllRegionError?.call(this);
   }
@@ -646,6 +758,9 @@ class _$GetAllRegionErrorImpl implements GetAllRegionError {
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionError != null) {
@@ -736,6 +851,11 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     required TResult Function() getAllRegionLoading,
     required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
     required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
   }) {
     return getAllRegionSuccess(data);
   }
@@ -748,6 +868,9 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     TResult? Function()? getAllRegionLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
   }) {
     return getAllRegionSuccess?.call(data);
   }
@@ -760,6 +883,9 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     TResult Function()? getAllRegionLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
     TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionSuccess != null) {
@@ -777,6 +903,12 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
     required TResult Function(GetAllRegionError value) getAllRegionError,
     required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
   }) {
     return getAllRegionSuccess(this);
   }
@@ -789,6 +921,9 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult? Function(GetAllRegionError value)? getAllRegionError,
     TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
   }) {
     return getAllRegionSuccess?.call(this);
   }
@@ -801,6 +936,9 @@ class _$GetAllRegionSuccessImpl implements GetAllRegionSuccess {
     TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
     TResult Function(GetAllRegionError value)? getAllRegionError,
     TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
     required TResult orElse(),
   }) {
     if (getAllRegionSuccess != null) {
@@ -818,4 +956,515 @@ abstract class GetAllRegionSuccess implements CompleteRegistrationProcessState {
   @JsonKey(ignore: true)
   _$$GetAllRegionSuccessImplCopyWith<_$GetAllRegionSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CompleteRegisterLoadingImplCopyWith<$Res> {
+  factory _$$CompleteRegisterLoadingImplCopyWith(
+          _$CompleteRegisterLoadingImpl value,
+          $Res Function(_$CompleteRegisterLoadingImpl) then) =
+      __$$CompleteRegisterLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CompleteRegisterLoadingImplCopyWithImpl<$Res>
+    extends _$CompleteRegistrationProcessStateCopyWithImpl<$Res,
+        _$CompleteRegisterLoadingImpl>
+    implements _$$CompleteRegisterLoadingImplCopyWith<$Res> {
+  __$$CompleteRegisterLoadingImplCopyWithImpl(
+      _$CompleteRegisterLoadingImpl _value,
+      $Res Function(_$CompleteRegisterLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CompleteRegisterLoadingImpl implements CompleteRegisterLoading {
+  const _$CompleteRegisterLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CompleteRegistrationProcessState.completeRegisterLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompleteRegisterLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<File> imagesPath) imagePath,
+    required TResult Function() getAllRegionLoading,
+    required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
+    required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<File> imagesPath)? imagePath,
+    TResult? Function()? getAllRegionLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+  }) {
+    return completeRegisterLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<File> imagesPath)? imagePath,
+    TResult Function()? getAllRegionLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterLoading != null) {
+      return completeRegisterLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CompleteRegistrationProcessImagePath value)
+        imagePath,
+    required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
+    required TResult Function(GetAllRegionError value) getAllRegionError,
+    required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult? Function(GetAllRegionError value)? getAllRegionError,
+    TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+  }) {
+    return completeRegisterLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult Function(GetAllRegionError value)? getAllRegionError,
+    TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterLoading != null) {
+      return completeRegisterLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CompleteRegisterLoading
+    implements CompleteRegistrationProcessState {
+  const factory CompleteRegisterLoading() = _$CompleteRegisterLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$CompleteRegisterErrorImplCopyWith<$Res> {
+  factory _$$CompleteRegisterErrorImplCopyWith(
+          _$CompleteRegisterErrorImpl value,
+          $Res Function(_$CompleteRegisterErrorImpl) then) =
+      __$$CompleteRegisterErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
+}
+
+/// @nodoc
+class __$$CompleteRegisterErrorImplCopyWithImpl<$Res>
+    extends _$CompleteRegistrationProcessStateCopyWithImpl<$Res,
+        _$CompleteRegisterErrorImpl>
+    implements _$$CompleteRegisterErrorImplCopyWith<$Res> {
+  __$$CompleteRegisterErrorImplCopyWithImpl(_$CompleteRegisterErrorImpl _value,
+      $Res Function(_$CompleteRegisterErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$CompleteRegisterErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CompleteRegisterErrorImpl implements CompleteRegisterError {
+  const _$CompleteRegisterErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
+
+  @override
+  String toString() {
+    return 'CompleteRegistrationProcessState.completeRegisterError(apiErrorModel: $apiErrorModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompleteRegisterErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CompleteRegisterErrorImplCopyWith<_$CompleteRegisterErrorImpl>
+      get copyWith => __$$CompleteRegisterErrorImplCopyWithImpl<
+          _$CompleteRegisterErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<File> imagesPath) imagePath,
+    required TResult Function() getAllRegionLoading,
+    required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
+    required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterError(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<File> imagesPath)? imagePath,
+    TResult? Function()? getAllRegionLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+  }) {
+    return completeRegisterError?.call(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<File> imagesPath)? imagePath,
+    TResult Function()? getAllRegionLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterError != null) {
+      return completeRegisterError(apiErrorModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CompleteRegistrationProcessImagePath value)
+        imagePath,
+    required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
+    required TResult Function(GetAllRegionError value) getAllRegionError,
+    required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult? Function(GetAllRegionError value)? getAllRegionError,
+    TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+  }) {
+    return completeRegisterError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult Function(GetAllRegionError value)? getAllRegionError,
+    TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterError != null) {
+      return completeRegisterError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CompleteRegisterError
+    implements CompleteRegistrationProcessState {
+  const factory CompleteRegisterError(final ApiErrorModel apiErrorModel) =
+      _$CompleteRegisterErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+  @JsonKey(ignore: true)
+  _$$CompleteRegisterErrorImplCopyWith<_$CompleteRegisterErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CompleteRegisterSuccessImplCopyWith<$Res> {
+  factory _$$CompleteRegisterSuccessImplCopyWith(
+          _$CompleteRegisterSuccessImpl value,
+          $Res Function(_$CompleteRegisterSuccessImpl) then) =
+      __$$CompleteRegisterSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CompleteRegisterResponse data});
+}
+
+/// @nodoc
+class __$$CompleteRegisterSuccessImplCopyWithImpl<$Res>
+    extends _$CompleteRegistrationProcessStateCopyWithImpl<$Res,
+        _$CompleteRegisterSuccessImpl>
+    implements _$$CompleteRegisterSuccessImplCopyWith<$Res> {
+  __$$CompleteRegisterSuccessImplCopyWithImpl(
+      _$CompleteRegisterSuccessImpl _value,
+      $Res Function(_$CompleteRegisterSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$CompleteRegisterSuccessImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CompleteRegisterResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CompleteRegisterSuccessImpl implements CompleteRegisterSuccess {
+  const _$CompleteRegisterSuccessImpl(this.data);
+
+  @override
+  final CompleteRegisterResponse data;
+
+  @override
+  String toString() {
+    return 'CompleteRegistrationProcessState.completeRegisterSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompleteRegisterSuccessImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CompleteRegisterSuccessImplCopyWith<_$CompleteRegisterSuccessImpl>
+      get copyWith => __$$CompleteRegisterSuccessImplCopyWithImpl<
+          _$CompleteRegisterSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<File> imagesPath) imagePath,
+    required TResult Function() getAllRegionLoading,
+    required TResult Function(ApiErrorModel apiErrorModel) getAllRegionError,
+    required TResult Function(GetAllRegionsRsponse data) getAllRegionSuccess,
+    required TResult Function() completeRegisterLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterResponse data)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<File> imagesPath)? imagePath,
+    TResult? Function()? getAllRegionLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult? Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult? Function()? completeRegisterLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult? Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+  }) {
+    return completeRegisterSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<File> imagesPath)? imagePath,
+    TResult Function()? getAllRegionLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getAllRegionError,
+    TResult Function(GetAllRegionsRsponse data)? getAllRegionSuccess,
+    TResult Function()? completeRegisterLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? completeRegisterError,
+    TResult Function(CompleteRegisterResponse data)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterSuccess != null) {
+      return completeRegisterSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CompleteRegistrationProcessImagePath value)
+        imagePath,
+    required TResult Function(GetAllRegionLoading value) getAllRegionLoading,
+    required TResult Function(GetAllRegionError value) getAllRegionError,
+    required TResult Function(GetAllRegionSuccess value) getAllRegionSuccess,
+    required TResult Function(CompleteRegisterLoading value)
+        completeRegisterLoading,
+    required TResult Function(CompleteRegisterError value)
+        completeRegisterError,
+    required TResult Function(CompleteRegisterSuccess value)
+        completeRegisterSuccess,
+  }) {
+    return completeRegisterSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult? Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult? Function(GetAllRegionError value)? getAllRegionError,
+    TResult? Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult? Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult? Function(CompleteRegisterError value)? completeRegisterError,
+    TResult? Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+  }) {
+    return completeRegisterSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CompleteRegistrationProcessImagePath value)? imagePath,
+    TResult Function(GetAllRegionLoading value)? getAllRegionLoading,
+    TResult Function(GetAllRegionError value)? getAllRegionError,
+    TResult Function(GetAllRegionSuccess value)? getAllRegionSuccess,
+    TResult Function(CompleteRegisterLoading value)? completeRegisterLoading,
+    TResult Function(CompleteRegisterError value)? completeRegisterError,
+    TResult Function(CompleteRegisterSuccess value)? completeRegisterSuccess,
+    required TResult orElse(),
+  }) {
+    if (completeRegisterSuccess != null) {
+      return completeRegisterSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CompleteRegisterSuccess
+    implements CompleteRegistrationProcessState {
+  const factory CompleteRegisterSuccess(final CompleteRegisterResponse data) =
+      _$CompleteRegisterSuccessImpl;
+
+  CompleteRegisterResponse get data;
+  @JsonKey(ignore: true)
+  _$$CompleteRegisterSuccessImplCopyWith<_$CompleteRegisterSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
