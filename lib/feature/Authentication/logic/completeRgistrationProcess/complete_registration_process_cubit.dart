@@ -4,41 +4,66 @@ part 'complete_registration_process_state.dart';
 
 part 'complete_registration_process_cubit.freezed.dart';
 
-class CompleteRegistrationProcessCubit extends Cubit<CompleteRegistrationProcessState> {
-  CompleteRegistrationProcessCubit(this._imagePicker) : super(const CompleteRegistrationProcessState.initial());
+class CompleteRegistrationProcessCubit
+    extends Cubit<CompleteRegistrationProcessState> {
+  CompleteRegistrationProcessCubit(this._imagePicker, this._authenticationRepositoryImplement)
+      : super(const CompleteRegistrationProcessState.initial());
+
+  final AuthenticationRepositoryImplement _authenticationRepositoryImplement;
   final ImagePicker _imagePicker;
   dynamic image = '';
   File newImage = File('');
 
-   /////image picker
-  Future<void> camera() async {
-    final pickedImage =
-        await _imagePicker.pickImage(source: ImageSource.camera);
-    await setUserPicture(File(pickedImage?.path ?? ''));
-    emit(
-      CompleteRegistrationProcessState.imagePath(File(pickedImage?.path ?? '')),
-    );
-  }
+  List<File> images = [];
 
-  Future<void> gallery() async {
-    final pickedImage =
-        await _imagePicker.pickImage(source: ImageSource.gallery);
-    await setUserPicture(File(pickedImage?.path ?? ''));
-    emit(
-      CompleteRegistrationProcessState.imagePath(File(pickedImage?.path ?? '')),
-    );
-  }
-
-  ////return path and upload image
-  Future<dynamic> setUserPicture(File userPicture) async {
-    if (userPicture.path.isNotEmpty) {
-      //update register view object
-      newImage = userPicture;
-
-      image = MultipartFile.fromFileSync(
-        userPicture.path,
-        filename: userPicture.path.split(Platform.pathSeparator).last,
-      );
+  Future<void> pickImage(ImageSource source) async {
+    final pickedImage = await _imagePicker.pickImage(source: source);
+    if (pickedImage != null) {
+      final imageFile = File(pickedImage.path);
+      images.add(imageFile);
+      emit(CompleteRegistrationProcessState.imagePath(List.from(images)));
     }
   }
+
+  void removeImage(int index) {
+    images.removeAt(index);
+    emit(CompleteRegistrationProcessState.imagePath(List.from(images)));
+  }
+
+  Future<void> getAllRegionsRequest() async {
+    emit(const CompleteRegistrationProcessState.getAllRegionLoading());
+
+    final response = await _authenticationRepositoryImplement.getStoreRegionsRepo();
+
+    response.when(
+      success: (dataResponse) {
+        emit(CompleteRegistrationProcessState.getAllRegionSuccess(
+            dataResponse));
+      },
+      failure: (error) {
+        emit(
+          CompleteRegistrationProcessState.getAllRegionError(error),
+        );
+      },
+    );
+  }
+
+  //   Future<void> sendCompleteRegisterRequest() async {
+  //   emit(const CompleteRegistrationProcessState.getAllRegionLoading());
+
+  //   final response =
+  //       await _authenticationRepositoryImplement.getStoreRegionsRepo();
+
+  //   response.when(
+  //     success: (dataResponse) {
+  //       emit(
+  //           CompleteRegistrationProcessState.getAllRegionSuccess(dataResponse));
+  //     },
+  //     failure: (error) {
+  //       emit(
+  //         CompleteRegistrationProcessState.getAllRegionError(error),
+  //       );
+  //     },
+  //   );
+  // }
 }

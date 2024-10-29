@@ -2,11 +2,17 @@
 import '../../../../../core/common/shared/shared_imports.dart';
 
 abstract class AuthenticationRepository {
-
-
   Future<ApiResult<AuthResponse>> registerToNewAccountRepo(
     RegisterRequestBody registerRequestBody,
+    File imageFile,
   );
+
+  Future<ApiResult<CompleteRegisterResponse>> completeRegisterRepo(
+    CompleteRegisterRequestBody completeRegisterRequestBody,
+    List<File> imageFiles,
+  );
+
+  Future<ApiResult<GetAllRegionsRsponse>> getStoreRegionsRepo();
 
   Future<ApiResult<AuthResponse>> loginRepo(
     LoginRequestBody loginRequestBody,
@@ -28,14 +34,18 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
   AuthenticationRepositoryImplement(this._apiService);
   final AppServiceClient _apiService;
 
-
-
   @override
   Future<ApiResult<AuthResponse>> registerToNewAccountRepo(
     RegisterRequestBody registerRequestBody,
+    File imageFile,
   ) async {
     try {
-      final response = await _apiService.register(registerRequestBody);
+      final MultipartFile image = await MultipartFile.fromFile(
+        imageFile.path,
+        filename: imageFile.path.split('/').last,
+      );
+      final response =
+          await _apiService.registerService(registerRequestBody, image);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handle(error));
@@ -85,6 +95,43 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
   ) async {
     try {
       final response = await _apiService.verifyCode(verifyCodeRequestBody);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  @override
+  Future<ApiResult<CompleteRegisterResponse>> completeRegisterRepo(
+    CompleteRegisterRequestBody completeRegisterRequestBody,
+    List<File> imageFiles,
+  ) async {
+    try {
+      List<MultipartFile> multipartFiles = [];
+
+      for (File imageFile in imageFiles) {
+        final MultipartFile image = await MultipartFile.fromFile(
+          imageFile.path,
+          filename: imageFile.path.split('/').last,
+        );
+        multipartFiles.add(image);
+      }
+
+      final response = await _apiService.completeRegisterService(
+        completeRegisterRequestBody,
+        multipartFiles,
+      );
+
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ApiErrorHandler.handle(error));
+    }
+  }
+
+  @override
+  Future<ApiResult<GetAllRegionsRsponse>> getStoreRegionsRepo() async {
+    try {
+      final response = await _apiService.getStoreRegionsService();
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handle(error));

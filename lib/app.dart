@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         ),
 
            BlocProvider(
-          create: (context) => instance<CompleteRegistrationProcessCubit>(),
+          create: (context) => instance<CompleteRegistrationProcessCubit>()..getAllRegionsRequest(),
         ),
       ],
       child: StreamBuilder<bool>(

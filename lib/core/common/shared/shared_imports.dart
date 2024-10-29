@@ -7,7 +7,9 @@ export '../../../../core/common/statsScreen/no_internet_connection.dart';
 export 'dart:async';
 export '../../../../core/common/sharedWidget/custom_dropdown_button_form_field.dart';
 export '../../../../feature/Authentication/logic/CompleteRgistrationProcess/complete_registration_process_cubit.dart';
-
+export '../../../../feature/Authentication/data/model/authResponse/get_all_regions.dart';
+export '../../../../feature/Authentication/data/model/authResponse/complete_register.dart';
+export '../../../../feature/Authentication/data/model/bodyRequest/register/complete_register_body.dart';
 export '../../../../core/utils/custom_mask_formatter.dart';
 export '../../../../feature/cart/presentation/widget/row_text_order_summary.dart';
 export '../../../../feature/search/bloc/search_bloc.dart';

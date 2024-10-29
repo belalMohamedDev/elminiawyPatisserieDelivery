@@ -1,9 +1,7 @@
 
-
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; //
-
 
 part 'app_api.g.dart';
 
@@ -16,12 +14,21 @@ abstract class AppServiceClient {
     @Body() LoginRequestBody loginRequestBody,
   );
 
-
-
+  @GET(ApiConstants.storeRegions)
+  Future<GetAllRegionsRsponse> getStoreRegionsService();
 
   @POST(ApiConstants.signup)
-  Future<AuthResponse> register(
+  @MultiPart()
+  Future<AuthResponse> registerService(
     @Body() RegisterRequestBody registerRequestBody,
+    @Part() MultipartFile image,
+  );
+
+  @POST(ApiConstants.completeRgister)
+  @MultiPart()
+  Future<CompleteRegisterResponse> completeRegisterService(
+    @Body() CompleteRegisterRequestBody completeRegisterRequestBody,
+    @Part() List<MultipartFile> images,
   );
 
   @POST(ApiConstants.forgetPassword)
@@ -50,9 +57,9 @@ abstract class AppServiceClient {
   @GET(ApiConstants.newProduct)
   Future<ProductResponse> getProduct();
 
-    @GET(ApiConstants.newProduct)
+  @GET(ApiConstants.newProduct)
   Future<ProductResponse> searchInProductService(
-   @Query("sort") String? sort,
+    @Query("sort") String? sort,
     @Query("keyword") String? keyword,
     @Query("price") String? price,
   );
@@ -74,11 +81,10 @@ abstract class AppServiceClient {
     @Body() Map<String, dynamic> createAddressRequestBody,
   );
 
-    @POST("${ApiConstants.address}/isAvailable")
+  @POST("${ApiConstants.address}/isAvailable")
   Future<CheckLocationAvailableResponse> checkAddressAvaliableService(
     @Body() CheckAddressAvailableRequestBody checkAddressAvailableRequestBody,
   );
-
 
   @GET(ApiConstants.address)
   Future<GetAddressResponse> getAllAddress();
@@ -126,7 +132,6 @@ abstract class AppServiceClient {
     @Field("coupon") String coupon,
   );
 
-
   @PUT(ApiConstants.updateMyData)
   Future<UpdateAccountInformationResponse> updateMyData(
     @Body()
@@ -159,19 +164,17 @@ abstract class AppServiceClient {
   @GET('${ApiConstants.order}/user')
   Future<GetOrdersResponse> getAllOrderCompleteService();
 
-   @GET('${ApiConstants.order}/user/pending')
+  @GET('${ApiConstants.order}/user/pending')
   Future<GetOrdersResponse> getAllOrderPendingService();
 
-  
   @GET('${ApiConstants.notification}/user')
   Future<UserNotificationResponse> getAllNotificationToUserService();
 
-    
   @PUT('${ApiConstants.notification}/user/seen')
   Future<UserNotificationResponse> updateAllNotificationToSeenService();
 
   @DELETE('${ApiConstants.notification}/user/{id}')
   Future<UserNotificationResponse> deleteUserNotificationService(
-     @Path("id") String id,
+    @Path("id") String id,
   );
 }

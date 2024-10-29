@@ -1,8 +1,10 @@
 class ApiConstants {
-  static const String baseUrl = 'https://driver-patisserie.vercel.app';
+  static const String baseUrl = 'https://elminiawy-patisserie.vercel.app';
   static const int apiTimeOut = 120 * 1000;
 
   static const String login = '/v1/api/auth/login';
+  static const String completeRgister = '/v1/api/driver/complete';
+  static const String storeRegions = '/v1/api/store/address/regions';
   static const String google = '/v1/api/auth/google';
   static const String signup = '/v1/api/auth/signUp';
   static const String forgetPassword = '/v1/api/auth/forgetPassword';

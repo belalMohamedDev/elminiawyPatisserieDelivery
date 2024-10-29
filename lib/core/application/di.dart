@@ -82,6 +82,7 @@ Future<void> _initSignInWithGoogleAndApple() async {
     ..registerFactory<CompleteRegistrationProcessCubit>(
         () => CompleteRegistrationProcessCubit(
               instance(),
+              instance(),
             ));
 }
 

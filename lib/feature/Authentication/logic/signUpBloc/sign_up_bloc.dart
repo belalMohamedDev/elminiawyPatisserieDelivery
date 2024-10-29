@@ -201,34 +201,34 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   /// Handles the registration process when the user clicks the sign-up button.
   Future<void> registerButton(
       SignUpEvent event, Emitter<SignUpState> emit) async {
-    await event.whenOrNull(
-      userRegisterButton: () async {
-        // Emit loading state
-        emit(const SignUpState.loading());
+    // await event.whenOrNull(
+    //   userRegisterButton: () async {
+    //     // Emit loading state
+    //     emit(const SignUpState.loading());
 
-        // Call the repository to handle user registration
-        final response = await _registerRepository.registerToNewAccountRepo(
-          RegisterRequestBody(
-            name:
-                '${userSignUpFirstName.text.trim()} ${userSignUpLastName.text.trim()}',
-            phone: userSignUpPhone.text.trim(),
-            email: userSignUpEmailAddress.text.trim(),
-            password: userSignUpPassword.text.trim(),
-          ),
-        );
+    //     // Call the repository to handle user registration
+    //     final response = await _registerRepository.registerToNewAccountRepo(
+    //       RegisterRequestBody(
+    //         name:
+    //             '${userSignUpFirstName.text.trim()} ${userSignUpLastName.text.trim()}',
+    //         phone: userSignUpPhone.text.trim(),
+    //         email: userSignUpEmailAddress.text.trim(),
+    //         password: userSignUpPassword.text.trim(),
+    //       ),
+    //     );
 
-        // Handle the response from the registration API
-        response.when(
-          success: (registerResponse) async {
-            // Emit success state
-            emit(SignUpState.suceess(registerResponse));
-          },
-          failure: (error) {
-            // Emit error state in case of failure
-            emit(SignUpState.error(error));
-          },
-        );
-      },
-    );
+    //     // Handle the response from the registration API
+    //     response.when(
+    //       success: (registerResponse) async {
+    //         // Emit success state
+    //         emit(SignUpState.suceess(registerResponse));
+    //       },
+    //       failure: (error) {
+    //         // Emit error state in case of failure
+    //         emit(SignUpState.error(error));
+    //       },
+    //     );
+    //   },
+    // );
   }
 }

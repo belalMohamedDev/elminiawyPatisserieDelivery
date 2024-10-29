@@ -14,7 +14,7 @@ class _AppServiceClient implements AppServiceClient {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://driver-patisserie.vercel.app';
+    baseUrl ??= 'https://elminiawy-patisserie.vercel.app';
   }
 
   final Dio _dio;
@@ -58,7 +58,43 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<AuthResponse> register(RegisterRequestBody registerRequestBody) async {
+  Future<GetAllRegionsRsponse> getStoreRegionsService() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<GetAllRegionsRsponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/v1/api/store/address/regions',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GetAllRegionsRsponse _value;
+    try {
+      _value = GetAllRegionsRsponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AuthResponse> registerService(
+    RegisterRequestBody registerRequestBody,
+    MultipartFile image,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -68,6 +104,7 @@ class _AppServiceClient implements AppServiceClient {
       method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
         .compose(
           _dio.options,
@@ -84,6 +121,44 @@ class _AppServiceClient implements AppServiceClient {
     late AuthResponse _value;
     try {
       _value = AuthResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CompleteRegisterResponse> completeRegisterService(
+    CompleteRegisterRequestBody completeRegisterRequestBody,
+    List<MultipartFile> images,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(completeRegisterRequestBody.toJson());
+    final _options = _setStreamType<CompleteRegisterResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+        .compose(
+          _dio.options,
+          '/v1/api/driver/complete',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CompleteRegisterResponse _value;
+    try {
+      _value = CompleteRegisterResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
