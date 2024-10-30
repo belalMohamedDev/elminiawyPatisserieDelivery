@@ -266,7 +266,7 @@ class ChangeUserPasswordBody extends StatelessWidget {
                   message: authResponse.message!, context: context);
 
               // Navigate to the map screen after a successful login
-              AppLogin().storeDataThenNavigateToMap(authResponse);
+              AppLogin().storeData(authResponse);
             });
       },
       builder: (context, state) {

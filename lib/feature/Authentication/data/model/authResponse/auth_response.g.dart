@@ -31,6 +31,9 @@ DataAuthResponse _$DataAuthResponseFromJson(Map<String, dynamic> json) =>
       phone: json['phone'] as String?,
       refreshToken: json['refreshToken'] as String?,
       role: json['role'] as String?,
+      image: json['image'] as String?,
+      deliveryActive: json['deliveryActive'] as bool?,
+      completeData: json['completeData'] as bool?,
     );
 
 Map<String, dynamic> _$DataAuthResponseToJson(DataAuthResponse instance) =>
@@ -39,6 +42,9 @@ Map<String, dynamic> _$DataAuthResponseToJson(DataAuthResponse instance) =>
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
+      'image': instance.image,
       'refreshToken': instance.refreshToken,
       'role': instance.role,
+      'deliveryActive': instance.deliveryActive,
+      'completeData': instance.completeData,
     };

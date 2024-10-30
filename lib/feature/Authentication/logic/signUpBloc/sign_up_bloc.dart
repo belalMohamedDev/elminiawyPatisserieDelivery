@@ -113,6 +113,9 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       if (event is GalleryImagePickEvent) {
         await gallery(emit);
       }
+      if (event is RemoveImageEvent) {
+        await removeImage(emit);
+      }
     });
   }
 
@@ -149,8 +152,9 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       profileImage = imageFile;
 
       emit(
-        SignUpState.imagePath(imageFile),
+        SignUpState.imagePath(profileImage),
       );
+      registerButtonValidator(const SignUpEvent.imagePicked(), emit);
     }
   }
 
@@ -162,9 +166,18 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       profileImage = imageFile;
 
       emit(
-        SignUpState.imagePath(imageFile),
+        SignUpState.imagePath(profileImage),
       );
+      registerButtonValidator(const SignUpEvent.imagePicked(), emit);
     }
+  }
+
+  Future<void> removeImage(Emitter<SignUpState> emit) async {
+    profileImage = File('');
+    emit(
+      SignUpState.imagePath(profileImage),
+    );
+    registerButtonValidator(const SignUpEvent.imagePicked(), emit);
   }
 
   ////////////////////////////////////////
@@ -179,6 +192,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         !AppRegex.isNameValid(userSignUpLastName.text) ||
         !AppRegex.isEmailValid(userSignUpEmailAddress.text) ||
         !AppRegex.isPasswordValid(userSignUpPassword.text) ||
+        profileImage.path.isEmpty ||
         !AppRegex.isPhoneNumberValid(userSignUpPhone.text)) {
       // Disable the button if validation fails
       isButtonInVaildator = false;

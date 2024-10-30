@@ -11,6 +11,7 @@ class PrefKeys {
   static const String userId = 'USER_ID';
   static const String userPhone = 'USER_PHONE';
   static const String refreshToken = 'refreshToken';
+  static const String userImage = 'userImage';
   static const String accessToken = 'accessToken';
   static const String enLocationArea = 'engLocationArea';
   static const String arLocationArea = 'arabicLocationArea';

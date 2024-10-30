@@ -14,5 +14,8 @@ class SignUpEvent with _$SignUpEvent {
   const factory SignUpEvent.userRegisterButton() = UserRegisterButtonEvent;
   const factory SignUpEvent.cameraImagePickEvent() = CameraImagePickEvent;
   const factory SignUpEvent.galleryImagePickEvent() = GalleryImagePickEvent;
+  const factory SignUpEvent.removeImageEvent() = RemoveImageEvent;
+  const factory SignUpEvent.imagePicked() = ImagePickedEvent;
+
 
 }

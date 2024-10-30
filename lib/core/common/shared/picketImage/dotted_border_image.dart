@@ -22,7 +22,7 @@ class DottedBorderImage extends StatelessWidget {
       strokeWidth: 2,
       child: SizedBox(
         height: responsive.setHeight(13),
-        width: isRegisterComplete ? double.infinity : responsive.setWidth(30),
+        width: isRegisterComplete ? double.infinity : responsive.setWidth(35),
         child: image != null && image!.path.isNotEmpty
             ? Padding(
                 padding: responsive.setPadding(
@@ -42,15 +42,14 @@ class DottedBorderImage extends StatelessWidget {
                 children: [
                   Icon(
                     IconlyBold.camera,
-                    color: Colors.grey,
-                    size: responsive.setIconSize(13),
+                    color: Colors.grey.shade500,
+                    size: responsive.setIconSize(isRegisterComplete ? 13 : 10),
                   ),
-                  responsive.setSizeBox(height: isRegisterComplete ? 1.5 : 0.5),
+                  responsive.setSizeBox(height: 1.5),
                   Text(context.translate(AppStrings.uploadProfilePicture),
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: responsive
-                                .setTextSize(isRegisterComplete ? 3 : 3.4),
+                            fontSize: responsive.setTextSize(3),
                           ))
                 ],
               ),

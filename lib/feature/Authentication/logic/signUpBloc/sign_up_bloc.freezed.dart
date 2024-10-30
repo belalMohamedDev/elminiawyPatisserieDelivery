@@ -30,6 +30,8 @@ mixin _$SignUpEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +48,8 @@ mixin _$SignUpEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +66,8 @@ mixin _$SignUpEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,6 +91,8 @@ mixin _$SignUpEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -103,6 +111,8 @@ mixin _$SignUpEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,6 +129,8 @@ mixin _$SignUpEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,6 +204,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return started();
   }
@@ -211,6 +225,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return started?.call();
   }
@@ -230,6 +246,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -259,6 +277,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return started(this);
   }
@@ -280,6 +300,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return started?.call(this);
   }
@@ -299,6 +321,8 @@ class _$StartedImpl implements _Started {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -391,6 +415,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpEmailAddress(value);
   }
@@ -410,6 +436,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpEmailAddress?.call(value);
   }
@@ -429,6 +457,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpEmailAddress != null) {
@@ -458,6 +488,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpEmailAddress(this);
   }
@@ -479,6 +511,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpEmailAddress?.call(this);
   }
@@ -498,6 +532,8 @@ class _$UserSignUpEmailAddressEventImpl implements UserSignUpEmailAddressEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpEmailAddress != null) {
@@ -596,6 +632,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpPassword(value);
   }
@@ -615,6 +653,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpPassword?.call(value);
   }
@@ -634,6 +674,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpPassword != null) {
@@ -663,6 +705,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpPassword(this);
   }
@@ -684,6 +728,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpPassword?.call(this);
   }
@@ -703,6 +749,8 @@ class _$UserSignUpPasswordEventImpl implements UserSignUpPasswordEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpPassword != null) {
@@ -801,6 +849,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpFirstName(value);
   }
@@ -820,6 +870,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpFirstName?.call(value);
   }
@@ -839,6 +891,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpFirstName != null) {
@@ -868,6 +922,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpFirstName(this);
   }
@@ -889,6 +945,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpFirstName?.call(this);
   }
@@ -908,6 +966,8 @@ class _$UserSignUFirstNameEventImpl implements UserSignUFirstNameEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpFirstName != null) {
@@ -1006,6 +1066,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpLastName(value);
   }
@@ -1025,6 +1087,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpLastName?.call(value);
   }
@@ -1044,6 +1108,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpLastName != null) {
@@ -1073,6 +1139,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpLastName(this);
   }
@@ -1094,6 +1162,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpLastName?.call(this);
   }
@@ -1113,6 +1183,8 @@ class _$UserSignUpLastNameEventImpl implements UserSignUpLastNameEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpLastName != null) {
@@ -1210,6 +1282,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpPhone(value);
   }
@@ -1229,6 +1303,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpPhone?.call(value);
   }
@@ -1248,6 +1324,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpPhone != null) {
@@ -1277,6 +1355,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpPhone(this);
   }
@@ -1298,6 +1378,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpPhone?.call(this);
   }
@@ -1317,6 +1399,8 @@ class _$UserSignUpPhoneEventImpl implements UserSignUpPhoneEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpPhone != null) {
@@ -1415,6 +1499,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpCountryCode(value);
   }
@@ -1434,6 +1520,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpCountryCode?.call(value);
   }
@@ -1453,6 +1541,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpCountryCode != null) {
@@ -1482,6 +1572,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpCountryCode(this);
   }
@@ -1503,6 +1595,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpCountryCode?.call(this);
   }
@@ -1522,6 +1616,8 @@ class _$UserSignUpCountryCodeEventImpl implements UserSignUpCountryCodeEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpCountryCode != null) {
@@ -1620,6 +1716,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userSignUpAgreeWith(value);
   }
@@ -1639,6 +1737,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userSignUpAgreeWith?.call(value);
   }
@@ -1658,6 +1758,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpAgreeWith != null) {
@@ -1687,6 +1789,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userSignUpAgreeWith(this);
   }
@@ -1708,6 +1812,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userSignUpAgreeWith?.call(this);
   }
@@ -1727,6 +1833,8 @@ class _$UserSignUpAgreeWithEventImpl implements UserSignUpAgreeWithEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userSignUpAgreeWith != null) {
@@ -1799,6 +1907,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userShowSignUpPassword();
   }
@@ -1818,6 +1928,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userShowSignUpPassword?.call();
   }
@@ -1837,6 +1949,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userShowSignUpPassword != null) {
@@ -1866,6 +1980,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userShowSignUpPassword(this);
   }
@@ -1887,6 +2003,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userShowSignUpPassword?.call(this);
   }
@@ -1906,6 +2024,8 @@ class _$UserShowSignUpPasswordEventImpl implements UserShowSignUpPasswordEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userShowSignUpPassword != null) {
@@ -1973,6 +2093,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return userRegisterButton();
   }
@@ -1992,6 +2114,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return userRegisterButton?.call();
   }
@@ -2011,6 +2135,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (userRegisterButton != null) {
@@ -2040,6 +2166,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return userRegisterButton(this);
   }
@@ -2061,6 +2189,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return userRegisterButton?.call(this);
   }
@@ -2080,6 +2210,8 @@ class _$UserRegisterButtonEventImpl implements UserRegisterButtonEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (userRegisterButton != null) {
@@ -2144,6 +2276,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return cameraImagePickEvent();
   }
@@ -2163,6 +2297,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return cameraImagePickEvent?.call();
   }
@@ -2182,6 +2318,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (cameraImagePickEvent != null) {
@@ -2211,6 +2349,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return cameraImagePickEvent(this);
   }
@@ -2232,6 +2372,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return cameraImagePickEvent?.call(this);
   }
@@ -2251,6 +2393,8 @@ class _$CameraImagePickEventImpl implements CameraImagePickEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (cameraImagePickEvent != null) {
@@ -2316,6 +2460,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     required TResult Function() userRegisterButton,
     required TResult Function() cameraImagePickEvent,
     required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
   }) {
     return galleryImagePickEvent();
   }
@@ -2335,6 +2481,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     TResult? Function()? userRegisterButton,
     TResult? Function()? cameraImagePickEvent,
     TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
   }) {
     return galleryImagePickEvent?.call();
   }
@@ -2354,6 +2502,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     TResult Function()? userRegisterButton,
     TResult Function()? cameraImagePickEvent,
     TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
     required TResult orElse(),
   }) {
     if (galleryImagePickEvent != null) {
@@ -2383,6 +2533,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
     required TResult Function(GalleryImagePickEvent value)
         galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
   }) {
     return galleryImagePickEvent(this);
   }
@@ -2404,6 +2556,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
   }) {
     return galleryImagePickEvent?.call(this);
   }
@@ -2423,6 +2577,8 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
     TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
     TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
     TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
     required TResult orElse(),
   }) {
     if (galleryImagePickEvent != null) {
@@ -2434,6 +2590,370 @@ class _$GalleryImagePickEventImpl implements GalleryImagePickEvent {
 
 abstract class GalleryImagePickEvent implements SignUpEvent {
   const factory GalleryImagePickEvent() = _$GalleryImagePickEventImpl;
+}
+
+/// @nodoc
+abstract class _$$RemoveImageEventImplCopyWith<$Res> {
+  factory _$$RemoveImageEventImplCopyWith(_$RemoveImageEventImpl value,
+          $Res Function(_$RemoveImageEventImpl) then) =
+      __$$RemoveImageEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveImageEventImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$RemoveImageEventImpl>
+    implements _$$RemoveImageEventImplCopyWith<$Res> {
+  __$$RemoveImageEventImplCopyWithImpl(_$RemoveImageEventImpl _value,
+      $Res Function(_$RemoveImageEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveImageEventImpl implements RemoveImageEvent {
+  const _$RemoveImageEventImpl();
+
+  @override
+  String toString() {
+    return 'SignUpEvent.removeImageEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveImageEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String value) userSignUpEmailAddress,
+    required TResult Function(String value) userSignUpPassword,
+    required TResult Function(String value) userSignUpFirstName,
+    required TResult Function(String value) userSignUpLastName,
+    required TResult Function(String value) userSignUpPhone,
+    required TResult Function(String value) userSignUpCountryCode,
+    required TResult Function(bool? value) userSignUpAgreeWith,
+    required TResult Function() userShowSignUpPassword,
+    required TResult Function() userRegisterButton,
+    required TResult Function() cameraImagePickEvent,
+    required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
+  }) {
+    return removeImageEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String value)? userSignUpEmailAddress,
+    TResult? Function(String value)? userSignUpPassword,
+    TResult? Function(String value)? userSignUpFirstName,
+    TResult? Function(String value)? userSignUpLastName,
+    TResult? Function(String value)? userSignUpPhone,
+    TResult? Function(String value)? userSignUpCountryCode,
+    TResult? Function(bool? value)? userSignUpAgreeWith,
+    TResult? Function()? userShowSignUpPassword,
+    TResult? Function()? userRegisterButton,
+    TResult? Function()? cameraImagePickEvent,
+    TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
+  }) {
+    return removeImageEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String value)? userSignUpEmailAddress,
+    TResult Function(String value)? userSignUpPassword,
+    TResult Function(String value)? userSignUpFirstName,
+    TResult Function(String value)? userSignUpLastName,
+    TResult Function(String value)? userSignUpPhone,
+    TResult Function(String value)? userSignUpCountryCode,
+    TResult Function(bool? value)? userSignUpAgreeWith,
+    TResult Function()? userShowSignUpPassword,
+    TResult Function()? userRegisterButton,
+    TResult Function()? cameraImagePickEvent,
+    TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
+    required TResult orElse(),
+  }) {
+    if (removeImageEvent != null) {
+      return removeImageEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(UserSignUpEmailAddressEvent value)
+        userSignUpEmailAddress,
+    required TResult Function(UserSignUpPasswordEvent value) userSignUpPassword,
+    required TResult Function(UserSignUFirstNameEvent value)
+        userSignUpFirstName,
+    required TResult Function(UserSignUpLastNameEvent value) userSignUpLastName,
+    required TResult Function(UserSignUpPhoneEvent value) userSignUpPhone,
+    required TResult Function(UserSignUpCountryCodeEvent value)
+        userSignUpCountryCode,
+    required TResult Function(UserSignUpAgreeWithEvent value)
+        userSignUpAgreeWith,
+    required TResult Function(UserShowSignUpPasswordEvent value)
+        userShowSignUpPassword,
+    required TResult Function(UserRegisterButtonEvent value) userRegisterButton,
+    required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
+    required TResult Function(GalleryImagePickEvent value)
+        galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
+  }) {
+    return removeImageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(UserSignUpEmailAddressEvent value)?
+        userSignUpEmailAddress,
+    TResult? Function(UserSignUpPasswordEvent value)? userSignUpPassword,
+    TResult? Function(UserSignUFirstNameEvent value)? userSignUpFirstName,
+    TResult? Function(UserSignUpLastNameEvent value)? userSignUpLastName,
+    TResult? Function(UserSignUpPhoneEvent value)? userSignUpPhone,
+    TResult? Function(UserSignUpCountryCodeEvent value)? userSignUpCountryCode,
+    TResult? Function(UserSignUpAgreeWithEvent value)? userSignUpAgreeWith,
+    TResult? Function(UserShowSignUpPasswordEvent value)?
+        userShowSignUpPassword,
+    TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
+    TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
+    TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
+  }) {
+    return removeImageEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(UserSignUpEmailAddressEvent value)? userSignUpEmailAddress,
+    TResult Function(UserSignUpPasswordEvent value)? userSignUpPassword,
+    TResult Function(UserSignUFirstNameEvent value)? userSignUpFirstName,
+    TResult Function(UserSignUpLastNameEvent value)? userSignUpLastName,
+    TResult Function(UserSignUpPhoneEvent value)? userSignUpPhone,
+    TResult Function(UserSignUpCountryCodeEvent value)? userSignUpCountryCode,
+    TResult Function(UserSignUpAgreeWithEvent value)? userSignUpAgreeWith,
+    TResult Function(UserShowSignUpPasswordEvent value)? userShowSignUpPassword,
+    TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
+    TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
+    TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
+    required TResult orElse(),
+  }) {
+    if (removeImageEvent != null) {
+      return removeImageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveImageEvent implements SignUpEvent {
+  const factory RemoveImageEvent() = _$RemoveImageEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ImagePickedEventImplCopyWith<$Res> {
+  factory _$$ImagePickedEventImplCopyWith(_$ImagePickedEventImpl value,
+          $Res Function(_$ImagePickedEventImpl) then) =
+      __$$ImagePickedEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ImagePickedEventImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$ImagePickedEventImpl>
+    implements _$$ImagePickedEventImplCopyWith<$Res> {
+  __$$ImagePickedEventImplCopyWithImpl(_$ImagePickedEventImpl _value,
+      $Res Function(_$ImagePickedEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ImagePickedEventImpl implements ImagePickedEvent {
+  const _$ImagePickedEventImpl();
+
+  @override
+  String toString() {
+    return 'SignUpEvent.imagePicked()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ImagePickedEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String value) userSignUpEmailAddress,
+    required TResult Function(String value) userSignUpPassword,
+    required TResult Function(String value) userSignUpFirstName,
+    required TResult Function(String value) userSignUpLastName,
+    required TResult Function(String value) userSignUpPhone,
+    required TResult Function(String value) userSignUpCountryCode,
+    required TResult Function(bool? value) userSignUpAgreeWith,
+    required TResult Function() userShowSignUpPassword,
+    required TResult Function() userRegisterButton,
+    required TResult Function() cameraImagePickEvent,
+    required TResult Function() galleryImagePickEvent,
+    required TResult Function() removeImageEvent,
+    required TResult Function() imagePicked,
+  }) {
+    return imagePicked();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String value)? userSignUpEmailAddress,
+    TResult? Function(String value)? userSignUpPassword,
+    TResult? Function(String value)? userSignUpFirstName,
+    TResult? Function(String value)? userSignUpLastName,
+    TResult? Function(String value)? userSignUpPhone,
+    TResult? Function(String value)? userSignUpCountryCode,
+    TResult? Function(bool? value)? userSignUpAgreeWith,
+    TResult? Function()? userShowSignUpPassword,
+    TResult? Function()? userRegisterButton,
+    TResult? Function()? cameraImagePickEvent,
+    TResult? Function()? galleryImagePickEvent,
+    TResult? Function()? removeImageEvent,
+    TResult? Function()? imagePicked,
+  }) {
+    return imagePicked?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String value)? userSignUpEmailAddress,
+    TResult Function(String value)? userSignUpPassword,
+    TResult Function(String value)? userSignUpFirstName,
+    TResult Function(String value)? userSignUpLastName,
+    TResult Function(String value)? userSignUpPhone,
+    TResult Function(String value)? userSignUpCountryCode,
+    TResult Function(bool? value)? userSignUpAgreeWith,
+    TResult Function()? userShowSignUpPassword,
+    TResult Function()? userRegisterButton,
+    TResult Function()? cameraImagePickEvent,
+    TResult Function()? galleryImagePickEvent,
+    TResult Function()? removeImageEvent,
+    TResult Function()? imagePicked,
+    required TResult orElse(),
+  }) {
+    if (imagePicked != null) {
+      return imagePicked();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(UserSignUpEmailAddressEvent value)
+        userSignUpEmailAddress,
+    required TResult Function(UserSignUpPasswordEvent value) userSignUpPassword,
+    required TResult Function(UserSignUFirstNameEvent value)
+        userSignUpFirstName,
+    required TResult Function(UserSignUpLastNameEvent value) userSignUpLastName,
+    required TResult Function(UserSignUpPhoneEvent value) userSignUpPhone,
+    required TResult Function(UserSignUpCountryCodeEvent value)
+        userSignUpCountryCode,
+    required TResult Function(UserSignUpAgreeWithEvent value)
+        userSignUpAgreeWith,
+    required TResult Function(UserShowSignUpPasswordEvent value)
+        userShowSignUpPassword,
+    required TResult Function(UserRegisterButtonEvent value) userRegisterButton,
+    required TResult Function(CameraImagePickEvent value) cameraImagePickEvent,
+    required TResult Function(GalleryImagePickEvent value)
+        galleryImagePickEvent,
+    required TResult Function(RemoveImageEvent value) removeImageEvent,
+    required TResult Function(ImagePickedEvent value) imagePicked,
+  }) {
+    return imagePicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(UserSignUpEmailAddressEvent value)?
+        userSignUpEmailAddress,
+    TResult? Function(UserSignUpPasswordEvent value)? userSignUpPassword,
+    TResult? Function(UserSignUFirstNameEvent value)? userSignUpFirstName,
+    TResult? Function(UserSignUpLastNameEvent value)? userSignUpLastName,
+    TResult? Function(UserSignUpPhoneEvent value)? userSignUpPhone,
+    TResult? Function(UserSignUpCountryCodeEvent value)? userSignUpCountryCode,
+    TResult? Function(UserSignUpAgreeWithEvent value)? userSignUpAgreeWith,
+    TResult? Function(UserShowSignUpPasswordEvent value)?
+        userShowSignUpPassword,
+    TResult? Function(UserRegisterButtonEvent value)? userRegisterButton,
+    TResult? Function(CameraImagePickEvent value)? cameraImagePickEvent,
+    TResult? Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult? Function(RemoveImageEvent value)? removeImageEvent,
+    TResult? Function(ImagePickedEvent value)? imagePicked,
+  }) {
+    return imagePicked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(UserSignUpEmailAddressEvent value)? userSignUpEmailAddress,
+    TResult Function(UserSignUpPasswordEvent value)? userSignUpPassword,
+    TResult Function(UserSignUFirstNameEvent value)? userSignUpFirstName,
+    TResult Function(UserSignUpLastNameEvent value)? userSignUpLastName,
+    TResult Function(UserSignUpPhoneEvent value)? userSignUpPhone,
+    TResult Function(UserSignUpCountryCodeEvent value)? userSignUpCountryCode,
+    TResult Function(UserSignUpAgreeWithEvent value)? userSignUpAgreeWith,
+    TResult Function(UserShowSignUpPasswordEvent value)? userShowSignUpPassword,
+    TResult Function(UserRegisterButtonEvent value)? userRegisterButton,
+    TResult Function(CameraImagePickEvent value)? cameraImagePickEvent,
+    TResult Function(GalleryImagePickEvent value)? galleryImagePickEvent,
+    TResult Function(RemoveImageEvent value)? removeImageEvent,
+    TResult Function(ImagePickedEvent value)? imagePicked,
+    required TResult orElse(),
+  }) {
+    if (imagePicked != null) {
+      return imagePicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagePickedEvent implements SignUpEvent {
+  const factory ImagePickedEvent() = _$ImagePickedEventImpl;
 }
 
 /// @nodoc

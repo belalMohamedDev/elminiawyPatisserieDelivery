@@ -1,4 +1,3 @@
-
 import '../../../../../core/common/shared/shared_imports.dart';
 
 abstract class AuthenticationRepository {
@@ -40,12 +39,14 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
     File imageFile,
   ) async {
     try {
-      final MultipartFile image =  MultipartFile.fromFileSync(
-        imageFile.path,
-        filename: imageFile.path.split(Platform.pathSeparator).last,
-      );
-      final response =
-          await _apiService.registerService(registerRequestBody, image);
+  
+      final response = await _apiService.registerService(
+          registerRequestBody.name,
+          registerRequestBody.email,
+          registerRequestBody.password,
+          registerRequestBody.phone,
+          'delivery',
+          imageFile);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handle(error));
@@ -110,7 +111,7 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
       List<MultipartFile> multipartFiles = [];
 
       for (File imageFile in imageFiles) {
-        final MultipartFile image =  MultipartFile.fromFileSync(
+        final MultipartFile image = MultipartFile.fromFileSync(
           imageFile.path,
           filename: imageFile.path.split(Platform.pathSeparator).last,
         );

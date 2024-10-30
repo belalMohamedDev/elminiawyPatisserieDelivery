@@ -25,11 +25,23 @@ class DataAuthResponse {
   String? name;
   String? email;
   String? phone;
+  String? image;
   String? refreshToken;
   String? role;
+  bool? deliveryActive;
+  bool? completeData;
 
-  DataAuthResponse(
-      {this.sId, this.name, this.email, this.phone, this.refreshToken,this.role});
+  DataAuthResponse({
+    this.sId,
+    this.name,
+    this.email,
+    this.phone,
+    this.refreshToken,
+    this.role,
+    this.image,
+    this.deliveryActive,
+    this.completeData,
+  });
 
   //from json
   factory DataAuthResponse.fromJson(Map<String, dynamic> json) =>

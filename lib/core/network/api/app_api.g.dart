@@ -92,14 +92,53 @@ class _AppServiceClient implements AppServiceClient {
 
   @override
   Future<AuthResponse> registerService(
-    RegisterRequestBody registerRequestBody,
-    MultipartFile image,
+    String? name,
+    String? email,
+    String? password,
+    String? phone,
+    String role,
+    File image,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(registerRequestBody.toJson());
+    final _data = FormData();
+    if (name != null) {
+      _data.fields.add(MapEntry(
+        'name',
+        name,
+      ));
+    }
+    if (email != null) {
+      _data.fields.add(MapEntry(
+        'email',
+        email,
+      ));
+    }
+    if (password != null) {
+      _data.fields.add(MapEntry(
+        'password',
+        password,
+      ));
+    }
+    if (phone != null) {
+      _data.fields.add(MapEntry(
+        'phone',
+        phone,
+      ));
+    }
+    _data.fields.add(MapEntry(
+      'role',
+      role,
+    ));
+    _data.files.add(MapEntry(
+      'image',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
     final _options = _setStreamType<AuthResponse>(Options(
       method: 'POST',
       headers: _headers,

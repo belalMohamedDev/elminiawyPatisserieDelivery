@@ -28,7 +28,7 @@ class SignInButton extends StatelessWidget {
               ShowToast.showToastSuccessTop(
                   message: authResponse.message!, context: context);
               // Navigate to the map screen after a successful login
-              AppLogin().storeDataThenNavigateToMap(authResponse);
+              AppLogin().storeData(authResponse);
             } else {
               ShowToast.showToastErrorTop(
                   errorMessage: context

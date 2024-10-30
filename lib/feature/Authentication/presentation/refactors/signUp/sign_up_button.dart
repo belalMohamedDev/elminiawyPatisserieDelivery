@@ -16,12 +16,13 @@ class SignUpButton extends StatelessWidget {
               errorMessage: apiErrorModel.message!, context: context),
           // On successful registration, show success message and navigate to home
           suceess: (authResponse) {
-            if (authResponse.data!.role == "user") {
+            if (authResponse.data!.role == "delivery") {
               // Show a success toast when login is successful
               ShowToast.showToastSuccessTop(
                   message: authResponse.message!, context: context);
               // Navigate to the map screen after a successful login
-              AppLogin().storeDataThenNavigateToMap(authResponse);
+              AppLogin().storeData(authResponse);
+              context.pushNamedAndRemoveUntil(Routes.completeRegister);
             } else {
               ShowToast.showToastErrorTop(
                   errorMessage: context
@@ -45,7 +46,7 @@ class SignUpButton extends StatelessWidget {
 
           // Change button appearance based on loading state
           widget: LoadingButtonContent(
-            defaultText: AppStrings.continueToCompleteYourProfile,
+            defaultText: AppStrings.signUp,
             state: state,
           ),
         );

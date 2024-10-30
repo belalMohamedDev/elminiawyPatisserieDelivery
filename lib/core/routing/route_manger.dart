@@ -1,3 +1,5 @@
+import 'package:driver/feature/Authentication/presentation/screens/complete_sign_up_screen.dart';
+
 import '../../../../core/common/shared/shared_imports.dart';
 
 class RouteGenerator {
@@ -57,6 +59,14 @@ class RouteGenerator {
           builder: (_) => BlocProvider.value(
             value: instance<UserAddressCubit>(),
             child: const UserAddressView(),
+          ),
+        );
+
+         case Routes.completeRegister:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: instance<CompleteRegistrationProcessCubit>(),
+            child: const DeliveryManRegistration(),
           ),
         );
 

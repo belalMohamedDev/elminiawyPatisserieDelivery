@@ -39,10 +39,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => instance<AppLogicCubit>()..getSavedLanguage(),
         ),
-
-           BlocProvider(
-          create: (context) => instance<CompleteRegistrationProcessCubit>()..getAllRegionsRequest(),
-        ),
+    
       ],
       child: StreamBuilder<bool>(
         stream: ConnectivityController.instance.connectivityStream,
@@ -88,8 +85,8 @@ class _MyAppState extends State<MyApp> {
                         ? 'driver Patisserie'
                         : 'حلوانى المنياوى',
                     debugShowCheckedModeBanner: false,
-                    // initialRoute: _getInitialRoute(),
-                    // onGenerateRoute: RouteGenerator.getRoute,
+                    initialRoute: _getInitialRoute(),
+                    onGenerateRoute: RouteGenerator.getRoute,
                     home: const DeliveryManRegistration(),
                     theme: getApplicationTheme(context),
                   );
@@ -118,21 +115,21 @@ class _MyAppState extends State<MyApp> {
   }
 
   // Extracted logic for determining the initial route
-  // String _getInitialRoute() {
-  //   if (AppInitialRoute.isOnBoardingScreen) {
-  //     if (AppInitialRoute.isAnonymousUser) {
-  //       return AppInitialRoute.isLocatedMap
-  //           ? Routes.bottomNavBarRoute
-  //           : Routes.map;
-  //     } else if (AppInitialRoute.isLoggedInUser) {
-  //       return AppInitialRoute.isLocatedMap
-  //           ? Routes.bottomNavBarRoute
-  //           : Routes.map;
-  //     } else {
-  //       return Routes.loginRoute;
-  //     }
-  //   } else {
-  //     return Routes.onBoardingRoute;
-  //   }
-  // }
+  String _getInitialRoute() {
+    if (AppInitialRoute.isOnBoardingScreen) {
+      if (AppInitialRoute.isAnonymousUser) {
+        return AppInitialRoute.isLocatedMap
+            ? Routes.bottomNavBarRoute
+            : Routes.map;
+      } else if (AppInitialRoute.isLoggedInUser) {
+        return AppInitialRoute.isLocatedMap
+            ? Routes.bottomNavBarRoute
+            : Routes.map;
+      } else {
+        return Routes.loginRoute;
+      }
+    } else {
+      return Routes.onBoardingRoute;
+    }
+  }
 }

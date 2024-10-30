@@ -47,11 +47,11 @@ class PhoneTextFormField extends StatelessWidget {
                 'FR',
                 '+966'
               ], // Frequently used country codes
-
-              flagWidth: responsive.setIconSize(5), // Responsive flag width
+              dialogTextStyle: TextStyle(fontSize: responsive.setTextSize(3.5)),
+              flagWidth: responsive.setWidth(8), // Responsive flag width
               flagDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(
-                    responsive.setBorderRadius(2)), // Border styling for flags
+                    responsive.setBorderRadius(1)), // Border styling for flags
               ),
 
               dialogBackgroundColor: ColorManger
@@ -64,8 +64,8 @@ class PhoneTextFormField extends StatelessWidget {
               showDropDownButton:
                   true, // Show a dropdown button to select the country code
             ),
-            hintText:   context.translate(AppStrings.enterPhoneNumber) 
-                , // Placeholder for the phone input field
+            hintText: context.translate(AppStrings
+                .enterPhoneNumber), // Placeholder for the phone input field
 
             // Display error text if phone input is invalid
             errorText: state.whenOrNull(

@@ -25,12 +25,9 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the ResponsiveUtils to handle responsive layout adjustments
     final responsive = ResponsiveUtils(context);
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     final buttonColor = color ??
-        (onPressed == null
-            ? colorScheme.onSurface.withOpacity(0.12)
-            : ColorManger.brun);
+        (onPressed == null ? ColorManger.unselectedButton : ColorManger.brun);
     return Container(
       height: responsive.setHeight(height),
       width: responsive.setWidth(width),

@@ -1,4 +1,3 @@
-
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; //
@@ -17,12 +16,19 @@ abstract class AppServiceClient {
   @GET(ApiConstants.storeRegions)
   Future<GetAllRegionsRsponse> getStoreRegionsService();
 
+
+
   @POST(ApiConstants.signup)
   @MultiPart()
   Future<AuthResponse> registerService(
-    @Body() RegisterRequestBody registerRequestBody,
-    @Part() MultipartFile image,
+    @Part() String? name,
+    @Part() String? email,
+    @Part() String? password,
+    @Part() String? phone,
+    @Part() String role ,
+    @Part() File image,
   );
+   
 
   @POST(ApiConstants.completeRgister)
   @MultiPart()
