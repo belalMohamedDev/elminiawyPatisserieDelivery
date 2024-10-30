@@ -11,7 +11,7 @@ class AppInitialRoute {
 
   static bool isLoggedInUser = false;
   static bool isOnBoardingScreen = false;
-  static bool isAnonymousUser = false;
+  static bool isNextToCompleteRgister = false;
   static bool isLocatedMap = false;
 
   getStoreDataAndCheckInitialRoute() async {
@@ -22,8 +22,9 @@ class AppInitialRoute {
 
     bool? isOnBoardingScreenView =
         SharedPrefHelper.getBool(PrefKeys.prefsKeyOnBoardingScreenView);
-    bool? isAnonymousUserlogic =
-        SharedPrefHelper.getBool(PrefKeys.prefsKeyAnonymousUser);
+
+    bool? isCompleteRgister =
+        SharedPrefHelper.getBool(PrefKeys.prefsCompleteRgister);
 
     String? userToken = results[0] as String?;
 
@@ -39,8 +40,8 @@ class AppInitialRoute {
       isOnBoardingScreen = true;
     }
 
-    if (isAnonymousUserlogic == true) {
-      isAnonymousUser = true;
+    if (isCompleteRgister == true) {
+      isNextToCompleteRgister = true;
     }
 
     if (!locationArea.isNullOrEmpty()) {

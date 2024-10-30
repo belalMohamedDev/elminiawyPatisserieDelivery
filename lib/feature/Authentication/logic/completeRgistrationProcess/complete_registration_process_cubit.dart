@@ -20,7 +20,9 @@ class CompleteRegistrationProcessCubit
   String? _deliveryTypeOfTheVehicle;
   final TextEditingController deliveryNationalId = TextEditingController();
 
-  // bool validationData = false;
+  String getNationalIdWithoutMask(String text) {
+    return text.replaceAll(RegExp(r'[^0-9]'), '');
+  }
 
   void setDeliveryType(String value) {
     _deliveryType = value;
@@ -85,11 +87,14 @@ class CompleteRegistrationProcessCubit
   Future<void> sendCompleteRegisterRequest() async {
     emit(const CompleteRegistrationProcessState.completeRegisterLoading());
 
+    String nationalIdWithoutMask =
+        getNationalIdWithoutMask(deliveryNationalId.text);
+
     final response =
         await _authenticationRepositoryImplement.completeRegisterRepo(
             CompleteRegisterRequestBody(
                 deliveryType: _deliveryType,
-                nationalId: deliveryNationalId.text,
+                nationalId: nationalIdWithoutMask,
                 region: _deliveryRegion,
                 typeOfTheVehicle: _deliveryTypeOfTheVehicle),
             images);

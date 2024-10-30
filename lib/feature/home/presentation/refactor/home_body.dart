@@ -126,13 +126,13 @@ class HomeBody extends StatelessWidget {
               // If no notifications, show a plain notification icon
               return IconButton(
                 onPressed: () {
-                  if (AppInitialRoute.isAnonymousUser) {
-                    Navigator.of(context, rootNavigator: !false)
-                        .pushNamed(Routes.noRoute);
-                  } else {
-                    Navigator.of(context, rootNavigator: !false).pushNamed(
-                        Routes.notification); // Navigate to notification screen
-                  }
+                  // if (AppInitialRoute.isAnonymousUser) {
+                  //   Navigator.of(context, rootNavigator: !false)
+                  //       .pushNamed(Routes.noRoute);
+                  // } else {
+                  //   Navigator.of(context, rootNavigator: !false).pushNamed(
+                  //       Routes.notification); // Navigate to notification screen
+                  // }
                 },
                 icon: Icon(
                   IconlyBold.notification,

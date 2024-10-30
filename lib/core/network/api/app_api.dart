@@ -33,8 +33,11 @@ abstract class AppServiceClient {
   @POST(ApiConstants.completeRgister)
   @MultiPart()
   Future<CompleteRegisterResponse> completeRegisterService(
-    @Body() CompleteRegisterRequestBody completeRegisterRequestBody,
-    @Part() List<MultipartFile> images,
+  @Part() String? nationalId,
+  @Part() String? typeOfTheVehicle,
+  @Part() String? deliveryType,
+  @Part() String? region,
+  @Part() List<File> images,
   );
 
   @POST(ApiConstants.forgetPassword)

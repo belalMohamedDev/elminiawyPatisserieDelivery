@@ -50,6 +50,7 @@ class LoadingButtonContent extends StatelessWidget {
         state is SignUpButtonLoadingData ||
         state is ForgetPasswordLoadingData ||
         state is VerifyCodeLoadingData ||
+        state is CompleteRegisterLoading ||
         state is NewPasswordLoadingData) {
       return loadingWidget();
     } else {

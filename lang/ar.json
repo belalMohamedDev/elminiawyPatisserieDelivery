@@ -20,11 +20,11 @@
   "priceRange": "نطاق السعر",
   "opps": "عذرًا! ....",
   "office": "مكتب",
-    "continueToCompleteYourProfile" :"تابع لاستكمال ملفك الشخصي",
+  "continueToCompleteYourProfile" :"تابع لاستكمال ملفك الشخصي",
 
-    "photoGallery": "صورة من المعرض",
+  "photoGallery": "صورة من المعرض",
   "photoCamera": "صورة من الكاميرا",
-"uploadProfilePicture": "تحميل صورة الملف الشخصي",
+  "uploadProfilePicture": "تحميل صورة الملف الشخصي",
   "continueWithoutSigningUp": "استمرار بدون تسجيل",
  "passwordMinLength": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل.",
   "passwordLowerCase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل.",
@@ -256,5 +256,12 @@
   "3": "3",
   "Shipping": "الشحن",
   "Payment": "الدفع",
-  "Review": "المراجعة"
+  "Review": "المراجعة",
+
+
+  "registrationProcess": "عملية التسجيل",
+   "selectDeliveryType": "حدد نوع التسليم",
+   "selectRegion": "حدد المنطقة",
+   "selectVehicleType": "حدد نوع السيارة",
+   "pleaseEnterNationalId": "الرجاء إدخال رقم الهوية الوطنية"
 }

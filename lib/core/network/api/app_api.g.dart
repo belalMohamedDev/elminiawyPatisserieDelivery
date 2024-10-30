@@ -169,14 +169,47 @@ class _AppServiceClient implements AppServiceClient {
 
   @override
   Future<CompleteRegisterResponse> completeRegisterService(
-    CompleteRegisterRequestBody completeRegisterRequestBody,
-    List<MultipartFile> images,
+    String? nationalId,
+    String? typeOfTheVehicle,
+    String? deliveryType,
+    String? region,
+    List<File> images,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(completeRegisterRequestBody.toJson());
+    final _data = FormData();
+    if (nationalId != null) {
+      _data.fields.add(MapEntry(
+        'nationalId',
+        nationalId,
+      ));
+    }
+    if (typeOfTheVehicle != null) {
+      _data.fields.add(MapEntry(
+        'typeOfTheVehicle',
+        typeOfTheVehicle,
+      ));
+    }
+    if (deliveryType != null) {
+      _data.fields.add(MapEntry(
+        'deliveryType',
+        deliveryType,
+      ));
+    }
+    if (region != null) {
+      _data.fields.add(MapEntry(
+        'region',
+        region,
+      ));
+    }
+    _data.files.addAll(images.map((i) => MapEntry(
+        'images',
+        MultipartFile.fromFileSync(
+          i.path,
+          filename: i.path.split(Platform.pathSeparator).last,
+        ))));
     final _options = _setStreamType<CompleteRegisterResponse>(Options(
       method: 'POST',
       headers: _headers,

@@ -39,7 +39,6 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => instance<AppLogicCubit>()..getSavedLanguage(),
         ),
-    
       ],
       child: StreamBuilder<bool>(
         stream: ConnectivityController.instance.connectivityStream,
@@ -56,13 +55,13 @@ class _MyAppState extends State<MyApp> {
             return const NoconnectionScreen();
           }
 
-          // Only show the main app UI if the dependencies are loaded
-          if (!_isDependenciesLoaded) {
-            return const Center(
-              child:
-                  CircularProgressIndicator(), // Show loading screen while initializing dependencies
-            );
-          }
+          // // Only show the main app UI if the dependencies are loaded
+          // if (!_isDependenciesLoaded) {
+          //   return const Center(
+          //     child:
+          //         CircularProgressIndicator(), // Show loading screen while initializing dependencies
+          //   );
+          // }
 
           return ScreenUtilInit(
             designSize: const Size(375, 812),
@@ -117,14 +116,12 @@ class _MyAppState extends State<MyApp> {
   // Extracted logic for determining the initial route
   String _getInitialRoute() {
     if (AppInitialRoute.isOnBoardingScreen) {
-      if (AppInitialRoute.isAnonymousUser) {
-        return AppInitialRoute.isLocatedMap
-            ? Routes.bottomNavBarRoute
-            : Routes.map;
-      } else if (AppInitialRoute.isLoggedInUser) {
-        return AppInitialRoute.isLocatedMap
-            ? Routes.bottomNavBarRoute
-            : Routes.map;
+      if (AppInitialRoute.isLoggedInUser) {
+        if (AppInitialRoute.isNextToCompleteRgister) {
+          return Routes.completeRegister;
+        } else {
+          return Routes.bottomNavBarRoute;
+        }
       } else {
         return Routes.loginRoute;
       }

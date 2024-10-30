@@ -12,7 +12,6 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<LoginBloc>(),
               ),
-        
             ],
             child: const LoginView(),
           ),
@@ -24,8 +23,15 @@ class RouteGenerator {
 
       case Routes.registerRoute:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => instance<SignUpBloc>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => instance<SignUpBloc>(),
+              ),
+              BlocProvider.value(
+               value: instance<CompleteRegistrationProcessCubit>(),
+              ),
+            ],
             child: const SignUpView(),
           ),
         );
@@ -62,7 +68,7 @@ class RouteGenerator {
           ),
         );
 
-         case Routes.completeRegister:
+      case Routes.completeRegister:
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: instance<CompleteRegistrationProcessCubit>(),
@@ -103,7 +109,6 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<AccountInformationCubit>(),
               ),
-         
             ],
             child: const AccountInfomation(),
           ),

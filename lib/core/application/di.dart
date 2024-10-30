@@ -79,7 +79,7 @@ Future<void> _initSignInWithGoogleAndApple() async {
   instance
     ..registerLazySingleton<AuthenticationRepositoryImplement>(
         () => AuthenticationRepositoryImplement(instance()))
-    ..registerFactory<CompleteRegistrationProcessCubit>(
+    ..registerLazySingleton<CompleteRegistrationProcessCubit>(
         () => CompleteRegistrationProcessCubit(
               instance(),
               instance(),

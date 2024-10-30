@@ -20,4 +20,5 @@ class PrefKeys {
   static const String prefsKeyAnonymousUser = 'prefsKeyAnonymousUser';
   static const String prefsSetLoginMap = 'prefsSetLoginMap';
   static const String prefsLanguage = 'prefsLanguageLogic';
+  static const String prefsCompleteRgister = 'prefsCompleteRgister';
 }

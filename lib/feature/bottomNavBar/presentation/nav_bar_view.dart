@@ -19,13 +19,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
           context.read<CategoryCubit>().getCategories(),
           context.read<ProductCubit>().getProduct(),
         ]);
-        if (AppInitialRoute.isAnonymousUser == false) {
-          await Future.wait([
-            context.read<UserAddressCubit>().getUserAddress(),
-            context.read<CartCubit>().getCartItem(),
-            context.read<WishListCubit>().getWishList(),
-          ]);
-        }
+        // if (AppInitialRoute.isAnonymousUser == false) {
+        //   await Future.wait([
+        //     context.read<UserAddressCubit>().getUserAddress(),
+        //     context.read<CartCubit>().getCartItem(),
+        //     context.read<WishListCubit>().getWishList(),
+        //   ]);
+        // }
       });
 
       await Future.wait([
@@ -34,13 +34,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context.read<ProductCubit>().getProduct(),
       ]);
 
-      if (AppInitialRoute.isAnonymousUser == false) {
-        await Future.wait([
-          context.read<UserAddressCubit>().getUserAddress(),
-          context.read<CartCubit>().getCartItem(),
-          context.read<WishListCubit>().getWishList(),
-        ]);
-      }
+      // if (AppInitialRoute.isAnonymousUser == false) {
+      //   await Future.wait([
+      //     context.read<UserAddressCubit>().getUserAddress(),
+      //     context.read<CartCubit>().getCartItem(),
+      //     context.read<WishListCubit>().getWishList(),
+      //   ]);
+      //}
     });
   }
 
@@ -61,11 +61,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
           onTabChanged: (index) {
             if (index == 2) {
-              if (AppInitialRoute.isAnonymousUser) {
-                context.pushNamed(Routes.noRoute);
-              } else {
-                context.pushNamed(Routes.cart);
-              }
+              // if (AppInitialRoute.isAnonymousUser) {
+              //   context.pushNamed(Routes.noRoute);
+              // } else {
+              //   context.pushNamed(Routes.cart);
+              // }
               context
                   .read<AppLogicCubit>()
                   .bottomNavBarController
@@ -150,7 +150,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BlocProvider.value(
               value: instance<PaymentCubit>(),
             ),
-          
           ],
           child: const ProfileView(),
         ),

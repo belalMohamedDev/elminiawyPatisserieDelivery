@@ -1,10 +1,18 @@
 import '../../../../../core/common/shared/shared_imports.dart'; // Import shared utilities
 
-/// The [SignUpView] is a stateless widget that displays the user interface
-/// for signing up. It includes fields for entering name, email, password,
-/// phone number, and agreeing to the terms and conditions.
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+  @override
+  void initState() {
+    context.read<CompleteRegistrationProcessCubit>().getAllRegionsRequest();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

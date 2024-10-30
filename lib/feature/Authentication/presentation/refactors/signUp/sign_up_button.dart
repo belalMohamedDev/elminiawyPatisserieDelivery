@@ -22,6 +22,7 @@ class SignUpButton extends StatelessWidget {
                   message: authResponse.message!, context: context);
               // Navigate to the map screen after a successful login
               AppLogin().storeData(authResponse);
+              SharedPrefHelper.setData(PrefKeys.prefsCompleteRgister, true);
               context.pushNamedAndRemoveUntil(Routes.completeRegister);
             } else {
               ShowToast.showToastErrorTop(

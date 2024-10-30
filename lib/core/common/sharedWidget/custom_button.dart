@@ -42,16 +42,10 @@ class CustomButton extends StatelessWidget {
       child: TextButton(
           onPressed: onPressed,
           child: widget ??
-              Text(
-                context.translate(defaultText!),
-                style: onPressed == null
-                    ? Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontSize: responsive.setTextSize(3.8),
-                        )
-                    : Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontSize: responsive.setTextSize(3.8),
-                        ),
-              )),
+              Text(context.translate(defaultText!),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontSize: responsive.setTextSize(3.8),
+                      ))),
     );
   }
 }

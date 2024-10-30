@@ -51,6 +51,21 @@
   "continueToCompleteYourProfile" :"Continue to complete your profile",
 
   "loading": "Loading ....",
+
+
+
+  "registrationProcess": "Registration Process",
+  "selectDeliveryType": "Select Delivery type",
+  "selectRegion": "Select Region",
+  "selectVehicleType": "Select vehicle type",
+  "pleaseEnterNationalId": "Please Enter National Id",
+ 
+
+
+
+
+
+
   "orderNum": "Order Num #",
   "noCurrentOrders": "No Current Orders!",
   "noPreviousOrders": "No Previous Orders!",
@@ -67,8 +82,8 @@
   "alreadyHaveAccount": "Already have an account?",
   "firstName": "First Name",
   "lastName": "Last Name",
-  "firstNameExample": "John",
-  "lastNameExample": "Doe",
+  "firstNameExample": "First Name",
+  "lastNameExample": "Last Name",
   "orSignUpWith": "Or sign up with",
   "phone": "Phone",
   "enterPhoneNumber": "Enter Phone Number",

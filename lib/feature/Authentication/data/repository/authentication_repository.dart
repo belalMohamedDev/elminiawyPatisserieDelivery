@@ -39,7 +39,6 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
     File imageFile,
   ) async {
     try {
-  
       final response = await _apiService.registerService(
           registerRequestBody.name,
           registerRequestBody.email,
@@ -108,19 +107,12 @@ class AuthenticationRepositoryImplement implements AuthenticationRepository {
     List<File> imageFiles,
   ) async {
     try {
-      List<MultipartFile> multipartFiles = [];
-
-      for (File imageFile in imageFiles) {
-        final MultipartFile image = MultipartFile.fromFileSync(
-          imageFile.path,
-          filename: imageFile.path.split(Platform.pathSeparator).last,
-        );
-        multipartFiles.add(image);
-      }
-
       final response = await _apiService.completeRegisterService(
-        completeRegisterRequestBody,
-        multipartFiles,
+        completeRegisterRequestBody.nationalId,
+        completeRegisterRequestBody.typeOfTheVehicle,
+        completeRegisterRequestBody.deliveryType,
+        completeRegisterRequestBody.region,
+        imageFiles,
       );
 
       return ApiResult.success(response);

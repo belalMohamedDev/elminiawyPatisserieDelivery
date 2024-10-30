@@ -301,4 +301,12 @@ class AppStrings {
   static const String shipping = "Shipping";
   static const String payment = "Payment";
   static const String review = "Review";
+
+
+
+  static const String registrationProcess = "registrationProcess";
+  static const String selectDeliveryType = "selectDeliveryType";
+  static const String selectRegion = "selectRegion";
+  static const String selectVehicleType = "selectVehicleType";
+  static const String pleaseEnterNationalId = "pleaseEnterNationalId";
 }
