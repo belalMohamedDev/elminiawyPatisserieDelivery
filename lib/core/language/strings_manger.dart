@@ -16,6 +16,7 @@ class AppStrings {
 
   static const String photoGallery = 'photoGallery';
   static const String photoCamera = 'photoCamera';
+  static const String thisAccountIsNotYetActive = 'thisAccountIsNotYetActive';
 
   static const String alreadyHaveAnAccount = "alreadyHaveAnAccount";
   static const String signInWithGoogle = "signInWithGoogle";

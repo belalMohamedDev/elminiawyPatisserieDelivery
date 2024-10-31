@@ -22,13 +22,30 @@ class SignInButton extends StatelessWidget {
             ShowToast.showToastErrorTop(
                 errorMessage: apiErrorModel.message!, context: context);
           },
-          suceess: (authResponse) {
-            if (authResponse.data!.role == "user") {
-              // Show a success toast when login is successful
-              ShowToast.showToastSuccessTop(
-                  message: authResponse.message!, context: context);
-              // Navigate to the map screen after a successful login
-              AppLogin().storeData(authResponse);
+          suceess: (authResponse) async {
+            if (authResponse.data!.role == "delivery") {
+              if (authResponse.data!.completeData == true) {
+                if (authResponse.data!.deliveryActive = true) {
+                  // Show a success toast when login is successful
+                  ShowToast.showToastSuccessTop(
+                      message: authResponse.message!, context: context);
+                  // Navigate to the map screen after a successful login
+                  AppLogin().storeData(authResponse);
+
+                  await context
+                      .pushNamedAndRemoveUntil(Routes.bottomNavBarRoute);
+                } else {
+                  ShowToast.showToastErrorTop(
+                      errorMessage: context
+                          .translate(AppStrings.thisAccountIsNotYetActive),
+                      context: context);
+                }
+              } else {
+                // Navigate to the map screen after a successful login
+                AppLogin().storeData(authResponse);
+                SharedPrefHelper.setData(PrefKeys.prefsCompleteRgister, true);
+                context.pushNamedAndRemoveUntil(Routes.completeRegister);
+              }
             } else {
               ShowToast.showToastErrorTop(
                   errorMessage: context
@@ -51,7 +68,6 @@ class SignInButton extends StatelessWidget {
           widget: LoadingButtonContent(
             defaultText: AppStrings.signIn,
             state: state,
-         
           ),
         );
       },
