@@ -17,9 +17,7 @@ class SignUpButton extends StatelessWidget {
           // On successful registration, show success message and navigate to home
           suceess: (authResponse) {
             if (authResponse.data!.role == "delivery") {
-              // Show a success toast when login is successful
-              ShowToast.showToastSuccessTop(
-                  message: authResponse.message!, context: context);
+        
               // Navigate to the map screen after a successful login
               AppLogin().storeData(authResponse);
               SharedPrefHelper.setData(PrefKeys.prefsCompleteRgister, true);

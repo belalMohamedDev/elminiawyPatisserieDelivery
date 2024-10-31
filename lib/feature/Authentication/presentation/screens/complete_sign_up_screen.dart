@@ -43,14 +43,22 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
 
     return BlocListener<CompleteRegistrationProcessCubit,
         CompleteRegistrationProcessState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is GetAllRegionError) {
           context
               .read<CompleteRegistrationProcessCubit>()
               .getAllRegionsRequest();
         } else if (state is CompleteRegisterSuccess) {
-          SharedPrefHelper.setData(PrefKeys.prefsCompleteRgister, false);
-          context.pushNamedAndRemoveUntil(Routes.bottomNavBarRoute);
+          await AppLogout().logOutThenNavigateToLogin();
+          // Show a success toast when login is successful
+          ShowToast.showToastSuccessTop(
+              message: state.data.message!, context: context);
+
+          SharedPrefHelper.removeData(PrefKeys.prefsCompleteRgister);
+        } else if (state is CompleteRegisterError) {
+          // Show a success toast when login is successful
+          ShowToast.showToastErrorTop(
+              errorMessage: state.apiErrorModel.message!, context: context);
         }
       },
       child: Scaffold(
