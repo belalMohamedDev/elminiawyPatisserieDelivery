@@ -48,8 +48,7 @@ BlocBuilder profileColumnCard(BuildContext context) {
                               .pushNamed(Routes.noRoute);
                         }
                       : () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.myOrder);
+                     
                         },
                 ),
                 CustomProfileCard(
@@ -61,8 +60,7 @@ BlocBuilder profileColumnCard(BuildContext context) {
                               .pushNamed(Routes.noRoute);
                         }
                       : () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.wishList);
+                   
                         },
                 ),
                 CustomProfileCard(

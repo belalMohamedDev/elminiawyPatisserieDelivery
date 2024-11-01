@@ -29,7 +29,7 @@ class RouteGenerator {
                 create: (context) => instance<SignUpBloc>(),
               ),
               BlocProvider.value(
-               value: instance<CompleteRegistrationProcessCubit>(),
+                value: instance<CompleteRegistrationProcessCubit>(),
               ),
             ],
             child: const SignUpView(),
@@ -82,9 +82,6 @@ class RouteGenerator {
             providers: [
               BlocProvider.value(
                 value: instance<UserAddressCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<PaymentCubit>(),
               ),
               BlocProvider.value(
                 value: instance<MapCubit>(),
@@ -145,35 +142,8 @@ class RouteGenerator {
               BlocProvider.value(
                 value: instance<MapCubit>(),
               ),
-              BlocProvider.value(
-                value: instance<CartCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<ProductCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<WishListCubit>(),
-              ),
             ],
             child: const BottomNavBar(),
-          ),
-        );
-
-      case Routes.newProduct:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider.value(
-                value: instance<CartCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<ProductCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<WishListCubit>(),
-              ),
-            ],
-            child: const NewProductView(),
           ),
         );
 
@@ -185,116 +155,8 @@ class RouteGenerator {
           ),
         );
 
-      case Routes.orderPlaced:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: instance<PaymentCubit>(),
-            child: const OrderPlaced(),
-          ),
-        );
-      case Routes.orderDetails:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: instance<PaymentCubit>(),
-            child: const OrderDetails(),
-          ),
-        );
-
-      case Routes.myOrder:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: instance<PaymentCubit>(),
-                  child: const MyOrdersScreen(),
-                ));
-
-      case Routes.wishList:
-        return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(
-                      value: instance<CartCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<ProductCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<WishListCubit>(),
-                    ),
-                  ],
-                  child: const WishListView(),
-                ));
-
-      case Routes.cart:
-        return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(
-                      value: instance<UserAddressCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<CartCubit>(),
-                    ),
-                  ],
-                  child: const CartView(),
-                ));
-
-      case Routes.search:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: instance<SearchBloc>(),
-                  child: const SearchView(),
-                ));
-
       case Routes.noRoute:
         return MaterialPageRoute(builder: (_) => const RouteStatesScreen());
-
-      case Routes.shippingAddress:
-        return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(
-                      value: instance<MapCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<PaymentCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<UserAddressCubit>(),
-                    ),
-                  ],
-                  child: const ShippingAddress(),
-                ));
-
-      case Routes.shippingPayment:
-        return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(
-                      value: instance<PaymentCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<CartCubit>(),
-                    ),
-                  ],
-                  child: const PaymentScreen(),
-                ));
-
-      case Routes.shippingReviewScreen:
-        return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(
-                      value: instance<PaymentCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<CartCubit>(),
-                    ),
-                    BlocProvider.value(
-                      value: instance<UserAddressCubit>(),
-                    ),
-                  ],
-                  child: const ReviewPaymentScreen(),
-                ));
 
       default:
         return unDefinedRoute();

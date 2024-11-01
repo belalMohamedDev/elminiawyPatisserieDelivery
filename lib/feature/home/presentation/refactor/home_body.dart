@@ -29,13 +29,6 @@ class HomeBody extends StatelessWidget {
               _locationAndNotificationRow(context),
               // Show the location name for the home screen
               _locationName(context),
-              responsive.setSizeBox(height: 3), // Adds vertical space
-              const SearchRow(), // Search bar row
-              responsive.setSizeBox(height: 4), // Adds vertical space
-              const BannerCarouselSlider(), // Image carousel for banners
-              responsive.setSizeBox(height: 4), // Adds vertical space
-              const CategoryListViewBuilder(), // Horizontal list view for categories
-              const NewProductGrideView(), // Grid view for displaying new products
             ],
           ),
         ),

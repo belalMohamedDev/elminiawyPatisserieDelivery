@@ -12,36 +12,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      context.read<AppLogicCubit>().stream.listen((locale) async {
-        await Future.wait([
-          context.read<BannerCubit>().getBanners(),
-          context.read<CategoryCubit>().getCategories(),
-          context.read<ProductCubit>().getProduct(),
-        ]);
-        // if (AppInitialRoute.isAnonymousUser == false) {
-        //   await Future.wait([
-        //     context.read<UserAddressCubit>().getUserAddress(),
-        //     context.read<CartCubit>().getCartItem(),
-        //     context.read<WishListCubit>().getWishList(),
-        //   ]);
-        // }
-      });
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //   context.read<AppLogicCubit>().stream.listen((locale) async {
+    //     await Future.wait([
+    //       context.read<BannerCubit>().getBanners(),
+    //       context.read<CategoryCubit>().getCategories(),
+    //       context.read<ProductCubit>().getProduct(),
+    //     ]);
+    //   });
 
-      await Future.wait([
-        context.read<BannerCubit>().getBanners(),
-        context.read<CategoryCubit>().getCategories(),
-        context.read<ProductCubit>().getProduct(),
-      ]);
-
-      // if (AppInitialRoute.isAnonymousUser == false) {
-      //   await Future.wait([
-      //     context.read<UserAddressCubit>().getUserAddress(),
-      //     context.read<CartCubit>().getCartItem(),
-      //     context.read<WishListCubit>().getWishList(),
-      //   ]);
-      //}
-    });
+    //   await Future.wait([
+    //     context.read<BannerCubit>().getBanners(),
+    //     context.read<CategoryCubit>().getCategories(),
+    //     context.read<ProductCubit>().getProduct(),
+    //   ]);
+    // });
   }
 
   @override
@@ -58,20 +43,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           margin: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 12.h),
 
           backgroundColor: ColorManger.brun,
-
-          onTabChanged: (index) {
-            if (index == 2) {
-              // if (AppInitialRoute.isAnonymousUser) {
-              //   context.pushNamed(Routes.noRoute);
-              // } else {
-              //   context.pushNamed(Routes.cart);
-              // }
-              context
-                  .read<AppLogicCubit>()
-                  .bottomNavBarController
-                  .jumpToPreviousTab();
-            }
-          },
 
           tabs: _navBarsItems(responsive),
 
@@ -114,42 +85,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ),
       PersistentTabConfig(
-        screen: const CategoryView(),
-        item: ItemConfig(
-          icon: Icon(IconlyBold.category, size: 20.sp),
-          inactiveIcon: Icon(IconlyBroken.category, size: 20.sp),
-          title: (context.translate(AppStrings.categories)),
-          textStyle: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(fontSize: responsive.setTextSize(3.5)),
-          activeForegroundColor: ColorManger.brun,
-          inactiveForegroundColor: ColorManger.brun,
-        ),
-      ),
-      PersistentTabConfig(
-        screen: Container(),
-        item: ItemConfig(
-          icon: Icon(IconlyBold.bag, size: 20.sp),
-          inactiveIcon: Icon(IconlyBroken.bag, size: 20.sp),
-          title: (context.translate(AppStrings.shopping)),
-          textStyle: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(fontSize: responsive.setTextSize(3.5)),
-          activeForegroundColor: ColorManger.brun,
-          inactiveForegroundColor: ColorManger.brun,
-        ),
-      ),
-      PersistentTabConfig(
         screen: MultiBlocProvider(
           providers: [
             BlocProvider(
               create: (context) => instance<LogOutCubit>(),
             ),
-            BlocProvider.value(
-              value: instance<PaymentCubit>(),
-            ),
+         
           ],
           child: const ProfileView(),
         ),

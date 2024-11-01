@@ -49,14 +49,12 @@ class _DeliveryManRegistrationState extends State<DeliveryManRegistration> {
               .read<CompleteRegistrationProcessCubit>()
               .getAllRegionsRequest();
         } else if (state is CompleteRegisterSuccess) {
-          await AppLogout().logOutThenNavigateToLogin();
-          // Show a success toast when login is successful
           ShowToast.showToastSuccessTop(
               message: state.data.message!, context: context);
-
           SharedPrefHelper.removeData(PrefKeys.prefsCompleteRgister);
+
+          await AppLogout().logOutThenNavigateToLogin();
         } else if (state is CompleteRegisterError) {
-          // Show a success toast when login is successful
           ShowToast.showToastErrorTop(
               errorMessage: state.apiErrorModel.message!, context: context);
         }

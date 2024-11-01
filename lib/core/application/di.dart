@@ -11,18 +11,12 @@ Future<void> initAppModule() async {
     _initLogin(),
     _initSignUp(),
     _initForgetPassword(),
-    _initProduct(),
-    _initWishList(),
     _initLogOut(),
     _initAddress(),
-    _initProductBasedOnCategory(),
-    _initCart(),
     _initAccoutInformation(),
     _initChangeEmailAddress(),
     _initChangeMyPassword(),
-    _initPayment(),
     _initNotification(),
-    _initSearch(),
     _initSignInWithGoogleAndApple()
   ]);
 }
@@ -101,22 +95,7 @@ Future<void> _initForgetPassword() async {
       () => ForgetPasswordBloc(instance(), instance(), instance()));
 }
 
-Future<void> _initProduct() async {
-  instance.registerLazySingleton<ProductRepository>(
-      () => ProductRepository(instance()));
-  instance.registerLazySingleton<ProductCubit>(() => ProductCubit(
-        instance(),
-      ));
-}
 
-Future<void> _initWishList() async {
-  instance
-    ..registerLazySingleton<WishListRepositoryImplement>(
-        () => WishListRepositoryImplement(instance()))
-    ..registerLazySingleton<WishListCubit>(() => WishListCubit(
-          instance(),
-        ));
-}
 
 Future<void> _initLogOut() async {
   instance
@@ -141,24 +120,8 @@ Future<void> _initAddress() async {
         ));
 }
 
-Future<void> _initProductBasedOnCategory() async {
-  instance
-    ..registerLazySingleton<GetProductBasedOnCategoryRepository>(
-        () => GetProductBasedOnCategoryRepository(instance()))
-    ..registerFactory<ProductBasedOnCategoryCubit>(
-        () => ProductBasedOnCategoryCubit(
-              instance(),
-            ));
-}
 
-Future<void> _initCart() async {
-  instance
-    ..registerLazySingleton<CartRepositoryImplement>(
-        () => CartRepositoryImplement(instance()))
-    ..registerLazySingleton<CartCubit>(() => CartCubit(
-          instance(),
-        ));
-}
+
 
 Future<void> _initAccoutInformation() async {
   instance
@@ -187,12 +150,6 @@ Future<void> _initChangeMyPassword() async {
         ));
 }
 
-Future<void> _initPayment() async {
-  instance
-    ..registerLazySingleton<OrderRepositoryImplement>(
-        () => OrderRepositoryImplement(instance()))
-    ..registerLazySingleton<PaymentCubit>(() => PaymentCubit(instance()));
-}
 
 Future<void> _initNotification() async {
   instance
@@ -202,9 +159,4 @@ Future<void> _initNotification() async {
         () => UserNotificationCubit(instance()));
 }
 
-Future<void> _initSearch() async {
-  instance
-    ..registerLazySingleton<SearchInProductRepository>(
-        () => SearchInProductRepository(instance()))
-    ..registerLazySingleton<SearchBloc>(() => SearchBloc(instance()));
-}
+

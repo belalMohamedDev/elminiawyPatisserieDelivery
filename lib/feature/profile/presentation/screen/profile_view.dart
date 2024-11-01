@@ -22,15 +22,15 @@ class _ProfileViewState extends State<ProfileView> {
         if (context.read<LogOutCubit>().initialUserName != 'Guest User') {
           WidgetsBinding.instance.addPostFrameCallback((_) async {
             await Future.wait([
-              context.read<PaymentCubit>().getCompleteOrdersSummit(),
-              context.read<PaymentCubit>().getOrdersPendingSummit(),
+              // context.read<PaymentCubit>().getCompleteOrdersSummit(),
+              // context.read<PaymentCubit>().getOrdersPendingSummit(),
             ]);
 
             context.read<AppLogicCubit>().stream.listen((locale) async {
-              await Future.wait([
-                context.read<PaymentCubit>().getCompleteOrdersSummit(),
-                context.read<PaymentCubit>().getOrdersPendingSummit(),
-              ]);
+              // await Future.wait([
+              //   context.read<PaymentCubit>().getCompleteOrdersSummit(),
+              //   context.read<PaymentCubit>().getOrdersPendingSummit(),
+              // ]);
             });
           });
         }
