@@ -1,12 +1,8 @@
-
-
 import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 BlocBuilder profileColumnCard(BuildContext context) {
   return BlocBuilder<LogOutCubit, LogOutState>(
     builder: (context, state) {
-      bool initUserNameCheck =
-          context.read<LogOutCubit>().initialUserName == 'Guest User';
       return Stack(
         alignment: Alignment.center,
         children: [
@@ -15,59 +11,32 @@ BlocBuilder profileColumnCard(BuildContext context) {
             child: Column(
               children: [
                 CustomProfileCard(
-                  title: context.translate(AppStrings.myProfile) ,
-                  leadingIcon: IconlyBold.profile,
-                  tap: initUserNameCheck
-                      ? () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.noRoute);
-                        }
-                      : () {
-                          chaneProfileDataBottomSheet(context);
-                        },
+                  title: context.translate(AppStrings.accountInformation),
+                  leadingIcon: IconlyBold.infoCircle,
+                  tap: () {
+                    context.pushNamed(Routes.accountInfomation);
+                  },
                 ),
                 CustomProfileCard(
-                  title: context.translate(AppStrings.myAddress) ,
-                  leadingIcon: IconlyBold.location,
-                  tap: initUserNameCheck
-                      ? () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.noRoute);
-                        }
-                      : () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.address);
-                        },
+                  title: context.translate(AppStrings.changeEmailAddress),
+                  leadingIcon: IconlyBold.message,
+                  tap: () {
+                    context.pushNamed(Routes.changeMyEmail);
+                  },
                 ),
                 CustomProfileCard(
-                  title: context.translate(AppStrings.myOrders) ,
-                  leadingIcon: IconlyBold.bag,
-                  tap: initUserNameCheck
-                      ? () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.noRoute);
-                        }
-                      : () {
-                     
-                        },
+                  title: context.translate(AppStrings.changePassword),
+                  leadingIcon: IconlyBold.lock,
+                  tap: () {
+                    context.pushNamed(Routes.changeMyPassword);
+                  },
                 ),
                 CustomProfileCard(
-                  title: context.translate(AppStrings.myWishList) ,
-                  leadingIcon: IconlyBold.heart,
-                  tap: initUserNameCheck
-                      ? () {
-                          Navigator.of(context, rootNavigator: !false)
-                              .pushNamed(Routes.noRoute);
-                        }
-                      : () {
-                   
-                        },
-                ),
-                CustomProfileCard(
-                  title:context.translate(AppStrings.settings)  ,
+                  title: context.translate(AppStrings.settings),
                   leadingIcon: IconlyBold.setting,
                   tap: () {
                     settingChangeBottomSheet(context);
+                 
                   },
                 ),
                 logoutLogic(context)

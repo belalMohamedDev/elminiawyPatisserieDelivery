@@ -9,6 +9,7 @@ class AppLogicCubit extends Cubit<AppLogicState> {
   final PersistentTabController bottomNavBarController =
       PersistentTabController();
 
+
   String currentLangCode = 'en';
 
   // Get Saved Language from Shared Preferences
@@ -29,8 +30,6 @@ class AppLogicCubit extends Cubit<AppLogicState> {
 
     // Update the language
     emit(AppLogicState.languageChange(locale: Locale(currentLangCode)));
-
- 
   }
 
   // Switch to Arabic
@@ -38,6 +37,4 @@ class AppLogicCubit extends Cubit<AppLogicState> {
 
   // Switch to English
   void toEnglish() => _changeLang('en');
-
-  
 }

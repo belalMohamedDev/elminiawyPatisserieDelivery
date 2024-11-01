@@ -12,21 +12,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void initState() {
     super.initState();
 
-    // WidgetsBinding.instance.addPostFrameCallback((_) async {
-    //   context.read<AppLogicCubit>().stream.listen((locale) async {
-    //     await Future.wait([
-    //       context.read<BannerCubit>().getBanners(),
-    //       context.read<CategoryCubit>().getCategories(),
-    //       context.read<ProductCubit>().getProduct(),
-    //     ]);
-    //   });
-
-    //   await Future.wait([
-    //     context.read<BannerCubit>().getBanners(),
-    //     context.read<CategoryCubit>().getCategories(),
-    //     context.read<ProductCubit>().getProduct(),
-    //   ]);
-    // });
   }
 
   @override
@@ -38,7 +23,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return PersistentTabView(
           avoidBottomPadding: false,
           stateManagement: false,
+        
           controller: context.read<AppLogicCubit>().bottomNavBarController,
+
+
 
           margin: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 12.h),
 
@@ -89,6 +77,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           providers: [
             BlocProvider(
               create: (context) => instance<LogOutCubit>(),
+            ),
+             BlocProvider(
+              create: (context) => instance<ChangeUserDeliveryImageCubit>(),
             ),
          
           ],

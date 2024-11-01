@@ -1,3 +1,5 @@
+
+
 import '../../../../../core/common/shared/shared_imports.dart'; //
 
 BlocListener<LogOutCubit, LogOutState> logoutLogic(BuildContext context) {
@@ -20,11 +22,11 @@ BlocListener<LogOutCubit, LogOutState> logoutLogic(BuildContext context) {
       }
     },
     child: CustomProfileCard(
-      title: context.read<LogOutCubit>().initialUserName == 'Guest User'
+      title: context.read<ChangeUserDeliveryImageCubit>().initialUserImage == 'Guest User'
           ? context.translate(AppStrings.logIn)
           : context.translate(AppStrings.logOut),
       leadingIcon: IconlyBold.logout,
-      tap: context.read<LogOutCubit>().initialUserName == 'Guest User'
+      tap: context.read<ChangeUserDeliveryImageCubit>().initialUserImage == 'Guest User'
           ? () async {
               await AppLogout().logOutThenNavigateToLogin();
             }
@@ -116,7 +118,7 @@ BlocListener<LogOutCubit, LogOutState> logoutLogic(BuildContext context) {
 
               // Proceed with logout if confirmed
               if (shouldLogOut == true) {
-                 context.read<LogOutCubit>().checkTokenThenDoLogOut(context);
+                context.read<LogOutCubit>().checkTokenThenDoLogOut(context);
               }
             },
     ),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 class ProfileBody extends StatelessWidget {
@@ -5,86 +7,130 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveUtils(context);
     return Column(
       children: [
         Container(
           height: 200.h,
           color: ColorManger.brun,
-          child: BlocBuilder<LogOutCubit, LogOutState>(
+          child: BlocBuilder<ChangeUserDeliveryImageCubit,
+              ChangeUserDeliveryImageState>(
             builder: (context, state) {
-              bool initUserNameCheck =
-                  context.read<LogOutCubit>().initialUserName == 'Guest User';
               return Row(
                 children: [
                   SizedBox(
                     width: 20.w,
                   ),
-                  initUserNameCheck
-                      ? Image.asset(
-                          ImageAsset.guestIconGreen,
-                          color: ColorManger.white,
-                          height: 100.h,
-                        )
-                      : Container(
-                          height: 100.h,
-                          width: 100.w,
+                  Stack(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          showPicker(
+                            context: context,
+                            listTileCamera: () async {
+                              await context
+                                  .read<ChangeUserDeliveryImageCubit>()
+                                  .pickImage(ImageSource.camera);
+                              Navigator.of(context, rootNavigator: true).pop();
+                            },
+                            listTileGallery: () async {
+                              await context
+                                  .read<ChangeUserDeliveryImageCubit>()
+                                  .pickImage(ImageSource.gallery);
+                              Navigator.of(context, rootNavigator: true).pop();
+                            },
+                          );
+                        },
+                        child: Container(
+                          height: responsive.setHeight(15),
+                          width: responsive.setWidth(32),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50.r),
+                              borderRadius: BorderRadius.circular(
+                                  responsive.setBorderRadius(50)),
                               color: Colors.white70),
                           child: Center(
-                            child: Text(
-                                context
-                                    .read<LogOutCubit>()
-                                    .initialUserName
-                                    .substring(0, 2)
-                                    .toUpperCase(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge!
-                                    .copyWith(fontSize: 60.sp)),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(
+                                  responsive.setBorderRadius(50)),
+                              child: context
+                                          .read<ChangeUserDeliveryImageCubit>()
+                                          .initialUserImage ==
+                                      null
+                                  ? Image.asset(
+                                      ImageAsset.guestIconGreen,
+                                      color: ColorManger.white,
+                                      height: 100.h,
+                                    )
+                                  : CachedNetworkImage(
+                                      imageUrl: context
+                                          .read<ChangeUserDeliveryImageCubit>()
+                                          .initialUserImage!,
+                                      fit: BoxFit.fitHeight,
+                                      width: responsive.setWidth(31),
+                                      cacheManager: CustomCacheManager.instance,
+                                      height: responsive.setHeight(14),
+                                      placeholder: (context, url) =>
+                                          LoadingShimmer(
+                                            height: responsive.setHeight(
+                                                15), // Placeholder height while loading
+                                            width: responsive.setWidth(
+                                                89), // Placeholder width while loading
+                                            borderRadius:
+                                                responsive.setBorderRadius(
+                                                    2), // Placeholder border radius
+                                          ),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error)),
+                            ),
                           ),
                         ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  initUserNameCheck
-                      ? InkWell(
-                          onTap: () async {
-                            await AppLogout().logOutThenNavigateToLogin();
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(context.translate(AppStrings.guestUser),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall!
-                                      .copyWith(
-                                          color: Colors.white70,
-                                          fontSize: 13.sp)),
-                              Text(
-                                  context.translate(
-                                      AppStrings.loginToViewAllTheFeatures),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall!
-                                      .copyWith(
-                                          color: Colors.white60,
-                                          fontSize: 13.sp)),
-                            ],
+                      ),
+                      Positioned(
+                        right: 0,
+                        top: 10,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: ColorManger.brun,
+                              borderRadius: BorderRadius.circular(
+                                  responsive.setBorderRadius(50))),
+                          child: Icon(
+                            IconlyBroken.edit,
+                            color: ColorManger.white,
+                            size: responsive.setIconSize(8),
                           ),
-                        )
-                      : Text(
-                          context.translate(AppStrings
-                              .welcomeBackLetsAchieveGreatThingsToday),
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .copyWith(
-                                fontSize: 13.sp,
+                        ),
+                      ),
+                      state is ChangeUserDeliveryImageLoading
+                          ? Positioned.fill(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(
+                                    responsive.setBorderRadius(50)),
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                      sigmaX: 1.2, sigmaY: 1.2),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(0.1),
+                                    child: Center(
+                                      child: CircularProgressIndicator(
+                                        color: ColorManger.white,
+                                        strokeWidth: 3,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
+                            )
+                          : const SizedBox(),
+                    ],
+                  ),
+                  responsive.setSizeBox(width: 5),
+                  Text(
+                    context.translate(
+                        AppStrings.welcomeBackLetsAchieveGreatThingsToday),
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          fontSize: responsive.setTextSize(4),
                         ),
+                  ),
                 ],
               );
             },

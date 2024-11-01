@@ -1,30 +1,17 @@
-
-
-
-import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
+import '../../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 part 'log_out_state.dart';
 part 'log_out_cubit.freezed.dart';
 
 class LogOutCubit extends Cubit<LogOutState> {
   LogOutCubit(this._logOutRepository) : super(const LogOutState.initial());
-  final LogOutRepository _logOutRepository;
+  final ProfileRepositoryImplement _logOutRepository;
 
-  String initialUserName = 'Guest User';
-
-  Future<void> getUserName() async {
-    initialUserName =
-        await SharedPrefHelper.getSecuredString(PrefKeys.userName) == ''
-            ? 'Guest User'
-            : await SharedPrefHelper.getSecuredString(PrefKeys.userName);
-
-    emit(LogOutState.getStorageData(initialUserName));
-  }
 
   Future<void> logOut(String refreshToken) async {
     emit(const LogOutState.logOutLoading());
 
-    final response = await _logOutRepository.logOut(refreshToken);
+    final response = await _logOutRepository.logOutRepo(refreshToken);
 
     response.when(
       success: (response) {
@@ -32,8 +19,7 @@ class LogOutCubit extends Cubit<LogOutState> {
       },
       failure: (error) {
         emit(
-          LogOutState.logOutError(
-            error),
+          LogOutState.logOutError(error),
         );
       },
     );

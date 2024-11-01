@@ -1,4 +1,3 @@
-
 import '../../../../core/common/shared/shared_imports.dart';
 
 final instance = GetIt.instance;
@@ -95,13 +94,17 @@ Future<void> _initForgetPassword() async {
       () => ForgetPasswordBloc(instance(), instance(), instance()));
 }
 
-
-
 Future<void> _initLogOut() async {
   instance
-    ..registerLazySingleton<LogOutRepository>(() => LogOutRepository(
-          instance(),
-        ))
+    ..registerLazySingleton<ProfileRepositoryImplement>(
+        () => ProfileRepositoryImplement(
+              instance(),
+            ))
+    ..registerFactory<ChangeUserDeliveryImageCubit>(
+        () => ChangeUserDeliveryImageCubit(
+              instance(),
+              instance(),
+            ))
     ..registerFactory<LogOutCubit>(() => LogOutCubit(
           instance(),
         ));
@@ -119,9 +122,6 @@ Future<void> _initAddress() async {
           instance(),
         ));
 }
-
-
-
 
 Future<void> _initAccoutInformation() async {
   instance
@@ -150,7 +150,6 @@ Future<void> _initChangeMyPassword() async {
         ));
 }
 
-
 Future<void> _initNotification() async {
   instance
     ..registerLazySingleton<UserNotificationRepositoryImplement>(
@@ -158,5 +157,3 @@ Future<void> _initNotification() async {
     ..registerFactory<UserNotificationCubit>(
         () => UserNotificationCubit(instance()));
 }
-
-

@@ -239,6 +239,47 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
+  Future<AuthResponse> updateDeliveryImageService(File image) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.files.add(MapEntry(
+      'image',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
+    final _options = _setStreamType<AuthResponse>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+        .compose(
+          _dio.options,
+          '/v1/api/user/updateMyImage',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AuthResponse _value;
+    try {
+      _value = AuthResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<ApiSuccessGeneralModel> forgetPassword(
       ForgetPasswordRequestBody forgetPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
@@ -410,12 +451,12 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<LogOutResponse> logOut(String refreshToken) async {
+  Future<ApiSuccessGeneralModel> logOut(String refreshToken) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = {'refreshToken': refreshToken};
-    final _options = _setStreamType<LogOutResponse>(Options(
+    final _options = _setStreamType<ApiSuccessGeneralModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -432,9 +473,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late LogOutResponse _value;
+    late ApiSuccessGeneralModel _value;
     try {
-      _value = LogOutResponse.fromJson(_result.data!);
+      _value = ApiSuccessGeneralModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

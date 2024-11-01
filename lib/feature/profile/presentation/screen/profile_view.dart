@@ -17,25 +17,7 @@ class _ProfileViewState extends State<ProfileView> {
         statusBarIconBrightness: Brightness.light,
       ),
     );
-    context.read<LogOutCubit>().getUserName().then(
-      (value) {
-        if (context.read<LogOutCubit>().initialUserName != 'Guest User') {
-          WidgetsBinding.instance.addPostFrameCallback((_) async {
-            await Future.wait([
-              // context.read<PaymentCubit>().getCompleteOrdersSummit(),
-              // context.read<PaymentCubit>().getOrdersPendingSummit(),
-            ]);
-
-            context.read<AppLogicCubit>().stream.listen((locale) async {
-              // await Future.wait([
-              //   context.read<PaymentCubit>().getCompleteOrdersSummit(),
-              //   context.read<PaymentCubit>().getOrdersPendingSummit(),
-              // ]);
-            });
-          });
-        }
-      },
-    );
+    context.read<ChangeUserDeliveryImageCubit>().getUserImage();
   }
 
   @override

@@ -37,6 +37,12 @@ abstract class AppServiceClient {
     @Part() List<File> images,
   );
 
+  @PUT(ApiConstants.updateDeliveryImage)
+  @MultiPart()
+  Future<AuthResponse> updateDeliveryImageService(
+    @Part() File image,
+  );
+
   @POST(ApiConstants.forgetPassword)
   Future<ApiSuccessGeneralModel> forgetPassword(
     @Body() ForgetPasswordRequestBody forgetPasswordRequestBody,
@@ -61,7 +67,7 @@ abstract class AppServiceClient {
   );
 
   @POST(ApiConstants.logOut)
-  Future<LogOutResponse> logOut(
+  Future<ApiSuccessGeneralModel> logOut(
     @Field("refreshToken") String refreshToken,
   );
 
@@ -88,7 +94,6 @@ abstract class AppServiceClient {
   Future<ApiSuccessGeneralModel> deleteAddress(
     @Path("id") String id,
   );
-
 
   @PUT(ApiConstants.updateMyData)
   Future<UpdateAccountInformationResponse> updateMyData(

@@ -7,6 +7,7 @@ Future<dynamic> showPicker(
   return showModalBottomSheet(
     backgroundColor: ColorManger.white,
     context: context,
+    useRootNavigator: true,
     builder: (BuildContext context) {
       return SafeArea(
         child: Container(
@@ -19,13 +20,13 @@ Future<dynamic> showPicker(
                 ListTile(
                   trailing: const Icon(Icons.arrow_forward),
                   leading: const Icon(Icons.photo),
-                  title: const Text(AppStrings.photoGallery),
+                  title: Text(context.translate(AppStrings.photoGallery)),
                   onTap: listTileGallery,
                 ),
                 ListTile(
                   trailing: const Icon(Icons.arrow_forward),
                   leading: const Icon(Icons.camera_alt_rounded),
-                  title: const Text(AppStrings.photoCamera),
+                  title: Text(context.translate(AppStrings.photoCamera)),
                   onTap: listTileCamera,
                 ),
               ],
