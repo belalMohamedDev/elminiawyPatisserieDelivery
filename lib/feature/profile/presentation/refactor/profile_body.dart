@@ -95,8 +95,8 @@ class ProfileBody extends StatelessWidget {
                                   responsive.setBorderRadius(50))),
                           child: Icon(
                             IconlyBroken.edit,
-                            color: ColorManger.white,
-                            size: responsive.setIconSize(8),
+                            color: Colors.white70,
+                            size: responsive.setIconSize(9),
                           ),
                         ),
                       ),
