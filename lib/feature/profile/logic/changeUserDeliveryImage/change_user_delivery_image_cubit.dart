@@ -24,7 +24,7 @@ class ChangeUserDeliveryImageCubit extends Cubit<ChangeUserDeliveryImageState> {
     final pickedImage = await _imagePicker.pickImage(source: source);
     if (pickedImage != null) {
       final imageFile = File(pickedImage.path);
- 
+
       changeUserDeliveryRequest(imageFile);
     }
   }
@@ -36,8 +36,7 @@ class ChangeUserDeliveryImageCubit extends Cubit<ChangeUserDeliveryImageState> {
 
     response.when(
       success: (response) async {
-        await SharedPrefHelper.setSecuredString(
-            PrefKeys.userImage, response.data!.image!);
+        AppLogin().storeData(response);
 
         initialUserImage = response.data!.image;
 

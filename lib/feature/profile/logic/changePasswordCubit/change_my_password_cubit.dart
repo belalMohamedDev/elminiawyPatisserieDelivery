@@ -4,9 +4,9 @@ part 'change_my_password_state.dart';
 part 'change_my_password_cubit.freezed.dart';
 
 class ChangeMyPasswordCubit extends Cubit<ChangeMyPasswordState> {
-  ChangeMyPasswordCubit(this._profileRepository)
+  ChangeMyPasswordCubit(this._profileRepositoryImplement)
       : super(const ChangeMyPasswordState.initial());
-  final ProfileRepository _profileRepository;
+  final ProfileRepositoryImplement _profileRepositoryImplement;
 
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController currentPasswordController =
@@ -69,7 +69,7 @@ class ChangeMyPasswordCubit extends Cubit<ChangeMyPasswordState> {
   Future<void> submitPasswordChange() async {
     emit(const ChangeMyPasswordState.changeMyPasswordLoading());
 
-    final response = await _profileRepository.changeMypasswordRepo(
+    final response = await _profileRepositoryImplement.changeMypasswordRepo(
         ChangeMyPasswordRequestBody(
             password: passwordController.text.trim(),
             currentPassword: currentPasswordController.text.trim(),
@@ -77,9 +77,9 @@ class ChangeMyPasswordCubit extends Cubit<ChangeMyPasswordState> {
 
     response.when(
       success: (dataResponse) async {
-        emit(ChangeMyPasswordState.changeMyPasswordSuccess(dataResponse));
         clearAllControllers();
         validatePassword("");
+        emit(ChangeMyPasswordState.changeMyPasswordSuccess(dataResponse));
       },
       failure: (error) {
         if (error.statusCode != 401) {

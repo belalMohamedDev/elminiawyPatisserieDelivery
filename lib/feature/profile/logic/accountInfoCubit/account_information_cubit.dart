@@ -1,6 +1,4 @@
-
 import '../../../../../../core/common/shared/shared_imports.dart'; //
-
 
 part 'account_information_state.dart';
 part 'account_information_cubit.freezed.dart';
@@ -8,8 +6,7 @@ part 'account_information_cubit.freezed.dart';
 class AccountInformationCubit extends Cubit<AccountInformationState> {
   AccountInformationCubit(this._profileRepositoryImplement)
       : super(const AccountInformationState.initial());
-  final ProfileRepositoryImplement
-      _profileRepositoryImplement;
+  final ProfileRepositoryImplement _profileRepositoryImplement;
 
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController userPhoneController = TextEditingController();
@@ -52,42 +49,31 @@ class AccountInformationCubit extends Cubit<AccountInformationState> {
 
     emit(const AccountInformationState.updateAccountInformationLoading());
 
-    final response = await _profileRepositoryImplement
-        .updateAccountInformation(UpdateAccountInformationRequestBody(
+    final response = await _profileRepositoryImplement.updateAccountInformation(
+        UpdateAccountInformationRequestBody(
             name: userNameController.text.trim(),
             phone: userPhoneController.text.trim()));
 
     response.when(
       success: (dataResponse) async {
+        AppLogin().storeData(dataResponse);
         emit(AccountInformationState.updateAccountInformationSuccess(
             dataResponse));
-        await saveUserInformation(
-            dataResponse.data!.name!, dataResponse.data!.phone!);
       },
       failure: (error) {
         if (error.statusCode != 401) {
           emit(
-            AccountInformationState.updateAccountInformationError(
-                error),
+            AccountInformationState.updateAccountInformationError(error),
           );
         }
       },
     );
   }
 
-  Future<void> saveUserInformation(
-    String userName,
-    String userPhone,
-  ) async {
-    await SharedPrefHelper.setSecuredString(PrefKeys.userPhone, userPhone);
-    await SharedPrefHelper.setSecuredString(PrefKeys.userName, userName);
-  }
-
   Future<void> summitdeleteAccount() async {
     emit(const AccountInformationState.deleteAccountLoading());
 
-    final response =
-        await _profileRepositoryImplement.deleteAccountRepo();
+    final response = await _profileRepositoryImplement.deleteAccountRepo();
 
     response.when(
       success: (dataResponse) async {
@@ -96,8 +82,7 @@ class AccountInformationCubit extends Cubit<AccountInformationState> {
       failure: (error) {
         if (error.statusCode != 401) {
           emit(
-            AccountInformationState.deleteAccountError(
-                error),
+            AccountInformationState.deleteAccountError(error),
           );
         }
       },
