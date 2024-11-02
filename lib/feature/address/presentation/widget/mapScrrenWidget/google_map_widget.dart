@@ -19,7 +19,7 @@ class GoogleMapWidget extends StatelessWidget {
               CameraPosition(target: mapCubit.targetPosition, zoom: 16),
           onMapCreated: (controller) => mapCubit.setMapController(controller),
           markers: markers ?? {},
-          mapType: mapCubit.mapType,
+  
           onTap: (argument) async {
             mapCubit.checkAddressAvailableFetch(argument);
 

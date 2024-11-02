@@ -16,10 +16,10 @@ void main() async {
 
   await initAppModule();
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: ColorManger.white,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //   statusBarColor: ColorManger.white,
+  //   statusBarIconBrightness: Brightness.dark,
+  // ));
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,

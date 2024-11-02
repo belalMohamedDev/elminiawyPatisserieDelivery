@@ -1,5 +1,4 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:driver/feature/Authentication/presentation/screens/complete_sign_up_screen.dart';
 import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 class MyApp extends StatefulWidget {
@@ -86,7 +85,7 @@ class _MyAppState extends State<MyApp> {
                     debugShowCheckedModeBanner: false,
                     initialRoute: _getInitialRoute(),
                     onGenerateRoute: RouteGenerator.getRoute,
-                    home: const DeliveryManRegistration(),
+                    home: const HomeScreen(),
                     theme: getApplicationTheme(context),
                   );
                 },

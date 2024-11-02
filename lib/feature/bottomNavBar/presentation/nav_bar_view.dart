@@ -11,7 +11,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -23,10 +22,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return PersistentTabView(
           avoidBottomPadding: false,
           stateManagement: false,
-        
+
           controller: context.read<AppLogicCubit>().bottomNavBarController,
-
-
 
           margin: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 12.h),
 
@@ -73,15 +70,34 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ),
       PersistentTabConfig(
+        screen: BlocProvider(
+          create: (context) => instance<UserNotificationCubit>(),
+          child: const NotificationScreen(),
+        ),
+        item: ItemConfig(
+          icon: Icon(IconlyBold.notification, size: 20.sp),
+          inactiveIcon: Icon(IconlyBroken.notification, size: 20.sp),
+          title: (context.translate(AppStrings.notification)),
+          textStyle: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(fontSize: responsive.setTextSize(3.5)),
+          activeForegroundColor: ColorManger.brun,
+          inactiveForegroundColor: ColorManger.brun,
+        ),
+      ),
+      PersistentTabConfig(
         screen: MultiBlocProvider(
           providers: [
             BlocProvider(
               create: (context) => instance<LogOutCubit>(),
             ),
-             BlocProvider(
+            BlocProvider(
               create: (context) => instance<ChangeUserDeliveryImageCubit>(),
             ),
-         
+            BlocProvider(
+              create: (context) => instance<MapCubit>(),
+            ),
           ],
           child: const ProfileView(),
         ),

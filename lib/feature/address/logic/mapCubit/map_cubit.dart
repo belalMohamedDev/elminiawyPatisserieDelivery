@@ -24,6 +24,8 @@ class MapCubit extends Cubit<MapState> {
 
   String? textEditingSearchText;
   String homeScreenCurrentAddress = '';
+
+  late String _mapTheme;
   final TextEditingController searchConroller = TextEditingController();
 
   // Default starting position on the map
@@ -32,6 +34,14 @@ class MapCubit extends Cubit<MapState> {
   MapType mapType = MapType.normal;
 
   CheckLocationAvailableResponse? checkLocationAvailableResponse;
+
+  void loadMapStyle() {
+    DefaultAssetBundle.of(context).loadString("asset/json/map_theme.json").then(
+      (value) {
+        _mapTheme = value;
+      },
+    );
+  }
 
   void toggleMapType() {
     if (mapType == MapType.normal) {
@@ -144,10 +154,14 @@ class MapCubit extends Cubit<MapState> {
 
   // Set the map controller
   void setMapController(GoogleMapController controller) async {
-    mapController = controller;
-    if (isHomeScreenLocation == true) {
-      await moveToLocation(position: targetPosition);
-    }
+    Completer<GoogleMapController> gmCompleter = Completer();
+    gmCompleter.complete(controller);
+    gmCompleter.future.then(
+      (gmController) {
+        mapController = gmController;
+        mapController.setMapStyle(_mapTheme);
+      },
+    );
   }
 
   // Set the map controller

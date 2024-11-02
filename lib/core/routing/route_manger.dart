@@ -147,13 +147,13 @@ class RouteGenerator {
           ),
         );
 
-      case Routes.notification:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => instance<UserNotificationCubit>(),
-            child: const UserNotificationScreen(),
-          ),
-        );
+      // case Routes.notification:
+      //   return MaterialPageRoute(
+      //     builder: (_) => BlocProvider(
+      //       create: (context) => instance<UserNotificationCubit>(),
+      //       child: const UserNotificationScreen(),
+      //     ),
+      //   );
 
       case Routes.noRoute:
         return MaterialPageRoute(builder: (_) => const RouteStatesScreen());

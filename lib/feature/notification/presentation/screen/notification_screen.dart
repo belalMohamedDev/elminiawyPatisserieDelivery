@@ -2,14 +2,14 @@ import 'package:driver/core/common/shared/shared_imports.dart';
 
 /// [UserNotificationScreen] is a StatefulWidget that displays user notifications.
 /// It fetches notifications when the screen is initialized and marks all as seen.
-class UserNotificationScreen extends StatefulWidget {
-  const UserNotificationScreen({super.key});
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
 
   @override
-  State<UserNotificationScreen> createState() => _UserNotificationScreenState();
+  State<NotificationScreen> createState() => _UserNotificationScreenState();
 }
 
-class _UserNotificationScreenState extends State<UserNotificationScreen> {
+class _UserNotificationScreenState extends State<NotificationScreen> {
   /// Initializes the state and triggers the notifications fetching and update.
   @override
   void initState() {

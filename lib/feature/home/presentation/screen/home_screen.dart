@@ -1,9 +1,5 @@
-import '../../../../../core/common/shared/shared_imports.dart'; // Shared imports for project utilities
 
-/// `HomeScreen` is a `StatefulWidget` that manages the display of the home screen
-/// and handles notification services. It integrates Firebase Cloud Messaging
-/// for receiving notifications and interacts with the `MapCubit` for setting
-/// the user's location to "Home".
+import '../../../../../core/common/shared/shared_imports.dart'; // Shared imports for project utilities
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,54 +8,150 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-/// The state class `_HomeScreenState` manages the notification service,
-/// initializes it during the lifecycle, and handles the screen's main UI.
 class _HomeScreenState extends State<HomeScreen> {
-  // NotificationService instance to handle notifications throughout the app
-  late final NotificationService _notificationService;
-
   @override
   void initState() {
     super.initState();
-
-    // Initialize the NotificationService with a repository and notification callback
-    _notificationService = NotificationService(
-      instance<
-          UserNotificationRepositoryImplement>(), // Inject the user notification repository
-    );
-
-    // Delay the execution until after the first frame is rendered
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // Retrieve the saved username from secure shared preferences
-      // Call MapCubit's function to set the location to "Home"
-      context.read<MapCubit>().setLocationToHome();
-
-      // If the username is present, start listening and fetching notifications
-      // if (!AppInitialRoute.isAnonymousUser) {
-      //   _notificationService
-      //       .fetchNotificationsContinuously(); // Continuously fetch notifications
-      // }
-    });
+    context.read<MapCubit>().loadMapStyle();
   }
 
   @override
   Widget build(BuildContext context) {
-    // The Scaffold represents the main structure of the home screen
+    final mapCuibt = context.read<MapCubit>();
+    final responsive = ResponsiveUtils(context);
+
     return Scaffold(
-      // Pass the notification service to the body of the home screen
-      body: SafeArea(
-        child: HomeBody(
-          notificationService:
-              _notificationService, // Inject the notification service into the body
-        ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: GoogleMapWidget(
+              mapCubit: mapCuibt,
+            ),
+          ),
+          Positioned(
+            top: responsive.setHeight(8),
+            left: responsive.setWidth(3),
+            right: responsive.setWidth(3),
+            child: Container(
+              height: responsive.setHeight(10.2),
+              width: responsive.screenWidth,
+              decoration: BoxDecoration(
+                  color: ColorManger.backgroundItem,
+                  borderRadius:
+                      BorderRadius.circular(responsive.setBorderRadius(2))),
+              child: Padding(
+                padding: responsive.setPadding(left: 3.5, top: 1.8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: responsive.setPadding(bottom: 1.8, right: 3),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.green,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.check_rounded,
+                                color: ColorManger.white,
+                              ),
+                            ),
+                          ),
+                          responsive.setSizeBox(width: 3),
+                          CircleAvatar(
+                            backgroundColor: ColorManger.redError,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.close_rounded,
+                                color: ColorManger.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    responsive.setSizeBox(width: 7),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Belal Mohamed Elsayed',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  fontSize: responsive.setTextSize(4.2),
+                                ),
+                          ),
+                          responsive.setSizeBox(height: 1.2),
+                          Row(
+                            children: [
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.send,
+                                text: "1Km",
+                                responsive: responsive,
+                              ),
+                              const Spacer(),
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.timeCircle,
+                                text: "12:00",
+                                responsive: responsive,
+                              ),
+                              const Spacer(),
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.discount,
+                                text: "54",
+                                responsive: responsive,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  @override
-  void dispose() {
-    // Stop fetching notifications when the widget is disposed (e.g., user navigates away)
-    _notificationService.stopFetchingNotifications();
-    super.dispose();
+  Widget _buildInfoContainer(BuildContext context,
+      {required IconData icon,
+      required String text,
+      required ResponsiveUtils responsive}) {
+    return Container(
+      height: responsive.setHeight(3),
+      width: responsive.setWidth(18),
+      decoration: BoxDecoration(
+        color: ColorManger.brownLight,
+        borderRadius: BorderRadius.circular(responsive.setBorderRadius(2)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            text,
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  fontSize: responsive.setTextSize(3),
+                ),
+          ),
+          responsive.setSizeBox(width: 1),
+          Icon(
+            icon,
+            color: ColorManger.brun,
+            size: responsive.setIconSize(4),
+          ),
+        ],
+      ),
+    );
   }
 }
