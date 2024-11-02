@@ -9,10 +9,10 @@ class ChangeMyPasswordRequestBody {
     required this.passwordConfirm,
   });
 
-  final String password;
-  final String passwordConfirm;
+  final String? password;
+  final String? passwordConfirm;
 
-  final String currentPassword;
+  final String? currentPassword;
 
   //from json
   factory ChangeMyPasswordRequestBody.fromJson(Map<String, dynamic> json) =>

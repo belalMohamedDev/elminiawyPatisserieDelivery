@@ -1,12 +1,12 @@
-import '../../../../../core/common/shared/shared_imports.dart'; //
+import '../../../../../../core/common/shared/shared_imports.dart'; //
 
 part 'change_my_password_state.dart';
 part 'change_my_password_cubit.freezed.dart';
 
 class ChangeMyPasswordCubit extends Cubit<ChangeMyPasswordState> {
-  ChangeMyPasswordCubit(this._changeMyPasswordRepository)
+  ChangeMyPasswordCubit(this._profileRepository)
       : super(const ChangeMyPasswordState.initial());
-  final ChangeMyPasswordRepository _changeMyPasswordRepository;
+  final ProfileRepository _profileRepository;
 
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController currentPasswordController =
@@ -69,7 +69,7 @@ class ChangeMyPasswordCubit extends Cubit<ChangeMyPasswordState> {
   Future<void> submitPasswordChange() async {
     emit(const ChangeMyPasswordState.changeMyPasswordLoading());
 
-    final response = await _changeMyPasswordRepository.changeMypasswordRepo(
+    final response = await _profileRepository.changeMypasswordRepo(
         ChangeMyPasswordRequestBody(
             password: passwordController.text.trim(),
             currentPassword: currentPasswordController.text.trim(),

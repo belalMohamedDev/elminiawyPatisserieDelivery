@@ -4,13 +4,13 @@ part 'change_email_request.g.dart';
 @JsonSerializable()
 class ChangeEmailRequestBody {
   ChangeEmailRequestBody({
-    required this.newEmail,
-    required this.currentPassword,
+     this.newEmail,
+     this.currentPassword,
   });
 
-  final String newEmail;
+  final String? newEmail;
 
-  final String currentPassword;
+  final String? currentPassword;
 
   //from json
   factory ChangeEmailRequestBody.fromJson(Map<String, dynamic> json) =>

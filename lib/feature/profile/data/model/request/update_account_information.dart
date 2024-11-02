@@ -4,13 +4,13 @@ part 'update_account_information.g.dart';
 @JsonSerializable()
 class UpdateAccountInformationRequestBody {
   UpdateAccountInformationRequestBody({
-    required this.name,
-    required this.phone,
+     this.name,
+     this.phone,
   });
 
-  final String name;
+  final String? name;
 
-  final String phone;
+  final String? phone;
 
   //from json
   factory UpdateAccountInformationRequestBody.fromJson(Map<String, dynamic> json) =>

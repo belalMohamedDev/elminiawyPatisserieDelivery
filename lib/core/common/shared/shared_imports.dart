@@ -12,6 +12,8 @@ export '../../../../feature/Authentication/data/model/bodyRequest/register/compl
 export '../../../../core/utils/custom_mask_formatter.dart';
 export 'package:flutter_cache_manager/flutter_cache_manager.dart';
 export '../../../../feature/profile/logic/changeUserDeliveryImage/change_user_delivery_image_cubit.dart';
+export '../../../../feature/profile/presentation/widget/profile_image_and_welcome_back_text.dart';
+
 
 export '../../../../core/utils/custom_cache_manager.dart';
 export '../../../../core/language/app_localizations.dart';
@@ -49,11 +51,11 @@ export 'dart:convert' show json;
 export 'package:rxdart/rxdart.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 export '../../../../core/style/fonts/styles_manger.dart';
-export '../../../../feature/accountInfo/presentation/refactor/account_info_body.dart';
+export '../../../feature/profile/presentation/refactor/account_info_body.dart';
 export '../../../../feature/address/data/model/request/create_address_request.dart';
 export '../../../../feature/address/presentation/widget/mapScrrenWidget/custom_map_marker.dart';
-export '../../../../feature/changeEmailAddress/presentation/refactor/change_email_body.dart';
-export '../../../../feature/changePassword/presentation/refactor/change_password_body.dart';
+export '../../../feature/profile/presentation/refactor/change_email_body.dart';
+export '../../../feature/profile/presentation/refactor/change_password_body.dart';
 export '../../../../feature/home/presentation/refactor/home_body.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export '../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/have_account_text.dart';
@@ -139,11 +141,11 @@ export '../../../../feature/home/logic/bannerCubit/banner_cubit.dart';
 export '../../../../feature/home/presentation/screen/home_screen.dart';
 export '../../../../feature/profile/presentation/screen/profile_view.dart';
 
-export '../../../../feature/accountInfo/presentation/screen/account_info_screen.dart';
+export '../../../feature/profile/presentation/screen/account_info_screen.dart';
 export '../../../../feature/address/logic/mapCubit/map_cubit.dart';
-export '../../../../feature/changeEmailAddress/cubit/change_email_address_cubit.dart';
-export '../../../../feature/changeEmailAddress/presentation/screen/change_email.dart';
-export '../../../../feature/changePassword/presentation/screen/change_password_screen.dart';
+export '../../../feature/profile/logic/changeEmailAddressCubit/change_email_address_cubit.dart';
+export '../../../feature/profile/presentation/screen/change_email_screen.dart';
+export '../../../feature/profile/presentation/screen/change_password_screen.dart';
 export '../../../../feature/notification/presentation/screen/notification_screen.dart';
 export '../../../feature/Authentication/logic/signUpBloc/sign_up_bloc.dart';
 
@@ -160,9 +162,9 @@ export '../../../../feature/Authentication/presentation/screens/forget_password_
 export '../../../../feature/Authentication/presentation/screens/new_password_screen.dart';
 export '../../../../feature/Authentication/presentation/screens/verification_code_screen.dart';
 
-export '../../../../feature/accountInfo/cubit/account_information_cubit.dart'
+export '../../../feature/profile/logic/accountInfoCubit/account_information_cubit.dart'
     hide GetStorageData;
-export '../../../../feature/changePassword/cubit/change_my_password_cubit.dart'
+export '../../../feature/profile/logic/changePasswordCubit/change_my_password_cubit.dart'
     hide ChangePasswordVisibilityState;
 
 export '../../../../feature/profile/presentation/widget/profile_column_card.dart';
@@ -175,7 +177,6 @@ export '../../../../feature/profile/presentation/widget/setting_change_bottom_sh
 export '../../../../core/services/pushNotification/firebase_cloud_messaging.dart';
 export 'package:flutter/cupertino.dart' hide RefreshCallback;
 
-export '../../../../feature/profile/presentation/refactor/profile_body.dart';
 export 'package:flutter/services.dart';
 
 export '../../../feature/profile/data/repository/profile_repo.dart';
@@ -218,8 +219,6 @@ export '../../../../core/common/sharedWidget/layout_builder_point_line.dart';
 
 
 export 'package:dio/dio.dart';
-export '../../../../feature/changeEmailAddress/data/repository/change_email_repo.dart';
-export '../../../../feature/changePassword/data/repository/change_password_repo.dart';
 export '../../../../feature/notification/data/repository/user_notification_repo.dart';
 export '../../../../core/application/notification_Controller.dart';
 
@@ -231,7 +230,6 @@ export 'package:flutter_google_maps_webservices/places.dart';
 export 'package:get_it/get_it.dart';
 export 'package:internet_connection_checker/internet_connection_checker.dart';
 
-export '../../../../feature/accountInfo/data/repository/update_account_information.dart';
 export '../../../../feature/home/data/repository/repositry.dart';
 export '../../../../feature/address/data/repository/address_repo.dart';
 export '../../../../firebase_options.dart';
@@ -255,19 +253,16 @@ export '../../../../core/utils/date_extension.dart';
 export '../../../../core/network/apiResult/api_reuslt.dart';
 export '../../../../core/network/error_handler/api_error_handler.dart';
 
-export '../../../../feature/changePassword/data/model/request/change_my_password_request.dart';
+export '../../../feature/profile/data/model/request/change_my_password_request.dart';
 export '../../../../feature/home/data/model/response/category_response.dart'
     hide PaginationRuslt;
 export '../../../../feature/address/data/model/response/create_address_response.dart'
     hide Location;
 
-export '../../../feature/accountInfo/data/model/request/update_account_information.dart';
-export '../../../feature/accountInfo/data/model/response/delete_account.dart';
-export '../../../feature/accountInfo/data/model/response/update_account_information.dart';
+export '../../../feature/profile/data/model/request/update_account_information.dart';
 export '../../../feature/address/data/model/request/check_address_available.dart';
 export '../../../feature/address/data/model/response/check_address_available.dart';
-export '../../../feature/changeEmailAddress/data/model/request/change_email_request.dart';
-export '../../../feature/changeEmailAddress/data/model/response/change_email_response.dart';
+export '../../../feature/profile/data/model/request/change_email_request.dart';
 export '../../../feature/home/data/model/response/banner_response.dart';
 
 

@@ -10,7 +10,7 @@ class AccountInformationState with _$AccountInformationState {
        ApiErrorModel apiErrorModel) = UpdateAccountInformationError;
 
   const factory AccountInformationState.updateAccountInformationSuccess(
-      UpdateAccountInformationResponse data) = UpdateAccountInformationSuccess;
+      AuthResponse data) = UpdateAccountInformationSuccess;
 
   const factory AccountInformationState.getStorageData(
       String userEmail, String userName, String userPhone) = GetStorageData;
@@ -29,6 +29,6 @@ class AccountInformationState with _$AccountInformationState {
       ApiErrorModel apiErrorModel) = DeleteAccountError;
 
   const factory AccountInformationState.deleteAccountSuccess(
-      DeleteAccountResponse data) = DeleteAccountSuccess;
+      ApiSuccessGeneralModel data) = DeleteAccountSuccess;
 
 }

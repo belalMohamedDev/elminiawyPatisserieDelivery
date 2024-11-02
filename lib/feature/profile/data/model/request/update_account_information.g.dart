@@ -9,8 +9,8 @@ part of 'update_account_information.dart';
 UpdateAccountInformationRequestBody
     _$UpdateAccountInformationRequestBodyFromJson(Map<String, dynamic> json) =>
         UpdateAccountInformationRequestBody(
-          name: json['name'] as String,
-          phone: json['phone'] as String,
+          name: json['name'] as String?,
+          phone: json['phone'] as String?,
         );
 
 Map<String, dynamic> _$UpdateAccountInformationRequestBodyToJson(

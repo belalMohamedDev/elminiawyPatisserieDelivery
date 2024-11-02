@@ -1,14 +1,14 @@
 
-import '../../../../../core/common/shared/shared_imports.dart'; //
+import '../../../../../../core/common/shared/shared_imports.dart'; //
 
 part 'change_email_address_state.dart';
 part 'change_email_address_cubit.freezed.dart';
 
 class ChangeEmailAddressCubit extends Cubit<ChangeEmailAddressState> {
-  ChangeEmailAddressCubit(this._changeEmailAddressRepository)
+  ChangeEmailAddressCubit(this._profileRepositoryImplement)
       : super(const ChangeEmailAddressState.initial());
 
-  final ChangeEmailAddressRepository _changeEmailAddressRepository;
+  final ProfileRepositoryImplement _profileRepositoryImplement;
 
   final TextEditingController newEmailAddressController =
       TextEditingController();
@@ -29,7 +29,7 @@ class ChangeEmailAddressCubit extends Cubit<ChangeEmailAddressState> {
   Future<void> submitEmailAddressChange() async {
     emit(const ChangeEmailAddressState.changeEmailAddressLoading());
 
-    final response = await _changeEmailAddressRepository.changeMyEmailAddress(
+    final response = await _profileRepositoryImplement.changeMyEmailAddress(
         ChangeEmailRequestBody(
             newEmail: newEmailAddressController.text.trim(),
             currentPassword: currentPasswordController.text.trim()));

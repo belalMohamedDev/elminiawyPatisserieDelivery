@@ -96,13 +96,13 @@ abstract class AppServiceClient {
   );
 
   @PUT(ApiConstants.updateMyData)
-  Future<UpdateAccountInformationResponse> updateMyData(
+  Future<AuthResponse> updateMyData(
     @Body()
     UpdateAccountInformationRequestBody updateAccountInformationRequestBody,
   );
 
   @PUT(ApiConstants.updateMyEmailAddress)
-  Future<UpdateEmailAddressResponse> updateMyEmailAddress(
+  Future<AuthResponse> updateMyEmailAddress(
     @Body() ChangeEmailRequestBody changeEmailRequestBody,
   );
 
@@ -112,7 +112,7 @@ abstract class AppServiceClient {
   );
 
   @DELETE(ApiConstants.deleteMyAccount)
-  Future<DeleteAccountResponse> deleteMyAccountService();
+  Future<ApiSuccessGeneralModel> deleteMyAccountService();
 
   @GET('${ApiConstants.notification}/user')
   Future<UserNotificationResponse> getAllNotificationToUserService();

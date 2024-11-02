@@ -10,7 +10,7 @@ class ChangeEmailAddressState with _$ChangeEmailAddressState {
        ApiErrorModel apiErrorModel) = ChangeEmailAddressError;
 
   const factory ChangeEmailAddressState.changeEmailAddressSuccess(
-      UpdateEmailAddressResponse data) = ChangeEmailAddressSuccess;
+      AuthResponse data) = ChangeEmailAddressSuccess;
 
         const factory ChangeEmailAddressState.changePasswordVisibilityState(
     bool isPasswordVisible,

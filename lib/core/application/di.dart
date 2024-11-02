@@ -125,29 +125,22 @@ Future<void> _initAddress() async {
 
 Future<void> _initAccoutInformation() async {
   instance
-    ..registerLazySingleton<AccountInformationRepositoryImplement>(
-        () => AccountInformationRepositoryImplement(instance()))
-    ..registerFactory<AccountInformationCubit>(() => AccountInformationCubit(
-          instance(),
-        ));
+      .registerFactory<AccountInformationCubit>(() => AccountInformationCubit(
+            instance(),
+          ));
 }
 
 Future<void> _initChangeEmailAddress() async {
   instance
-    ..registerLazySingleton<ChangeEmailAddressRepository>(
-        () => ChangeEmailAddressRepository(instance()))
-    ..registerFactory<ChangeEmailAddressCubit>(() => ChangeEmailAddressCubit(
-          instance(),
-        ));
+      .registerFactory<ChangeEmailAddressCubit>(() => ChangeEmailAddressCubit(
+            instance(),
+          ));
 }
 
 Future<void> _initChangeMyPassword() async {
-  instance
-    ..registerLazySingleton<ChangeMyPasswordRepository>(
-        () => ChangeMyPasswordRepository(instance()))
-    ..registerFactory<ChangeMyPasswordCubit>(() => ChangeMyPasswordCubit(
-          instance(),
-        ));
+  instance.registerFactory<ChangeMyPasswordCubit>(() => ChangeMyPasswordCubit(
+        instance(),
+      ));
 }
 
 Future<void> _initNotification() async {

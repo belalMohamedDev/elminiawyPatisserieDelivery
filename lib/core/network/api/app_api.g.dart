@@ -657,7 +657,7 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<UpdateAccountInformationResponse> updateMyData(
+  Future<AuthResponse> updateMyData(
       UpdateAccountInformationRequestBody
           updateAccountInformationRequestBody) async {
     final _extra = <String, dynamic>{};
@@ -665,7 +665,7 @@ class _AppServiceClient implements AppServiceClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(updateAccountInformationRequestBody.toJson());
-    final _options = _setStreamType<UpdateAccountInformationResponse>(Options(
+    final _options = _setStreamType<AuthResponse>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -682,9 +682,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late UpdateAccountInformationResponse _value;
+    late AuthResponse _value;
     try {
-      _value = UpdateAccountInformationResponse.fromJson(_result.data!);
+      _value = AuthResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -693,14 +693,14 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<UpdateEmailAddressResponse> updateMyEmailAddress(
+  Future<AuthResponse> updateMyEmailAddress(
       ChangeEmailRequestBody changeEmailRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(changeEmailRequestBody.toJson());
-    final _options = _setStreamType<UpdateEmailAddressResponse>(Options(
+    final _options = _setStreamType<AuthResponse>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -717,9 +717,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late UpdateEmailAddressResponse _value;
+    late AuthResponse _value;
     try {
-      _value = UpdateEmailAddressResponse.fromJson(_result.data!);
+      _value = AuthResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -763,12 +763,12 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<DeleteAccountResponse> deleteMyAccountService() async {
+  Future<ApiSuccessGeneralModel> deleteMyAccountService() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<DeleteAccountResponse>(Options(
+    final _options = _setStreamType<ApiSuccessGeneralModel>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -785,9 +785,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeleteAccountResponse _value;
+    late ApiSuccessGeneralModel _value;
     try {
-      _value = DeleteAccountResponse.fromJson(_result.data!);
+      _value = ApiSuccessGeneralModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

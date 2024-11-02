@@ -1,15 +1,15 @@
 
-import '../../../../../core/common/shared/shared_imports.dart'; //
+import '../../../../../../core/common/shared/shared_imports.dart'; //
 
 
 part 'account_information_state.dart';
 part 'account_information_cubit.freezed.dart';
 
 class AccountInformationCubit extends Cubit<AccountInformationState> {
-  AccountInformationCubit(this._accountInformationRepositoryImplement)
+  AccountInformationCubit(this._profileRepositoryImplement)
       : super(const AccountInformationState.initial());
-  final AccountInformationRepositoryImplement
-      _accountInformationRepositoryImplement;
+  final ProfileRepositoryImplement
+      _profileRepositoryImplement;
 
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController userPhoneController = TextEditingController();
@@ -52,7 +52,7 @@ class AccountInformationCubit extends Cubit<AccountInformationState> {
 
     emit(const AccountInformationState.updateAccountInformationLoading());
 
-    final response = await _accountInformationRepositoryImplement
+    final response = await _profileRepositoryImplement
         .updateAccountInformation(UpdateAccountInformationRequestBody(
             name: userNameController.text.trim(),
             phone: userPhoneController.text.trim()));
@@ -87,7 +87,7 @@ class AccountInformationCubit extends Cubit<AccountInformationState> {
     emit(const AccountInformationState.deleteAccountLoading());
 
     final response =
-        await _accountInformationRepositoryImplement.deleteAccountRepo();
+        await _profileRepositoryImplement.deleteAccountRepo();
 
     response.when(
       success: (dataResponse) async {

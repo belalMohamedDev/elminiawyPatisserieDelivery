@@ -22,8 +22,7 @@ mixin _$ChangeEmailAddressState {
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) =>
@@ -33,8 +32,7 @@ mixin _$ChangeEmailAddressState {
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,8 +41,7 @@ mixin _$ChangeEmailAddressState {
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) =>
@@ -150,8 +147,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) {
@@ -164,8 +160,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) {
     return initial?.call();
@@ -177,8 +172,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) {
@@ -289,8 +283,7 @@ class _$ChangeEmailAddressLoadingImpl implements ChangeEmailAddressLoading {
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) {
@@ -303,8 +296,7 @@ class _$ChangeEmailAddressLoadingImpl implements ChangeEmailAddressLoading {
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) {
     return changeEmailAddressLoading?.call();
@@ -316,8 +308,7 @@ class _$ChangeEmailAddressLoadingImpl implements ChangeEmailAddressLoading {
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) {
@@ -455,8 +446,7 @@ class _$ChangeEmailAddressErrorImpl implements ChangeEmailAddressError {
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) {
@@ -469,8 +459,7 @@ class _$ChangeEmailAddressErrorImpl implements ChangeEmailAddressError {
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) {
     return changeEmailAddressError?.call(apiErrorModel);
@@ -482,8 +471,7 @@ class _$ChangeEmailAddressErrorImpl implements ChangeEmailAddressError {
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) {
@@ -561,7 +549,7 @@ abstract class _$$ChangeEmailAddressSuccessImplCopyWith<$Res> {
           $Res Function(_$ChangeEmailAddressSuccessImpl) then) =
       __$$ChangeEmailAddressSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UpdateEmailAddressResponse data});
+  $Res call({AuthResponse data});
 }
 
 /// @nodoc
@@ -583,7 +571,7 @@ class __$$ChangeEmailAddressSuccessImplCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UpdateEmailAddressResponse,
+              as AuthResponse,
     ));
   }
 }
@@ -594,7 +582,7 @@ class _$ChangeEmailAddressSuccessImpl implements ChangeEmailAddressSuccess {
   const _$ChangeEmailAddressSuccessImpl(this.data);
 
   @override
-  final UpdateEmailAddressResponse data;
+  final AuthResponse data;
 
   @override
   String toString() {
@@ -626,8 +614,7 @@ class _$ChangeEmailAddressSuccessImpl implements ChangeEmailAddressSuccess {
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) {
@@ -640,8 +627,7 @@ class _$ChangeEmailAddressSuccessImpl implements ChangeEmailAddressSuccess {
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) {
     return changeEmailAddressSuccess?.call(data);
@@ -653,8 +639,7 @@ class _$ChangeEmailAddressSuccessImpl implements ChangeEmailAddressSuccess {
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) {
@@ -716,10 +701,10 @@ class _$ChangeEmailAddressSuccessImpl implements ChangeEmailAddressSuccess {
 }
 
 abstract class ChangeEmailAddressSuccess implements ChangeEmailAddressState {
-  const factory ChangeEmailAddressSuccess(
-      final UpdateEmailAddressResponse data) = _$ChangeEmailAddressSuccessImpl;
+  const factory ChangeEmailAddressSuccess(final AuthResponse data) =
+      _$ChangeEmailAddressSuccessImpl;
 
-  UpdateEmailAddressResponse get data;
+  AuthResponse get data;
   @JsonKey(ignore: true)
   _$$ChangeEmailAddressSuccessImplCopyWith<_$ChangeEmailAddressSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -800,8 +785,7 @@ class _$ChangePasswordVisibilityStateImpl
     required TResult Function() changeEmailAddressLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         changeEmailAddressError,
-    required TResult Function(UpdateEmailAddressResponse data)
-        changeEmailAddressSuccess,
+    required TResult Function(AuthResponse data) changeEmailAddressSuccess,
     required TResult Function(bool isPasswordVisible)
         changePasswordVisibilityState,
   }) {
@@ -814,8 +798,7 @@ class _$ChangePasswordVisibilityStateImpl
     TResult? Function()? initial,
     TResult? Function()? changeEmailAddressLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult? Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult? Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult? Function(bool isPasswordVisible)? changePasswordVisibilityState,
   }) {
     return changePasswordVisibilityState?.call(isPasswordVisible);
@@ -827,8 +810,7 @@ class _$ChangePasswordVisibilityStateImpl
     TResult Function()? initial,
     TResult Function()? changeEmailAddressLoading,
     TResult Function(ApiErrorModel apiErrorModel)? changeEmailAddressError,
-    TResult Function(UpdateEmailAddressResponse data)?
-        changeEmailAddressSuccess,
+    TResult Function(AuthResponse data)? changeEmailAddressSuccess,
     TResult Function(bool isPasswordVisible)? changePasswordVisibilityState,
     required TResult orElse(),
   }) {

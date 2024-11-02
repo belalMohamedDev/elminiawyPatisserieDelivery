@@ -9,8 +9,8 @@ part of 'change_email_request.dart';
 ChangeEmailRequestBody _$ChangeEmailRequestBodyFromJson(
         Map<String, dynamic> json) =>
     ChangeEmailRequestBody(
-      newEmail: json['newEmail'] as String,
-      currentPassword: json['currentPassword'] as String,
+      newEmail: json['newEmail'] as String?,
+      currentPassword: json['currentPassword'] as String?,
     );
 
 Map<String, dynamic> _$ChangeEmailRequestBodyToJson(

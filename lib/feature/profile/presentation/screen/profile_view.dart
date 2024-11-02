@@ -1,3 +1,4 @@
+
 import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 class ProfileView extends StatefulWidget {
@@ -22,8 +23,16 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ProfileBody(),
+    return  Scaffold(
+      body:  Column(
+      children: [
+        const ProfileImageAndWelcomeBackText(),
+        SizedBox(
+          height: 30.h,
+        ),
+        profileColumnCard(context),
+      ],
+    )
     );
   }
 
