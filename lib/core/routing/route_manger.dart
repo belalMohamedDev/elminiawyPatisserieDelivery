@@ -133,12 +133,7 @@ class RouteGenerator {
               BlocProvider.value(
                 value: instance<UserAddressCubit>(),
               ),
-              BlocProvider(
-                create: (context) => instance<BannerCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => instance<CategoryCubit>(),
-              ),
+            
               BlocProvider.value(
                 value: instance<MapCubit>(),
               ),

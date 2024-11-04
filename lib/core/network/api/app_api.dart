@@ -37,6 +37,9 @@ abstract class AppServiceClient {
     @Part() List<File> images,
   );
 
+   @GET(ApiConstants.getOrders)
+  Future<GetAllOrderResponse> getAllOrderService();
+
   @PUT(ApiConstants.updateDeliveryImage)
   @MultiPart()
   Future<AuthResponse> updateDeliveryImageService(
@@ -58,13 +61,6 @@ abstract class AppServiceClient {
     @Body() NewPasswordRequestBody newPasswordRequestBody,
   );
 
-  @GET(ApiConstants.banner)
-  Future<BannerResponse> getBanners();
-
-  @GET(ApiConstants.category)
-  Future<CategoryResponse> getCategories(
-    @Query("sort") String sort,
-  );
 
   @POST(ApiConstants.logOut)
   Future<ApiSuccessGeneralModel> logOut(

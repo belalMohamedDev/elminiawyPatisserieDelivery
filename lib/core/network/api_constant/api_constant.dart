@@ -13,6 +13,8 @@ class ApiConstants {
   static const String refreshToken = '$baseUrl/v1/api/auth/token';
   static const String logOut = '/v1/api/auth/logout';
 
+  static const String getOrders = '/v1/api/driver/getNewOrders';
+
   static const String updateMyImage = '/v1/api/user/updateMyImage';
   static const String updateMyPassword = '/v1/api/user/updateMyPassword';
   static const String updateMyData = '/v1/api/user/updateMyData';

@@ -15,19 +15,11 @@ class SignInButton extends StatelessWidget {
           suceess: (authResponse) async {
             if (authResponse.data!.role == "delivery") {
               if (authResponse.data!.completeData == true) {
-                if (authResponse.data!.deliveryActive == true) {
-                  ShowToast.showToastSuccessTop(
-                      message: authResponse.message!, context: context);
-                  AppLogin().storeData(authResponse);
+                ShowToast.showToastSuccessTop(
+                    message: authResponse.message!, context: context);
+                AppLogin().storeData(authResponse);
 
-                  await context
-                      .pushNamedAndRemoveUntil(Routes.bottomNavBarRoute);
-                } else {
-                  ShowToast.showToastErrorTop(
-                      errorMessage: context
-                          .translate(AppStrings.thisAccountIsNotYetActive),
-                      context: context);
-                }
+                await context.pushNamedAndRemoveUntil(Routes.bottomNavBarRoute);
               } else {
                 // Navigate to the map screen after a successful login
                 AppLogin().storeData(authResponse);

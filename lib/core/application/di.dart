@@ -43,17 +43,17 @@ Future<void> _initAppModule() async {
 
 Future<void> _inithome() async {
   // //home repository
-  instance
-    ..registerLazySingleton<HomeRepositoryImplement>(
-        () => HomeRepositoryImplement(
-              instance(),
-            ))
-    ..registerFactory<CategoryCubit>(() => CategoryCubit(
-          instance(),
-        ))
-    ..registerFactory<BannerCubit>(() => BannerCubit(
-          instance(),
-        ));
+  // instance
+  //   ..registerLazySingleton<HomeRepositoryImplement>(
+  //       () => HomeRepositoryImplement(
+  //             instance(),
+  //           ))
+  //   ..registerFactory<CategoryCubit>(() => CategoryCubit(
+  //         instance(),
+  //       ))
+  //   ..registerFactory<BannerCubit>(() => BannerCubit(
+  //         instance(),
+  //       ));
 }
 
 Future<void> _initPlaces() async {
