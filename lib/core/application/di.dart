@@ -1,3 +1,4 @@
+
 import '../../../../core/common/shared/shared_imports.dart';
 
 final instance = GetIt.instance;
@@ -43,17 +44,14 @@ Future<void> _initAppModule() async {
 
 Future<void> _inithome() async {
   // //home repository
-  // instance
-  //   ..registerLazySingleton<HomeRepositoryImplement>(
-  //       () => HomeRepositoryImplement(
-  //             instance(),
-  //           ))
-  //   ..registerFactory<CategoryCubit>(() => CategoryCubit(
-  //         instance(),
-  //       ))
-  //   ..registerFactory<BannerCubit>(() => BannerCubit(
-  //         instance(),
-  //       ));
+  instance
+    ..registerLazySingleton<HomeRepositoryImplement>(
+        () => HomeRepositoryImplement(
+              instance(),
+            ))
+    ..registerFactory<OrderCubit>(() => OrderCubit(
+          instance(),
+        ));
 }
 
 Future<void> _initPlaces() async {
@@ -114,9 +112,9 @@ Future<void> _initAddress() async {
   instance
     ..registerLazySingleton<UserAddressRepositoryImplement>(
         () => UserAddressRepositoryImplement(instance()))
-    ..registerLazySingleton<MapCubit>(() => MapCubit(
+    ..registerFactory<MapCubit>(() => MapCubit(
           instance(),
-          instance(),
+   
         ))
     ..registerLazySingleton<UserAddressCubit>(() => UserAddressCubit(
           instance(),

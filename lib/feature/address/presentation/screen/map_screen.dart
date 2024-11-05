@@ -22,7 +22,7 @@ class _MapScreenState extends State<MapScreen> {
           await mapCuibt.getCurrentLocation(context).then(
             (value) {
               if (!context.read<MapCubit>().isClosed) {
-                mapCuibt.checkAddressAvailableFetch(mapCuibt.targetPosition);
+                //mapCuibt.checkAddressAvailableFetch(mapCuibt.targetPosition);
               }
             },
           );

@@ -133,10 +133,9 @@ class RouteGenerator {
               BlocProvider.value(
                 value: instance<UserAddressCubit>(),
               ),
+              
             
-              BlocProvider.value(
-                value: instance<MapCubit>(),
-              ),
+           
             ],
             child: const BottomNavBar(),
           ),

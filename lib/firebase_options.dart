@@ -17,29 +17,17 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -54,9 +42,52 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCBsADXjnjR0Wv0pnl2rzmONBwoSvE7TJs',
-    appId: '1:274043185653:android:70c64f456ccece1eb798bc',
+    appId: '1:274043185653:android:420c97396b4c89f8b798bc',
     messagingSenderId: '274043185653',
-    projectId: 'driver',
-    storageBucket: 'driver.appspot.com',
+    projectId: 'elminiawypatisserie',
+    storageBucket: 'elminiawypatisserie.firebasestorage.app',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBl5i5kApdp7TcuG-FiGjUNgHtq4yZip7U',
+    appId: '1:274043185653:web:9b8db796289dfd48b798bc',
+    messagingSenderId: '274043185653',
+    projectId: 'elminiawypatisserie',
+    authDomain: 'elminiawypatisserie.firebaseapp.com',
+    storageBucket: 'elminiawypatisserie.firebasestorage.app',
+    measurementId: 'G-76WJF9W886',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDHPMWPoo68t2m8dLyjDtd35M7ZEU_3ljY',
+    appId: '1:274043185653:ios:decdc423b8c71a63b798bc',
+    messagingSenderId: '274043185653',
+    projectId: 'elminiawypatisserie',
+    storageBucket: 'elminiawypatisserie.firebasestorage.app',
+    androidClientId: '274043185653-72gv74mo06f2rd05tl1rbq5bojqqn1h1.apps.googleusercontent.com',
+    iosClientId: '274043185653-k472rdd680q17456co1474m2j0mh2nn7.apps.googleusercontent.com',
+    iosBundleId: 'com.coder.driver',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDHPMWPoo68t2m8dLyjDtd35M7ZEU_3ljY',
+    appId: '1:274043185653:ios:decdc423b8c71a63b798bc',
+    messagingSenderId: '274043185653',
+    projectId: 'elminiawypatisserie',
+    storageBucket: 'elminiawypatisserie.firebasestorage.app',
+    androidClientId: '274043185653-72gv74mo06f2rd05tl1rbq5bojqqn1h1.apps.googleusercontent.com',
+    iosClientId: '274043185653-k472rdd680q17456co1474m2j0mh2nn7.apps.googleusercontent.com',
+    iosBundleId: 'com.coder.driver',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBl5i5kApdp7TcuG-FiGjUNgHtq4yZip7U',
+    appId: '1:274043185653:web:3f86f41cbd4943dbb798bc',
+    messagingSenderId: '274043185653',
+    projectId: 'elminiawypatisserie',
+    authDomain: 'elminiawypatisserie.firebaseapp.com',
+    storageBucket: 'elminiawypatisserie.firebasestorage.app',
+    measurementId: 'G-YDZH4NYQ7D',
+  );
+
 }

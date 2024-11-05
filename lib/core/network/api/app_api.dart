@@ -38,7 +38,10 @@ abstract class AppServiceClient {
   );
 
    @GET(ApiConstants.getOrders)
-  Future<GetAllOrderResponse> getAllOrderService();
+  Future<GetAllOrderResponse> getAllOrderService(
+    @Field("latitude") String? latitude,
+    @Field("longitude") String? longitude,
+  );
 
   @PUT(ApiConstants.updateDeliveryImage)
   @MultiPart()

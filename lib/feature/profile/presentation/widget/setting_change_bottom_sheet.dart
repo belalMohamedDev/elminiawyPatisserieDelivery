@@ -55,15 +55,18 @@ Future<dynamic> settingChangeBottomSheet(BuildContext context) {
                         },
                       ),
                       CustomProfileCard(
-                        title: context.translate(AppStrings.darkMode),
-                        leadingIcon: Icons.light_mode,
+                        title: context.translate(AppStrings.activeNow),
+                        leadingIcon: IconlyBroken.swap,
                         tap: () {},
                         actionWidget: Transform.scale(
                           scale: 0.75,
                           child: CupertinoSwitch(
-                            value: false,
+                            value: cubit.driverActive,
                             activeColor: ColorManger.brun,
-                            onChanged: (value) {},
+                            trackColor: ColorManger.brunLight,
+                            onChanged: (value) {
+                              cubit.toggleDriverStatus(value);
+                            },
                           ),
                         ),
                       ),

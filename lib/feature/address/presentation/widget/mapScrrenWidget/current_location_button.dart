@@ -19,9 +19,9 @@ class CurrentLocationButton extends StatelessWidget {
         onTap: () {
           mapCubit.getCurrentLocation(context).then(
             (value) {
-              context
-                  .read<MapCubit>()
-                  .checkAddressAvailableFetch(mapCubit.targetPosition);
+              // context
+              //     .read<MapCubit>()
+              //     .checkAddressAvailableFetch(mapCubit.targetPosition);
             },
           );
         },

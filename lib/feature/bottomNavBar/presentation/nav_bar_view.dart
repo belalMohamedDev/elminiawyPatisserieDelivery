@@ -10,6 +10,8 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
+  
+
     super.initState();
   }
 
@@ -56,7 +58,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<PersistentTabConfig> _navBarsItems(ResponsiveUtils responsive) {
     return [
       PersistentTabConfig(
-        screen: const HomeScreen(),
+        screen: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => instance<OrderCubit>(),
+            ),
+            BlocProvider(
+              create: (context) => instance<MapCubit>(),
+            ),
+          ],
+          child: const HomeScreen(),
+        ),
         item: ItemConfig(
           icon: Icon(IconlyBold.home, size: 20.sp),
           inactiveIcon: Icon(IconlyBroken.home, size: 20.sp),
@@ -95,8 +107,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BlocProvider(
               create: (context) => instance<ChangeUserDeliveryImageCubit>(),
             ),
-            BlocProvider(
-              create: (context) => instance<MapCubit>(),
+            BlocProvider.value(
+              value: instance<MapCubit>(),
             ),
           ],
           child: const ProfileView(),

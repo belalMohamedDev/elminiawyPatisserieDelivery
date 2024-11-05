@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isDependenciesLoaded = false;
+ bool _isDependenciesLoaded = false;
 
   @override
   void initState() {
@@ -54,13 +54,7 @@ class _MyAppState extends State<MyApp> {
             return const NoconnectionScreen();
           }
 
-          // // Only show the main app UI if the dependencies are loaded
-          // if (!_isDependenciesLoaded) {
-          //   return const Center(
-          //     child:
-          //         CircularProgressIndicator(), // Show loading screen while initializing dependencies
-          //   );
-          // }
+
 
           return ScreenUtilInit(
             designSize: const Size(375, 812),

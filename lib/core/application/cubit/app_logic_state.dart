@@ -7,4 +7,8 @@ class AppLogicState with _$AppLogicState {
       ThemeChangeModeState;
   const factory AppLogicState.languageChange({required Locale locale}) =
       LanguageChangeState;
+
+   const factory AppLogicState.driverStatusChange(
+      {required bool driverNotActive}) = _DriverStatusChange;
+
 }

@@ -37,6 +37,8 @@ GetAllOrderData _$GetAllOrderDataFromJson(Map<String, dynamic> json) =>
           : ShippingAddressOrder.fromJson(
               json['shippingAddress'] as Map<String, dynamic>),
       totalOrderPrice: (json['totalOrderPrice'] as num?)?.toDouble(),
+      distance: json['distance'] as String?,
+      duration: json['duration'] as String?,
     );
 
 Map<String, dynamic> _$GetAllOrderDataToJson(GetAllOrderData instance) =>
@@ -46,6 +48,8 @@ Map<String, dynamic> _$GetAllOrderDataToJson(GetAllOrderData instance) =>
       'cartItems': instance.cartItems,
       'shippingAddress': instance.shippingAddress,
       'totalOrderPrice': instance.totalOrderPrice,
+      'distance': instance.distance,
+      'duration': instance.duration,
     };
 
 GetUserOrderData _$GetUserOrderDataFromJson(Map<String, dynamic> json) =>

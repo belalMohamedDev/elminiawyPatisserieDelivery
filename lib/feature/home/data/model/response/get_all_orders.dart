@@ -26,13 +26,17 @@ class GetAllOrderData {
   List<CartOrderItems>? cartItems;
   ShippingAddressOrder? shippingAddress;
   double? totalOrderPrice;
+  String? distance;
+  String? duration;
 
   GetAllOrderData(
       {this.sId,
       this.user,
       this.cartItems,
       this.shippingAddress,
-      this.totalOrderPrice});
+      this.totalOrderPrice,
+      this.distance,
+      this.duration});
 
         //from json
   factory GetAllOrderData.fromJson(Map<String, dynamic> json) =>

@@ -21,6 +21,7 @@ mixin _$AppLogicState {
     required TResult Function() initial,
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AppLogicState {
     TResult? Function()? initial,
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AppLogicState {
     TResult Function()? initial,
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AppLogicState {
     required TResult Function(_Initial value) initial,
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AppLogicState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AppLogicState {
     TResult Function(_Initial value)? initial,
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
   }) {
     return initial();
   }
@@ -131,6 +138,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
   }) {
     return initial?.call();
   }
@@ -141,6 +149,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -155,6 +164,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
   }) {
     return initial(this);
   }
@@ -165,6 +175,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
   }) {
     return initial?.call(this);
   }
@@ -175,6 +186,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -257,6 +269,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     required TResult Function() initial,
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
   }) {
     return themeChangeMode(isDark);
   }
@@ -267,6 +280,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult? Function()? initial,
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
   }) {
     return themeChangeMode?.call(isDark);
   }
@@ -277,6 +291,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult Function()? initial,
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (themeChangeMode != null) {
@@ -291,6 +306,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     required TResult Function(_Initial value) initial,
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
   }) {
     return themeChangeMode(this);
   }
@@ -301,6 +317,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
   }) {
     return themeChangeMode?.call(this);
   }
@@ -311,6 +328,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult Function(_Initial value)? initial,
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (themeChangeMode != null) {
@@ -398,6 +416,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     required TResult Function() initial,
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
   }) {
     return languageChange(locale);
   }
@@ -408,6 +427,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult? Function()? initial,
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
   }) {
     return languageChange?.call(locale);
   }
@@ -418,6 +438,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult Function()? initial,
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (languageChange != null) {
@@ -432,6 +453,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     required TResult Function(_Initial value) initial,
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
   }) {
     return languageChange(this);
   }
@@ -442,6 +464,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
   }) {
     return languageChange?.call(this);
   }
@@ -452,6 +475,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult Function(_Initial value)? initial,
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
     required TResult orElse(),
   }) {
     if (languageChange != null) {
@@ -468,5 +492,153 @@ abstract class LanguageChangeState implements AppLogicState {
   Locale get locale;
   @JsonKey(ignore: true)
   _$$LanguageChangeStateImplCopyWith<_$LanguageChangeStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DriverStatusChangeImplCopyWith<$Res> {
+  factory _$$DriverStatusChangeImplCopyWith(_$DriverStatusChangeImpl value,
+          $Res Function(_$DriverStatusChangeImpl) then) =
+      __$$DriverStatusChangeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool driverNotActive});
+}
+
+/// @nodoc
+class __$$DriverStatusChangeImplCopyWithImpl<$Res>
+    extends _$AppLogicStateCopyWithImpl<$Res, _$DriverStatusChangeImpl>
+    implements _$$DriverStatusChangeImplCopyWith<$Res> {
+  __$$DriverStatusChangeImplCopyWithImpl(_$DriverStatusChangeImpl _value,
+      $Res Function(_$DriverStatusChangeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? driverNotActive = null,
+  }) {
+    return _then(_$DriverStatusChangeImpl(
+      driverNotActive: null == driverNotActive
+          ? _value.driverNotActive
+          : driverNotActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DriverStatusChangeImpl implements _DriverStatusChange {
+  const _$DriverStatusChangeImpl({required this.driverNotActive});
+
+  @override
+  final bool driverNotActive;
+
+  @override
+  String toString() {
+    return 'AppLogicState.driverStatusChange(driverNotActive: $driverNotActive)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverStatusChangeImpl &&
+            (identical(other.driverNotActive, driverNotActive) ||
+                other.driverNotActive == driverNotActive));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, driverNotActive);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverStatusChangeImplCopyWith<_$DriverStatusChangeImpl> get copyWith =>
+      __$$DriverStatusChangeImplCopyWithImpl<_$DriverStatusChangeImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool isDark) themeChangeMode,
+    required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
+  }) {
+    return driverStatusChange(driverNotActive);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool isDark)? themeChangeMode,
+    TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
+  }) {
+    return driverStatusChange?.call(driverNotActive);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool isDark)? themeChangeMode,
+    TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
+    required TResult orElse(),
+  }) {
+    if (driverStatusChange != null) {
+      return driverStatusChange(driverNotActive);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ThemeChangeModeState value) themeChangeMode,
+    required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
+  }) {
+    return driverStatusChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ThemeChangeModeState value)? themeChangeMode,
+    TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
+  }) {
+    return driverStatusChange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ThemeChangeModeState value)? themeChangeMode,
+    TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
+    required TResult orElse(),
+  }) {
+    if (driverStatusChange != null) {
+      return driverStatusChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DriverStatusChange implements AppLogicState {
+  const factory _DriverStatusChange({required final bool driverNotActive}) =
+      _$DriverStatusChangeImpl;
+
+  bool get driverNotActive;
+  @JsonKey(ignore: true)
+  _$$DriverStatusChangeImplCopyWith<_$DriverStatusChangeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

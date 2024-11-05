@@ -21,7 +21,7 @@ class GoogleMapWidget extends StatelessWidget {
           markers: markers ?? {},
   
           onTap: (argument) async {
-            mapCubit.checkAddressAvailableFetch(argument);
+         //   mapCubit.checkAddressAvailableFetch(argument);
 
             mapCubit.addCurrentLocationMarkerToMap(argument);
           },

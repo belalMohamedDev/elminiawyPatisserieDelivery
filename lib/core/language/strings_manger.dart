@@ -217,6 +217,8 @@ class AppStrings {
   static const String english = "english";
   static const String logIn = "logIn";
   static const String darkMode = "darkMode";
+  static const String activeNow = "activeNow";
+  
   static const String newAddress = "newAddress";
   static const String findYourLocation = "findYourLocation";
   static const String apartment = "apartment";

@@ -239,11 +239,19 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<GetAllOrderResponse> getAllOrderService() async {
+  Future<GetAllOrderResponse> getAllOrderService(
+    String? latitude,
+    String? longitude,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = {
+      'latitude': latitude,
+      'longitude': longitude,
+    };
+    _data.removeWhere((k, v) => v == null);
     final _options = _setStreamType<GetAllOrderResponse>(Options(
       method: 'GET',
       headers: _headers,

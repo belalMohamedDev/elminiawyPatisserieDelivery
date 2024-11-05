@@ -73,10 +73,11 @@ class ResponsiveUtils {
   }
 
   /// Create a SizedBox with a specified height or width.
-  SizedBox setSizeBox({double? width, double? height}) {
+  SizedBox setSizeBox({double? width, double? height, Widget? child}) {
     return SizedBox(
       width: width != null ? setWidth(width) : null,
       height: height != null ? setHeight(height) : null,
+      child: child,
     );
   }
 }

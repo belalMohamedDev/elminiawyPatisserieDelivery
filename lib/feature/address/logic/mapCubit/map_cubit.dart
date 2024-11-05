@@ -4,10 +4,10 @@ part 'map_state.dart';
 part 'map_cubit.freezed.dart';
 
 class MapCubit extends Cubit<MapState> {
-  MapCubit(this.places, this._userAddressRepository)
+  MapCubit(this.places)
       : super(const MapState.initial());
 
-  final UserAddressRepositoryImplement _userAddressRepository;
+//  final UserAddressRepositoryImplement _userAddressRepository;
 
   final context = instance<GlobalKey<NavigatorState>>().currentState!.context;
 
@@ -19,7 +19,7 @@ class MapCubit extends Cubit<MapState> {
   late GoogleMapController
       checkOutMapController; // Controller to manage Google Map
   List<MarkerData> markers = []; // List to hold custom markers
-
+  bool isMapStyleLoaded = false;
   bool isHomeScreenLocation = false;
 
   String? textEditingSearchText;
@@ -36,12 +36,39 @@ class MapCubit extends Cubit<MapState> {
   CheckLocationAvailableResponse? checkLocationAvailableResponse;
 
   void loadMapStyle() {
-    DefaultAssetBundle.of(context).loadString("asset/json/map_theme.json").then(
-      (value) {
-        _mapTheme = value;
+    if (!isMapStyleLoaded) {
+      // Check if style is already loaded
+      DefaultAssetBundle.of(context)
+          .loadString("asset/json/map_theme.json")
+          .then(
+        (value) {
+          _mapTheme = value;
+          isMapStyleLoaded = true; // Mark as loaded after first load
+        },
+      );
+    }
+  }
+
+  // Set the map controller
+  void setMapController(GoogleMapController controller) async {
+    Completer<GoogleMapController> gmCompleter = Completer();
+    gmCompleter.complete(controller);
+    gmCompleter.future.then(
+      (gmController) {
+        mapController = gmController;
+        mapController.setMapStyle(_mapTheme);
       },
     );
   }
+
+Future<Position?> getDriverCurrentLocation(BuildContext context) async {
+    Position? position = await _determinePosition(context).timeout(
+      const Duration(seconds: 10),
+    );
+
+    return position;
+  }
+
 
   void toggleMapType() {
     if (mapType == MapType.normal) {
@@ -95,7 +122,7 @@ class MapCubit extends Cubit<MapState> {
     addCurrentLocationMarkerToMap(position);
 
     // Check if the address is available
-    await checkAddressAvailableFetch(position);
+    //  await checkAddressAvailableFetch(position);
 
     searchConroller.clear();
   }
@@ -122,47 +149,35 @@ class MapCubit extends Cubit<MapState> {
   }
 
 // Check if the address is available
-  Future<void> checkAddressAvailableFetch(LatLng currentLocation) async {
-    bool isEnLocale = AppLocalizations.of(context)?.isEnLocale ?? true;
+  // Future<void> checkAddressAvailableFetch(LatLng currentLocation) async {
+  //   bool isEnLocale = AppLocalizations.of(context)?.isEnLocale ?? true;
 
-    emit(const MapState.checkAddressAvailableLoading());
+  //   emit(const MapState.checkAddressAvailableLoading());
 
-    final response = await _userAddressRepository.checkAddressAvailable(
-      CheckAddressAvailableRequestBody(
-        latitude: currentLocation.latitude.toString(),
-        longitude: currentLocation.longitude.toString(),
-      ),
-    );
+  //   final response = await _userAddressRepository.checkAddressAvailable(
+  //     CheckAddressAvailableRequestBody(
+  //       latitude: currentLocation.latitude.toString(),
+  //       longitude: currentLocation.longitude.toString(),
+  //     ),
+  //   );
 
-    response.when(
-      success: (dataResponse) {
-        textEditingSearchText = isEnLocale
-            ? dataResponse.englishAddress!
-            : dataResponse.arabicAddress!;
-        checkLocationAvailableResponse = dataResponse;
-        emit(MapState.checkAddressAvailableSuccess(dataResponse));
-      },
-      failure: (error) {
-        if (error.statusCode != 401) {
-          emit(
-            MapState.checkAddressAvailableError(error),
-          );
-        }
-      },
-    );
-  }
-
-  // Set the map controller
-  void setMapController(GoogleMapController controller) async {
-    Completer<GoogleMapController> gmCompleter = Completer();
-    gmCompleter.complete(controller);
-    gmCompleter.future.then(
-      (gmController) {
-        mapController = gmController;
-        mapController.setMapStyle(_mapTheme);
-      },
-    );
-  }
+  //   response.when(
+  //     success: (dataResponse) {
+  //       textEditingSearchText = isEnLocale
+  //           ? dataResponse.englishAddress!
+  //           : dataResponse.arabicAddress!;
+  //       checkLocationAvailableResponse = dataResponse;
+  //       emit(MapState.checkAddressAvailableSuccess(dataResponse));
+  //     },
+  //     failure: (error) {
+  //       if (error.statusCode != 401) {
+  //         emit(
+  //           MapState.checkAddressAvailableError(error),
+  //         );
+  //       }
+  //     },
+  //   );
+  // }
 
   // Set the map controller
   void setNewAddressMapController(GoogleMapController controller) {

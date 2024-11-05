@@ -12,6 +12,17 @@ class AppLogicCubit extends Cubit<AppLogicState> {
 
   String currentLangCode = 'en';
 
+
+  bool driverActive = false;
+
+    // Toggle Driver Status
+  void toggleDriverStatus(bool value) {
+    driverActive = value;
+    emit(AppLogicState.driverStatusChange(driverNotActive: driverActive));
+  }
+
+
+
   // Get Saved Language from Shared Preferences
   void getSavedLanguage() {
     final result = SharedPrefHelper.containPreference(PrefKeys.prefsLanguage)
