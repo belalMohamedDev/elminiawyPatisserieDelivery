@@ -37,10 +37,20 @@ abstract class AppServiceClient {
     @Part() List<File> images,
   );
 
-   @GET(ApiConstants.getOrders)
+  @GET(ApiConstants.getOrders)
   Future<GetAllOrderResponse> getAllOrderService(
     @Field("latitude") String? latitude,
     @Field("longitude") String? longitude,
+  );
+
+  @PUT('${ApiConstants.driver}/{id}/active')
+  Future<ApiSuccessGeneralModel> acceptOrderService(
+    @Path("orderId") String orderId,
+  );
+
+  @DELETE('${ApiConstants.driver}/{id}/canceledOrder')
+  Future<ApiSuccessGeneralModel> canceledOrderService(
+    @Path("orderId") String orderId,
   );
 
   @PUT(ApiConstants.updateDeliveryImage)
@@ -63,7 +73,6 @@ abstract class AppServiceClient {
   Future<AuthResponse> newPassword(
     @Body() NewPasswordRequestBody newPasswordRequestBody,
   );
-
 
   @POST(ApiConstants.logOut)
   Future<ApiSuccessGeneralModel> logOut(

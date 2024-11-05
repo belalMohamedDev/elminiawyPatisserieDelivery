@@ -14,6 +14,7 @@ class ApiConstants {
   static const String logOut = '/v1/api/auth/logout';
 
   static const String getOrders = '/v1/api/driver/getNewOrders';
+  static const String driver = '/v1/api/driver';
 
   static const String updateMyImage = '/v1/api/user/updateMyImage';
   static const String updateMyPassword = '/v1/api/user/updateMyPassword';
