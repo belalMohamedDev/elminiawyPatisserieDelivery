@@ -14,7 +14,7 @@ export 'package:flutter_cache_manager/flutter_cache_manager.dart';
 export '../../../../feature/profile/logic/changeUserDeliveryImage/change_user_delivery_image_cubit.dart';
 export '../../../../feature/profile/presentation/widget/profile_image_and_welcome_back_text.dart';
 export '../../../../feature/home/data/model/response/get_all_orders.dart';
-export '../../../../feature/home/logic/cubit/order_cubit.dart';
+export '../../../feature/home/logic/orderCubit/order_cubit.dart';
 
 
 export '../../../../core/utils/custom_cache_manager.dart';
@@ -54,8 +54,7 @@ export 'package:rxdart/rxdart.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 export '../../../../core/style/fonts/styles_manger.dart';
 export '../../../feature/profile/presentation/refactor/account_info_body.dart';
-export '../../../../feature/address/data/model/request/create_address_request.dart';
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/custom_map_marker.dart';
+export '../../../feature/home/presentation/widget/mapWidget/custom_map_marker.dart';
 export '../../../feature/profile/presentation/refactor/change_email_body.dart';
 export '../../../feature/profile/presentation/refactor/change_password_body.dart';
 export 'package:carousel_slider/carousel_slider.dart';
@@ -131,24 +130,21 @@ export '../../../../core/services/shared_pref_helper.dart';
 export '../../language/strings_manger.dart';
 export '../../../../core/style/theme/theme_manger.dart';
 export '../../../../core/utils/extensions.dart';
-export '../../../../feature/address/presentation/screen/map_screen.dart';
 
 export '../../../feature/profile/logic/logOut/log_out_cubit.dart' ;
 export 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
-export '../../../../feature/address/logic/userAddressCubit/user_address_cubit.dart';
 export '../../../../feature/home/presentation/screen/home_screen.dart';
 export '../../../../feature/profile/presentation/screen/profile_view.dart';
 
 export '../../../feature/profile/presentation/screen/account_info_screen.dart';
-export '../../../../feature/address/logic/mapCubit/map_cubit.dart';
+export '../../../feature/home/logic/mapCubit/map_cubit.dart';
 export '../../../feature/profile/logic/changeEmailAddressCubit/change_email_address_cubit.dart';
 export '../../../feature/profile/presentation/screen/change_email_screen.dart';
 export '../../../feature/profile/presentation/screen/change_password_screen.dart';
 export '../../../../feature/notification/presentation/screen/notification_screen.dart';
 export '../../../feature/Authentication/logic/signUpBloc/sign_up_bloc.dart';
 
-export '../../../../feature/address/presentation/screen/add_new_address_screen.dart';
 export '../../../../feature/bottomNavBar/presentation/nav_bar_view.dart';
 export '../../../feature/Authentication/logic/forgetPassword/forget_password_bloc.dart';
 export '../../../feature/Authentication/logic/loginBloc/login_bloc.dart';
@@ -156,7 +152,6 @@ export '../../../feature/Authentication/presentation/screens/sign_in_view.dart';
 export '../../../../feature/notification/logic/cubit/user_notification_cubit.dart';
 export '../../../../feature/onBoarding/presentation/screen/on_boarding_view.dart';
 export '../../../feature/Authentication/presentation/screens/sign_up_view.dart';
-export '../../../../feature/address/presentation/screen/user_address_screen.dart';
 export '../../../../feature/Authentication/presentation/screens/forget_password_screen.dart';
 export '../../../../feature/Authentication/presentation/screens/new_password_screen.dart';
 export '../../../../feature/Authentication/presentation/screens/verification_code_screen.dart';
@@ -184,33 +179,16 @@ export 'package:freezed_annotation/freezed_annotation.dart';
 export '../../../../core/common/sharedWidget/custom_button.dart';
 
 
-export '../../../../feature/address/data/model/response/get_address_response.dart'
-    hide PaginationRuslt;
-export '../../../../feature/address/presentation/refactor/add_new_address_body.dart';
+
 export 'package:google_maps_flutter/google_maps_flutter.dart';
 
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/build_search_bar.dart';
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/build_search_results.dart';
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/current_location_button.dart';
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/google_map_widget.dart';
-export '../../../../feature/address/presentation/widget/mapScrrenWidget/pick_location_button.dart';
 
-export '../../../../feature/address/presentation/refactor/user_address_body.dart';
+export '../../../feature/home/presentation/widget/mapWidget/google_map_widget.dart';
 
-export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/add_information_text_form_field.dart';
-
-export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/chooce_region_area_toggel.dart';
-export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/information_card_area.dart';
-export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/new_address_map.dart';
-
-export '../../../../feature/address/presentation/screen/empty_address_screen.dart';
-export '../../../../feature/address/presentation/widget/UserAddressScreenWidget/error_and_loading_state_widget.dart';
-export '../../../../feature/address/presentation/widget/UserAddressScreenWidget/success_state_widget.dart';
 
 export 'package:country_code_picker/country_code_picker.dart';
 export '../../../../core/utils/app_regex.dart';
 
-export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/region_area_widget.dart';
 
 export 'package:coupon_uikit/coupon_uikit.dart';
 
@@ -230,7 +208,6 @@ export 'package:get_it/get_it.dart';
 export 'package:internet_connection_checker/internet_connection_checker.dart';
 
 export '../../../../feature/home/data/repository/repositry.dart';
-export '../../../../feature/address/data/repository/address_repo.dart';
 export '../../../../firebase_options.dart';
 
 export '../../../../core/application/bloc_observer.dart';
@@ -254,12 +231,9 @@ export '../../../../core/network/error_handler/api_error_handler.dart';
 
 export '../../../feature/profile/data/model/request/change_my_password_request.dart';
 
-export '../../../../feature/address/data/model/response/create_address_response.dart'
-    hide Location;
 
 export '../../../feature/profile/data/model/request/update_account_information.dart';
-export '../../../feature/address/data/model/request/check_address_available.dart';
-export '../../../feature/address/data/model/response/check_address_available.dart';
+
 export '../../../feature/profile/data/model/request/change_email_request.dart';
 
 

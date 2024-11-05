@@ -43,12 +43,12 @@ abstract class AppServiceClient {
     @Field("longitude") String? longitude,
   );
 
-  @PUT('${ApiConstants.driver}/{id}/active')
+  @PUT('${ApiConstants.driver}/{orderId}/active')
   Future<ApiSuccessGeneralModel> acceptOrderService(
     @Path("orderId") String orderId,
   );
 
-  @DELETE('${ApiConstants.driver}/{id}/canceledOrder')
+  @DELETE('${ApiConstants.driver}/{orderId}/canceledOrder')
   Future<ApiSuccessGeneralModel> canceledOrderService(
     @Path("orderId") String orderId,
   );
@@ -79,24 +79,8 @@ abstract class AppServiceClient {
     @Field("refreshToken") String refreshToken,
   );
 
-  @POST(ApiConstants.address)
-  Future<CreateAddressResponse> createAddress(
-    @Body() Map<String, dynamic> createAddressRequestBody,
-  );
+  
 
-  @POST("${ApiConstants.address}/isAvailable")
-  Future<CheckLocationAvailableResponse> checkAddressAvaliableService(
-    @Body() CheckAddressAvailableRequestBody checkAddressAvailableRequestBody,
-  );
-
-  @GET(ApiConstants.address)
-  Future<GetAddressResponse> getAllAddress();
-
-  @PUT('${ApiConstants.address}/{id}')
-  Future<CreateAddressResponse> updateAddress(
-    @Path("id") String id,
-    @Body() Map<String, dynamic> createAddressRequestBody,
-  );
 
   @DELETE('${ApiConstants.address}/{id}')
   Future<ApiSuccessGeneralModel> deleteAddress(

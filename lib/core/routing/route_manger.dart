@@ -60,13 +60,7 @@ class RouteGenerator {
           ),
         );
 
-      case Routes.address:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: instance<UserAddressCubit>(),
-            child: const UserAddressView(),
-          ),
-        );
+   
 
       case Routes.completeRegister:
         return MaterialPageRoute(
@@ -76,28 +70,8 @@ class RouteGenerator {
           ),
         );
 
-      case Routes.addNewAddress:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider.value(
-                value: instance<UserAddressCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<MapCubit>(),
-              ),
-            ],
-            child: const AddNewAddressScreen(),
-          ),
-        );
 
-      case Routes.map:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: instance<MapCubit>(),
-            child: const MapScreen(),
-          ),
-        );
+    
 
       case Routes.accountInfomation:
         return MaterialPageRoute(
@@ -128,26 +102,8 @@ class RouteGenerator {
 
       case Routes.bottomNavBarRoute:
         return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider.value(
-                value: instance<UserAddressCubit>(),
-              ),
-              
-            
-           
-            ],
-            child: const BottomNavBar(),
-          ),
+          builder: (_) => const BottomNavBar(),
         );
-
-      // case Routes.notification:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => instance<UserNotificationCubit>(),
-      //       child: const UserNotificationScreen(),
-      //     ),
-      //   );
 
       case Routes.noRoute:
         return MaterialPageRoute(builder: (_) => const RouteStatesScreen());

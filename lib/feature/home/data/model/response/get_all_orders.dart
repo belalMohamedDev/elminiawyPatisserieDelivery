@@ -9,18 +9,17 @@ class GetAllOrderResponse {
 
   GetAllOrderResponse({this.status, this.message, this.data});
 
-    //from json
+  //from json
   factory GetAllOrderResponse.fromJson(Map<String, dynamic> json) =>
       _$GetAllOrderResponseFromJson(json);
 
   //to json
   Map<String, dynamic> toJson() => _$GetAllOrderResponseToJson(this);
-
-
 }
 
 @JsonSerializable()
 class GetAllOrderData {
+  @JsonKey(name: "_id")
   String? sId;
   GetUserOrderData? user;
   List<CartOrderItems>? cartItems;
@@ -38,7 +37,7 @@ class GetAllOrderData {
       this.distance,
       this.duration});
 
-        //from json
+  //from json
   factory GetAllOrderData.fromJson(Map<String, dynamic> json) =>
       _$GetAllOrderDataFromJson(json);
 
@@ -54,7 +53,7 @@ class GetUserOrderData {
 
   GetUserOrderData({this.sId, this.email, this.phone});
 
-    //from json
+  //from json
   factory GetUserOrderData.fromJson(Map<String, dynamic> json) =>
       _$GetUserOrderDataFromJson(json);
 
@@ -68,7 +67,7 @@ class CartOrderItems {
 
   CartOrderItems({this.product});
 
-    //from json
+  //from json
   factory CartOrderItems.fromJson(Map<String, dynamic> json) =>
       _$CartOrderItemsFromJson(json);
 
@@ -84,7 +83,7 @@ class ProductOrder {
 
   ProductOrder({this.sId, this.image, this.title});
 
-    //from json
+  //from json
   factory ProductOrder.fromJson(Map<String, dynamic> json) =>
       _$ProductOrderFromJson(json);
 
@@ -122,8 +121,7 @@ class ShippingAddressOrder {
     this.region,
   });
 
-
-    //from json
+  //from json
   factory ShippingAddressOrder.fromJson(Map<String, dynamic> json) =>
       _$ShippingAddressOrderFromJson(json);
 
@@ -138,7 +136,7 @@ class LocationOrder {
 
   LocationOrder({this.type, this.coordinates});
 
-    //from json
+  //from json
   factory LocationOrder.fromJson(Map<String, dynamic> json) =>
       _$LocationOrderFromJson(json);
 

@@ -25,7 +25,7 @@ Map<String, dynamic> _$GetAllOrderResponseToJson(
 
 GetAllOrderData _$GetAllOrderDataFromJson(Map<String, dynamic> json) =>
     GetAllOrderData(
-      sId: json['sId'] as String?,
+      sId: json['_id'] as String?,
       user: json['user'] == null
           ? null
           : GetUserOrderData.fromJson(json['user'] as Map<String, dynamic>),
@@ -43,7 +43,7 @@ GetAllOrderData _$GetAllOrderDataFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$GetAllOrderDataToJson(GetAllOrderData instance) =>
     <String, dynamic>{
-      'sId': instance.sId,
+      '_id': instance.sId,
       'user': instance.user,
       'cartItems': instance.cartItems,
       'shippingAddress': instance.shippingAddress,

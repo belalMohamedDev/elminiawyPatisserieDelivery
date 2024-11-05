@@ -12,7 +12,7 @@ Future<void> initAppModule() async {
     _initSignUp(),
     _initForgetPassword(),
     _initLogOut(),
-    _initAddress(),
+ 
     _initAccoutInformation(),
     _initChangeEmailAddress(),
     _initChangeMyPassword(),
@@ -108,18 +108,7 @@ Future<void> _initLogOut() async {
         ));
 }
 
-Future<void> _initAddress() async {
-  instance
-    ..registerLazySingleton<UserAddressRepositoryImplement>(
-        () => UserAddressRepositoryImplement(instance()))
-    ..registerFactory<MapCubit>(() => MapCubit(
-          instance(),
-   
-        ))
-    ..registerLazySingleton<UserAddressCubit>(() => UserAddressCubit(
-          instance(),
-        ));
-}
+
 
 Future<void> _initAccoutInformation() async {
   instance

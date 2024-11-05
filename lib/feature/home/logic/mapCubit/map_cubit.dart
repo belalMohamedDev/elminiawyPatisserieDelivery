@@ -33,7 +33,6 @@ class MapCubit extends Cubit<MapState> {
 
   MapType mapType = MapType.normal;
 
-  CheckLocationAvailableResponse? checkLocationAvailableResponse;
 
   void loadMapStyle() {
     if (!isMapStyleLoaded) {
@@ -70,62 +69,28 @@ Future<Position?> getDriverCurrentLocation(BuildContext context) async {
   }
 
 
-  void toggleMapType() {
-    if (mapType == MapType.normal) {
-      mapType = MapType.hybrid;
-    } else {
-      mapType = MapType.normal;
-    }
 
-    emit(MapState.toggleMapState(mapType));
-  }
 
-  // Move the map to the location selected from the search results
-  Future<void> moveToLocationInTextFormField(Prediction prediction) async {
-    emit(const MapState.loading());
 
-    try {
-      // Fetch place details using place ID
-      PlacesDetailsResponse response =
-          await places.getDetailsByPlaceId(prediction.placeId!);
+// // Private method to animate the camera
+//   Future<void> _animateCameraToPosition(LatLng position) async {
+//     mapController.animateCamera(
+//       CameraUpdate.newCameraPosition(
+//         CameraPosition(target: position, zoom: 18),
+//       ),
+//     );
+//   }
 
-      if (response.isOkay) {
-        double lat = response.result.geometry!.location.lat;
-        double lng = response.result.geometry!.location.lng;
-        LatLng newPosition = LatLng(lat, lng);
+// // Private method to add a marker and check the address availability
+//   Future<void> _addMarkerAndCheckAddress(LatLng position) async {
+//     // Add the current location marker
+//     addCurrentLocationMarkerToMap(position);
 
-        // Animate the map camera to the new location
-        await _animateCameraToPosition(newPosition);
+//     // Check if the address is available
+//     //  await checkAddressAvailableFetch(position);
 
-        // Add a marker for the new location
-        await _addMarkerAndCheckAddress(newPosition);
-      } else {
-        emit(const MapState.error("Error moving to location."));
-      }
-    } catch (e) {
-      emit(MapState.error("Error moving to location: $e"));
-    }
-  }
-
-// Private method to animate the camera
-  Future<void> _animateCameraToPosition(LatLng position) async {
-    mapController.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(target: position, zoom: 18),
-      ),
-    );
-  }
-
-// Private method to add a marker and check the address availability
-  Future<void> _addMarkerAndCheckAddress(LatLng position) async {
-    // Add the current location marker
-    addCurrentLocationMarkerToMap(position);
-
-    // Check if the address is available
-    //  await checkAddressAvailableFetch(position);
-
-    searchConroller.clear();
-  }
+//     searchConroller.clear();
+//   }
 
 // Add a marker for the current location
   void addCurrentLocationMarkerToMap(LatLng position) {
@@ -148,36 +113,7 @@ Future<Position?> getDriverCurrentLocation(BuildContext context) async {
     markers.add(marker);
   }
 
-// Check if the address is available
-  // Future<void> checkAddressAvailableFetch(LatLng currentLocation) async {
-  //   bool isEnLocale = AppLocalizations.of(context)?.isEnLocale ?? true;
 
-  //   emit(const MapState.checkAddressAvailableLoading());
-
-  //   final response = await _userAddressRepository.checkAddressAvailable(
-  //     CheckAddressAvailableRequestBody(
-  //       latitude: currentLocation.latitude.toString(),
-  //       longitude: currentLocation.longitude.toString(),
-  //     ),
-  //   );
-
-  //   response.when(
-  //     success: (dataResponse) {
-  //       textEditingSearchText = isEnLocale
-  //           ? dataResponse.englishAddress!
-  //           : dataResponse.arabicAddress!;
-  //       checkLocationAvailableResponse = dataResponse;
-  //       emit(MapState.checkAddressAvailableSuccess(dataResponse));
-  //     },
-  //     failure: (error) {
-  //       if (error.statusCode != 401) {
-  //         emit(
-  //           MapState.checkAddressAvailableError(error),
-  //         );
-  //       }
-  //     },
-  //   );
-  // }
 
   // Set the map controller
   void setNewAddressMapController(GoogleMapController controller) {
