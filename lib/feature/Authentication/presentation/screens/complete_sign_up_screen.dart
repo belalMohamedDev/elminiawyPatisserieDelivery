@@ -1,4 +1,5 @@
 import 'package:driver/core/common/shared/shared_imports.dart';
+import 'package:driver/feature/Authentication/logic/completeRgistrationProcess/complete_registration_process_cubit.dart';
 
 class DeliveryManRegistration extends StatefulWidget {
   const DeliveryManRegistration({super.key});

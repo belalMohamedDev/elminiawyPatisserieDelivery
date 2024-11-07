@@ -2,10 +2,10 @@
 import '../../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 class TextOnImage extends StatelessWidget {
-  final bool currentLocation;
+  final bool driver;
   const TextOnImage({
     super.key,
-    this.currentLocation = false,
+    this.driver = false,
   });
 
   @override
@@ -13,7 +13,7 @@ class TextOnImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image(
       image: AssetImage(
-        currentLocation ? ImageAsset.pickMarker : ImageAsset.storeLocation,
+        driver ? ImageAsset.deliveryMan : ImageAsset.tracking,
       ),
       height:  50.h ,
       width:  50.w,

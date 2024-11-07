@@ -1,3 +1,4 @@
+import 'package:driver/feature/Authentication/logic/CompleteRgistrationProcess/complete_registration_process_cubit.dart';
 
 import '../../../../core/common/shared/shared_imports.dart';
 
@@ -12,7 +13,6 @@ Future<void> initAppModule() async {
     _initSignUp(),
     _initForgetPassword(),
     _initLogOut(),
- 
     _initAccoutInformation(),
     _initChangeEmailAddress(),
     _initChangeMyPassword(),
@@ -38,6 +38,7 @@ Future<void> _initAppModule() async {
 
   instance
     ..registerLazySingleton<AppServiceClient>(() => AppServiceClient(dio))
+    ..registerLazySingleton<DirectionsService>(() => DirectionsService(dio))
     ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
     ..registerFactory<AppLogicCubit>(() => AppLogicCubit());
 }
@@ -47,6 +48,8 @@ Future<void> _inithome() async {
   instance
     ..registerLazySingleton<HomeRepositoryImplement>(
         () => HomeRepositoryImplement(
+              instance(),
+              instance(),
               instance(),
             ))
     ..registerFactory<OrderCubit>(() => OrderCubit(
@@ -58,6 +61,10 @@ Future<void> _initPlaces() async {
   final places = GoogleMapsPlaces(apiKey: EnvVariable.instance.mapKey);
 
   instance.registerLazySingleton<GoogleMapsPlaces>(() => places);
+
+  instance.registerFactory<MapCubit>(() => MapCubit(
+        instance(),
+      ));
 }
 
 Future<void> _initLogin() async {
@@ -107,8 +114,6 @@ Future<void> _initLogOut() async {
           instance(),
         ));
 }
-
-
 
 Future<void> _initAccoutInformation() async {
   instance

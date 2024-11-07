@@ -1,3 +1,4 @@
+import 'package:driver/feature/Authentication/logic/CompleteRgistrationProcess/complete_registration_process_cubit.dart';
 import 'package:driver/feature/Authentication/presentation/screens/complete_sign_up_screen.dart';
 
 import '../../../../core/common/shared/shared_imports.dart';

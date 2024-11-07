@@ -27,6 +27,10 @@ mixin _$MapState {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +43,9 @@ mixin _$MapState {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +58,9 @@ mixin _$MapState {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +74,12 @@ mixin _$MapState {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +92,11 @@ mixin _$MapState {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +109,11 @@ mixin _$MapState {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +183,10 @@ class _$InitialImpl implements Initial {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return initial();
   }
@@ -172,6 +202,9 @@ class _$InitialImpl implements Initial {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return initial?.call();
   }
@@ -187,6 +220,9 @@ class _$InitialImpl implements Initial {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -206,6 +242,12 @@ class _$InitialImpl implements Initial {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return initial(this);
   }
@@ -221,6 +263,11 @@ class _$InitialImpl implements Initial {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return initial?.call(this);
   }
@@ -236,6 +283,11 @@ class _$InitialImpl implements Initial {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -296,6 +348,10 @@ class _$LoadingImpl implements Loading {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return loading();
   }
@@ -311,6 +367,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return loading?.call();
   }
@@ -326,6 +385,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -345,6 +407,12 @@ class _$LoadingImpl implements Loading {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return loading(this);
   }
@@ -360,6 +428,11 @@ class _$LoadingImpl implements Loading {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return loading?.call(this);
   }
@@ -375,6 +448,11 @@ class _$LoadingImpl implements Loading {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -477,6 +555,10 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return loaded(currentPosition, markers);
   }
@@ -492,6 +574,9 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return loaded?.call(currentPosition, markers);
   }
@@ -507,6 +592,9 @@ class _$LoadedImpl implements Loaded {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -526,6 +614,12 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return loaded(this);
   }
@@ -541,6 +635,11 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return loaded?.call(this);
   }
@@ -556,6 +655,11 @@ class _$LoadedImpl implements Loaded {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -658,6 +762,10 @@ class _$SearchResultsImpl implements SearchResults {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return searchResults(predictions);
   }
@@ -673,6 +781,9 @@ class _$SearchResultsImpl implements SearchResults {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return searchResults?.call(predictions);
   }
@@ -688,6 +799,9 @@ class _$SearchResultsImpl implements SearchResults {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (searchResults != null) {
@@ -707,6 +821,12 @@ class _$SearchResultsImpl implements SearchResults {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return searchResults(this);
   }
@@ -722,6 +842,11 @@ class _$SearchResultsImpl implements SearchResults {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return searchResults?.call(this);
   }
@@ -737,6 +862,11 @@ class _$SearchResultsImpl implements SearchResults {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (searchResults != null) {
@@ -829,6 +959,10 @@ class _$ErrorImpl implements Error {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return error(message);
   }
@@ -844,6 +978,9 @@ class _$ErrorImpl implements Error {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return error?.call(message);
   }
@@ -859,6 +996,9 @@ class _$ErrorImpl implements Error {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -878,6 +1018,12 @@ class _$ErrorImpl implements Error {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return error(this);
   }
@@ -893,6 +1039,11 @@ class _$ErrorImpl implements Error {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return error?.call(this);
   }
@@ -908,6 +1059,11 @@ class _$ErrorImpl implements Error {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1000,6 +1156,10 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return toggleMapState(mapType);
   }
@@ -1015,6 +1175,9 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return toggleMapState?.call(mapType);
   }
@@ -1030,6 +1193,9 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (toggleMapState != null) {
@@ -1049,6 +1215,12 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return toggleMapState(this);
   }
@@ -1064,6 +1236,11 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return toggleMapState?.call(this);
   }
@@ -1079,6 +1256,11 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (toggleMapState != null) {
@@ -1174,6 +1356,10 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     required TResult Function(String message) error,
     required TResult Function(MapType mapType) toggleMapState,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
     return setStringHomeLocationState(homeLocation);
   }
@@ -1189,6 +1375,9 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult? Function(String message)? error,
     TResult? Function(MapType mapType)? toggleMapState,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
     return setStringHomeLocationState?.call(homeLocation);
   }
@@ -1204,6 +1393,9 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult Function(String message)? error,
     TResult Function(MapType mapType)? toggleMapState,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (setStringHomeLocationState != null) {
@@ -1223,6 +1415,12 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     required TResult Function(ToggleMapState value) toggleMapState,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
   }) {
     return setStringHomeLocationState(this);
   }
@@ -1238,6 +1436,11 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult? Function(ToggleMapState value)? toggleMapState,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
   }) {
     return setStringHomeLocationState?.call(this);
   }
@@ -1253,6 +1456,11 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult Function(ToggleMapState value)? toggleMapState,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
     if (setStringHomeLocationState != null) {
@@ -1269,5 +1477,581 @@ abstract class SetStringHomeLocationState implements MapState {
   String get homeLocation;
   @JsonKey(ignore: true)
   _$$SetStringHomeLocationStateImplCopyWith<_$SetStringHomeLocationStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetRouteCoordinatesLoadingImplCopyWith<$Res> {
+  factory _$$GetRouteCoordinatesLoadingImplCopyWith(
+          _$GetRouteCoordinatesLoadingImpl value,
+          $Res Function(_$GetRouteCoordinatesLoadingImpl) then) =
+      __$$GetRouteCoordinatesLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetRouteCoordinatesLoadingImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$GetRouteCoordinatesLoadingImpl>
+    implements _$$GetRouteCoordinatesLoadingImplCopyWith<$Res> {
+  __$$GetRouteCoordinatesLoadingImplCopyWithImpl(
+      _$GetRouteCoordinatesLoadingImpl _value,
+      $Res Function(_$GetRouteCoordinatesLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
+  const _$GetRouteCoordinatesLoadingImpl();
+
+  @override
+  String toString() {
+    return 'MapState.getRouteCoordinatesLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRouteCoordinatesLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            LatLng currentPosition, Map<String, Marker> markers)
+        loaded,
+    required TResult Function(List<Prediction> predictions) searchResults,
+    required TResult Function(String message) error,
+    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult? Function(List<Prediction> predictions)? searchResults,
+    TResult? Function(String message)? error,
+    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult Function(List<Prediction> predictions)? searchResults,
+    TResult Function(String message)? error,
+    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesLoading != null) {
+      return getRouteCoordinatesLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(SearchResults value) searchResults,
+    required TResult Function(Error value) error,
+    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(SetStringHomeLocationState value)
+        setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(SearchResults value)? searchResults,
+    TResult? Function(Error value)? error,
+    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(SearchResults value)? searchResults,
+    TResult Function(Error value)? error,
+    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesLoading != null) {
+      return getRouteCoordinatesLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetRouteCoordinatesLoading implements MapState {
+  const factory GetRouteCoordinatesLoading() = _$GetRouteCoordinatesLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetRouteCoordinatesErrorImplCopyWith<$Res> {
+  factory _$$GetRouteCoordinatesErrorImplCopyWith(
+          _$GetRouteCoordinatesErrorImpl value,
+          $Res Function(_$GetRouteCoordinatesErrorImpl) then) =
+      __$$GetRouteCoordinatesErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
+}
+
+/// @nodoc
+class __$$GetRouteCoordinatesErrorImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$GetRouteCoordinatesErrorImpl>
+    implements _$$GetRouteCoordinatesErrorImplCopyWith<$Res> {
+  __$$GetRouteCoordinatesErrorImplCopyWithImpl(
+      _$GetRouteCoordinatesErrorImpl _value,
+      $Res Function(_$GetRouteCoordinatesErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$GetRouteCoordinatesErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
+  const _$GetRouteCoordinatesErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
+
+  @override
+  String toString() {
+    return 'MapState.getRouteCoordinatesError(apiErrorModel: $apiErrorModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRouteCoordinatesErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetRouteCoordinatesErrorImplCopyWith<_$GetRouteCoordinatesErrorImpl>
+      get copyWith => __$$GetRouteCoordinatesErrorImplCopyWithImpl<
+          _$GetRouteCoordinatesErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            LatLng currentPosition, Map<String, Marker> markers)
+        loaded,
+    required TResult Function(List<Prediction> predictions) searchResults,
+    required TResult Function(String message) error,
+    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesError(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult? Function(List<Prediction> predictions)? searchResults,
+    TResult? Function(String message)? error,
+    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesError?.call(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult Function(List<Prediction> predictions)? searchResults,
+    TResult Function(String message)? error,
+    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesError != null) {
+      return getRouteCoordinatesError(apiErrorModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(SearchResults value) searchResults,
+    required TResult Function(Error value) error,
+    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(SetStringHomeLocationState value)
+        setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(SearchResults value)? searchResults,
+    TResult? Function(Error value)? error,
+    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(SearchResults value)? searchResults,
+    TResult Function(Error value)? error,
+    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesError != null) {
+      return getRouteCoordinatesError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetRouteCoordinatesError implements MapState {
+  const factory GetRouteCoordinatesError(final ApiErrorModel apiErrorModel) =
+      _$GetRouteCoordinatesErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+  @JsonKey(ignore: true)
+  _$$GetRouteCoordinatesErrorImplCopyWith<_$GetRouteCoordinatesErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetRouteCoordinatesSuccessImplCopyWith<$Res> {
+  factory _$$GetRouteCoordinatesSuccessImplCopyWith(
+          _$GetRouteCoordinatesSuccessImpl value,
+          $Res Function(_$GetRouteCoordinatesSuccessImpl) then) =
+      __$$GetRouteCoordinatesSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<LatLng> data});
+}
+
+/// @nodoc
+class __$$GetRouteCoordinatesSuccessImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$GetRouteCoordinatesSuccessImpl>
+    implements _$$GetRouteCoordinatesSuccessImplCopyWith<$Res> {
+  __$$GetRouteCoordinatesSuccessImplCopyWithImpl(
+      _$GetRouteCoordinatesSuccessImpl _value,
+      $Res Function(_$GetRouteCoordinatesSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$GetRouteCoordinatesSuccessImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
+  const _$GetRouteCoordinatesSuccessImpl(final List<LatLng> data)
+      : _data = data;
+
+  final List<LatLng> _data;
+  @override
+  List<LatLng> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'MapState.getRouteCoordinatesSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRouteCoordinatesSuccessImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetRouteCoordinatesSuccessImplCopyWith<_$GetRouteCoordinatesSuccessImpl>
+      get copyWith => __$$GetRouteCoordinatesSuccessImplCopyWithImpl<
+          _$GetRouteCoordinatesSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            LatLng currentPosition, Map<String, Marker> markers)
+        loaded,
+    required TResult Function(List<Prediction> predictions) searchResults,
+    required TResult Function(String message) error,
+    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult? Function(List<Prediction> predictions)? searchResults,
+    TResult? Function(String message)? error,
+    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult Function(List<Prediction> predictions)? searchResults,
+    TResult Function(String message)? error,
+    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesSuccess != null) {
+      return getRouteCoordinatesSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(SearchResults value) searchResults,
+    required TResult Function(Error value) error,
+    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(SetStringHomeLocationState value)
+        setStringHomeLocationState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(SearchResults value)? searchResults,
+    TResult? Function(Error value)? error,
+    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+  }) {
+    return getRouteCoordinatesSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(SearchResults value)? searchResults,
+    TResult Function(Error value)? error,
+    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (getRouteCoordinatesSuccess != null) {
+      return getRouteCoordinatesSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetRouteCoordinatesSuccess implements MapState {
+  const factory GetRouteCoordinatesSuccess(final List<LatLng> data) =
+      _$GetRouteCoordinatesSuccessImpl;
+
+  List<LatLng> get data;
+  @JsonKey(ignore: true)
+  _$$GetRouteCoordinatesSuccessImplCopyWith<_$GetRouteCoordinatesSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

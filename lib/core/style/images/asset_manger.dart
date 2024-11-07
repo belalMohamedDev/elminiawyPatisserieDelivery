@@ -40,6 +40,10 @@ class ImageAsset {
   static const String noInternetConnection =
       "$imagePath/noInternetConnection.svg";
   static const String searchLoading = "$imagePath/searchLoading.svg";
+
+
+  static const String deliveryMan = "$imagePath/delivery-man.png";
+  static const String tracking = "$imagePath/tracking.png";
 }
 
 class JsonAsset {

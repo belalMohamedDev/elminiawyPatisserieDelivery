@@ -1,5 +1,8 @@
 class ApiConstants {
   static const String baseUrl = 'https://elminiawy-patisserie.vercel.app';
+  static const String baseUrlDirections = 'https://maps.googleapis.com/maps/api/';
+  static const String directionsJson =
+      'directions/json';
   static const int apiTimeOut = 120 * 1000;
 
   static const String login = '/v1/api/auth/login';

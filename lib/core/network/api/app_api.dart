@@ -37,13 +37,13 @@ abstract class AppServiceClient {
     @Part() List<File> images,
   );
 
-  @GET(ApiConstants.getOrders)
+  @POST(ApiConstants.getOrders)
   Future<GetAllOrderResponse> getAllOrderService(
-    @Field("latitude") String? latitude,
-    @Field("longitude") String? longitude,
+    @Field("latitude") String latitude,
+    @Field("longitude") String longitude,
   );
 
-  @PUT('${ApiConstants.driver}/{orderId}/active')
+  @PUT('${ApiConstants.driver}/{orderId}/accept')
   Future<ApiSuccessGeneralModel> acceptOrderService(
     @Path("orderId") String orderId,
   );

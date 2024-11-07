@@ -240,20 +240,18 @@ class _AppServiceClient implements AppServiceClient {
 
   @override
   Future<GetAllOrderResponse> getAllOrderService(
-    String? latitude,
-    String? longitude,
+    String latitude,
+    String longitude,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = {
       'latitude': latitude,
       'longitude': longitude,
     };
-    _data.removeWhere((k, v) => v == null);
     final _options = _setStreamType<GetAllOrderResponse>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
@@ -292,7 +290,7 @@ class _AppServiceClient implements AppServiceClient {
     )
         .compose(
           _dio.options,
-          '/v1/api/driver/${orderId}/active',
+          '/v1/api/driver/${orderId}/accept',
           queryParameters: queryParameters,
           data: _data,
         )

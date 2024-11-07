@@ -20,4 +20,13 @@ class MapState with _$MapState {
 
 
 
+
+  const factory MapState.getRouteCoordinatesLoading() = GetRouteCoordinatesLoading;
+
+  const factory MapState.getRouteCoordinatesError(ApiErrorModel apiErrorModel) =
+      GetRouteCoordinatesError;
+
+  const factory MapState.getRouteCoordinatesSuccess(List<LatLng> data) =
+      GetRouteCoordinatesSuccess;
+
 }

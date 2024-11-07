@@ -9,7 +9,7 @@ class OrderCubit extends Cubit<OrderState> {
 
   List<GetAllOrderData> orders = [];
 
-  Future<void> fetchOrders(String? latitude, String? longitude) async {
+  Future<void> fetchOrders(String latitude, String longitude) async {
     emit(const OrderState.getAllOrderLoading());
 
     final response =
@@ -25,11 +25,11 @@ class OrderCubit extends Cubit<OrderState> {
         emit(OrderState.getAllOrderSuccess(dataResponse));
       },
       failure: (error) {
-        if (error.statusCode != 401) {
-          emit(
-            OrderState.getAllOrderError(error),
-          );
-        }
+  
+
+        emit(
+          OrderState.getAllOrderError(error),
+        );
       },
     );
   }
@@ -56,7 +56,7 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   Future<void> fetchCanceledOrders(
-      String orderId, String? latitude, String? longitude) async {
+      String orderId, String latitude, String longitude) async {
     emit(const OrderState.cancelOrderLoading());
 
     final response = await _homeRepositoryImplement.canceledOrderRepo(orderId);

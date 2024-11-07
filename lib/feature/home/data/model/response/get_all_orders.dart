@@ -48,10 +48,11 @@ class GetAllOrderData {
 @JsonSerializable()
 class GetUserOrderData {
   String? sId;
+  String? name;
   String? email;
   String? phone;
 
-  GetUserOrderData({this.sId, this.email, this.phone});
+  GetUserOrderData({this.sId, this.email, this.phone,this.name});
 
   //from json
   factory GetUserOrderData.fromJson(Map<String, dynamic> json) =>

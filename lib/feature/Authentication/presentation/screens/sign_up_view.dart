@@ -1,3 +1,5 @@
+import 'package:driver/feature/Authentication/logic/CompleteRgistrationProcess/complete_registration_process_cubit.dart';
+
 import '../../../../../core/common/shared/shared_imports.dart'; // Import shared utilities
 
 class SignUpView extends StatefulWidget {
