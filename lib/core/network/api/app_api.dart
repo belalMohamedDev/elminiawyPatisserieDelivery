@@ -44,7 +44,7 @@ abstract class AppServiceClient {
   );
 
   @PUT('${ApiConstants.driver}/{orderId}/accept')
-  Future<ApiSuccessGeneralModel> acceptOrderService(
+  Future<OrderAcceptResponse> acceptOrderService(
     @Path("orderId") String orderId,
   );
 

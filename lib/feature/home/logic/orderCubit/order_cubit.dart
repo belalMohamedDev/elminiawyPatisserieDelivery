@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:driver/core/common/shared/shared_imports.dart';
 
 part 'order_state.dart';
@@ -25,8 +27,6 @@ class OrderCubit extends Cubit<OrderState> {
         emit(OrderState.getAllOrderSuccess(dataResponse));
       },
       failure: (error) {
-  
-
         emit(
           OrderState.getAllOrderError(error),
         );
@@ -41,8 +41,8 @@ class OrderCubit extends Cubit<OrderState> {
 
     response.when(
       success: (dataResponse) {
-        orders.removeWhere((order) => order.sId != orderId);
-
+        orders.clear();
+        saveOrderResponse(dataResponse);
         emit(OrderState.acceptOrderSuccess(dataResponse));
       },
       failure: (error) {
@@ -63,7 +63,7 @@ class OrderCubit extends Cubit<OrderState> {
 
     response.when(
       success: (dataResponse) async {
-        orders.removeWhere((order) => order.sId == orderId);
+        orders.clear();
         if (orders.isEmpty) {
           await fetchOrders(latitude, longitude);
         }
@@ -78,5 +78,25 @@ class OrderCubit extends Cubit<OrderState> {
         }
       },
     );
+  }
+
+  Future<void> saveOrderResponse(OrderAcceptResponse orderResponse) async {
+    // Convert to JSON string
+    String orderJson = orderResponse.toJson().toString();
+
+    // Save the JSON string
+    await SharedPrefHelper.setData('orderResponse', orderJson);
+  }
+
+  Future<OrderAcceptResponse?> getOrderResponse() async {
+    // Retrieve the JSON string
+    String? orderJson = SharedPrefHelper.getString('orderResponse');
+
+    // Parse the JSON string back to the object
+    return OrderAcceptResponse.fromJson(jsonDecode(orderJson));
+  }
+
+  Future<void> clearOrderResponse() async {
+    await SharedPrefHelper.removeData('orderResponse');
   }
 }

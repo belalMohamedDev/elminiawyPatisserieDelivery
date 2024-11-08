@@ -278,12 +278,12 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<ApiSuccessGeneralModel> acceptOrderService(String orderId) async {
+  Future<OrderAcceptResponse> acceptOrderService(String orderId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<ApiSuccessGeneralModel>(Options(
+    final _options = _setStreamType<OrderAcceptResponse>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -300,9 +300,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiSuccessGeneralModel _value;
+    late OrderAcceptResponse _value;
     try {
-      _value = ApiSuccessGeneralModel.fromJson(_result.data!);
+      _value = OrderAcceptResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

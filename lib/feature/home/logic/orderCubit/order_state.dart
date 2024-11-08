@@ -17,7 +17,7 @@ class OrderState with _$OrderState {
   const factory OrderState.acceptOrderError(ApiErrorModel apiErrorModel) =
        AcceptOrderError;
 
-  const factory OrderState.acceptOrderSuccess(ApiSuccessGeneralModel data) =
+  const factory OrderState.acceptOrderSuccess(OrderAcceptResponse data) =
       AcceptOrderSuccess;
 
   const factory OrderState.cancelOrderLoading() = CancelOrderLoading;

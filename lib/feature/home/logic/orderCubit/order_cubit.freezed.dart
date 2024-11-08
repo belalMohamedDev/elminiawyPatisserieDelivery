@@ -24,7 +24,7 @@ mixin _$OrderState {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -38,7 +38,7 @@ mixin _$OrderState {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -52,7 +52,7 @@ mixin _$OrderState {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -166,7 +166,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -183,7 +183,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -200,7 +200,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -316,7 +316,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -333,7 +333,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -350,7 +350,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -494,7 +494,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -511,7 +511,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -528,7 +528,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -677,7 +677,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -694,7 +694,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -711,7 +711,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -833,7 +833,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -850,7 +850,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -867,7 +867,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1011,7 +1011,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -1028,7 +1028,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1045,7 +1045,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1129,7 +1129,7 @@ abstract class _$$AcceptOrderSuccessImplCopyWith<$Res> {
           $Res Function(_$AcceptOrderSuccessImpl) then) =
       __$$AcceptOrderSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ApiSuccessGeneralModel data});
+  $Res call({OrderAcceptResponse data});
 }
 
 /// @nodoc
@@ -1149,7 +1149,7 @@ class __$$AcceptOrderSuccessImplCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ApiSuccessGeneralModel,
+              as OrderAcceptResponse,
     ));
   }
 }
@@ -1160,7 +1160,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
   const _$AcceptOrderSuccessImpl(this.data);
 
   @override
-  final ApiSuccessGeneralModel data;
+  final OrderAcceptResponse data;
 
   @override
   String toString() {
@@ -1194,7 +1194,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -1211,7 +1211,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1228,7 +1228,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1297,10 +1297,10 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
 }
 
 abstract class AcceptOrderSuccess implements OrderState {
-  const factory AcceptOrderSuccess(final ApiSuccessGeneralModel data) =
+  const factory AcceptOrderSuccess(final OrderAcceptResponse data) =
       _$AcceptOrderSuccessImpl;
 
-  ApiSuccessGeneralModel get data;
+  OrderAcceptResponse get data;
   @JsonKey(ignore: true)
   _$$AcceptOrderSuccessImplCopyWith<_$AcceptOrderSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1350,7 +1350,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -1367,7 +1367,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1384,7 +1384,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1528,7 +1528,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -1545,7 +1545,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1562,7 +1562,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1711,7 +1711,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     required TResult Function(GetAllOrderResponse data) getAllOrderSuccess,
     required TResult Function() acceptOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) acceptOrderError,
-    required TResult Function(ApiSuccessGeneralModel data) acceptOrderSuccess,
+    required TResult Function(OrderAcceptResponse data) acceptOrderSuccess,
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
@@ -1728,7 +1728,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     TResult? Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult? Function()? acceptOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult? Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult? Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
@@ -1745,7 +1745,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     TResult Function(GetAllOrderResponse data)? getAllOrderSuccess,
     TResult Function()? acceptOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? acceptOrderError,
-    TResult Function(ApiSuccessGeneralModel data)? acceptOrderSuccess,
+    TResult Function(OrderAcceptResponse data)? acceptOrderSuccess,
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,

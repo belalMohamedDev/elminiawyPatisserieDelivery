@@ -5,7 +5,7 @@ abstract class HomeRepository {
   Future<ApiResult<GetAllOrderResponse>> getOrdersRepo(
       String latitude, String longitude);
 
-  Future<ApiResult<ApiSuccessGeneralModel>> acceptOrderRepo(String orderId);
+  Future<ApiResult<OrderAcceptResponse>> acceptOrderRepo(String orderId);
 
   Future<ApiResult<ApiSuccessGeneralModel>> canceledOrderRepo(String orderId);
 
@@ -34,7 +34,7 @@ class HomeRepositoryImplement implements HomeRepository {
   }
 
   @override
-  Future<ApiResult<ApiSuccessGeneralModel>> acceptOrderRepo(
+  Future<ApiResult<OrderAcceptResponse>> acceptOrderRepo(
       String orderId) async {
     try {
       final response = await _apiService.acceptOrderService(orderId);
