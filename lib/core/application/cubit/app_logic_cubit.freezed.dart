@@ -22,6 +22,8 @@ mixin _$AppLogicState {
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
     required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,7 @@ mixin _$AppLogicState {
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
     TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +41,7 @@ mixin _$AppLogicState {
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
     TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +51,8 @@ mixin _$AppLogicState {
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
     required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +61,8 @@ mixin _$AppLogicState {
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
     TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +71,8 @@ mixin _$AppLogicState {
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
     TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +138,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
     required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
   }) {
     return initial();
   }
@@ -139,6 +151,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
     TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
   }) {
     return initial?.call();
   }
@@ -150,6 +163,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
     TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +179,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
     required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
   }) {
     return initial(this);
   }
@@ -176,6 +192,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
     TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +205,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
     TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -270,6 +290,8 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
     required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
   }) {
     return themeChangeMode(isDark);
   }
@@ -281,6 +303,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
     TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
   }) {
     return themeChangeMode?.call(isDark);
   }
@@ -292,6 +315,7 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
     TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (themeChangeMode != null) {
@@ -307,6 +331,8 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
     required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
   }) {
     return themeChangeMode(this);
   }
@@ -318,6 +344,8 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
     TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
   }) {
     return themeChangeMode?.call(this);
   }
@@ -329,6 +357,8 @@ class _$ThemeChangeModeStateImpl implements ThemeChangeModeState {
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
     TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (themeChangeMode != null) {
@@ -417,6 +447,8 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
     required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
   }) {
     return languageChange(locale);
   }
@@ -428,6 +460,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
     TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
   }) {
     return languageChange?.call(locale);
   }
@@ -439,6 +472,7 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
     TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (languageChange != null) {
@@ -454,6 +488,8 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
     required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
   }) {
     return languageChange(this);
   }
@@ -465,6 +501,8 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
     TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
   }) {
     return languageChange?.call(this);
   }
@@ -476,6 +514,8 @@ class _$LanguageChangeStateImpl implements LanguageChangeState {
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
     TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (languageChange != null) {
@@ -565,6 +605,8 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     required TResult Function(bool isDark) themeChangeMode,
     required TResult Function(Locale locale) languageChange,
     required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
   }) {
     return driverStatusChange(driverNotActive);
   }
@@ -576,6 +618,7 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     TResult? Function(bool isDark)? themeChangeMode,
     TResult? Function(Locale locale)? languageChange,
     TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
   }) {
     return driverStatusChange?.call(driverNotActive);
   }
@@ -587,6 +630,7 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     TResult Function(bool isDark)? themeChangeMode,
     TResult Function(Locale locale)? languageChange,
     TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (driverStatusChange != null) {
@@ -602,6 +646,8 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     required TResult Function(ThemeChangeModeState value) themeChangeMode,
     required TResult Function(LanguageChangeState value) languageChange,
     required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
   }) {
     return driverStatusChange(this);
   }
@@ -613,6 +659,8 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     TResult? Function(ThemeChangeModeState value)? themeChangeMode,
     TResult? Function(LanguageChangeState value)? languageChange,
     TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
   }) {
     return driverStatusChange?.call(this);
   }
@@ -624,6 +672,8 @@ class _$DriverStatusChangeImpl implements _DriverStatusChange {
     TResult Function(ThemeChangeModeState value)? themeChangeMode,
     TResult Function(LanguageChangeState value)? languageChange,
     TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
     required TResult orElse(),
   }) {
     if (driverStatusChange != null) {
@@ -641,4 +691,169 @@ abstract class _DriverStatusChange implements AppLogicState {
   @JsonKey(ignore: true)
   _$$DriverStatusChangeImplCopyWith<_$DriverStatusChangeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HideNavigationBarStateChangeImplCopyWith<$Res> {
+  factory _$$HideNavigationBarStateChangeImplCopyWith(
+          _$HideNavigationBarStateChangeImpl value,
+          $Res Function(_$HideNavigationBarStateChangeImpl) then) =
+      __$$HideNavigationBarStateChangeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool hideNavigationBar});
+}
+
+/// @nodoc
+class __$$HideNavigationBarStateChangeImplCopyWithImpl<$Res>
+    extends _$AppLogicStateCopyWithImpl<$Res,
+        _$HideNavigationBarStateChangeImpl>
+    implements _$$HideNavigationBarStateChangeImplCopyWith<$Res> {
+  __$$HideNavigationBarStateChangeImplCopyWithImpl(
+      _$HideNavigationBarStateChangeImpl _value,
+      $Res Function(_$HideNavigationBarStateChangeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hideNavigationBar = null,
+  }) {
+    return _then(_$HideNavigationBarStateChangeImpl(
+      hideNavigationBar: null == hideNavigationBar
+          ? _value.hideNavigationBar
+          : hideNavigationBar // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HideNavigationBarStateChangeImpl
+    implements _HideNavigationBarStateChange {
+  const _$HideNavigationBarStateChangeImpl({required this.hideNavigationBar});
+
+  @override
+  final bool hideNavigationBar;
+
+  @override
+  String toString() {
+    return 'AppLogicState.hideNavigationBarStateChange(hideNavigationBar: $hideNavigationBar)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HideNavigationBarStateChangeImpl &&
+            (identical(other.hideNavigationBar, hideNavigationBar) ||
+                other.hideNavigationBar == hideNavigationBar));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, hideNavigationBar);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HideNavigationBarStateChangeImplCopyWith<
+          _$HideNavigationBarStateChangeImpl>
+      get copyWith => __$$HideNavigationBarStateChangeImplCopyWithImpl<
+          _$HideNavigationBarStateChangeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool isDark) themeChangeMode,
+    required TResult Function(Locale locale) languageChange,
+    required TResult Function(bool driverNotActive) driverStatusChange,
+    required TResult Function(bool hideNavigationBar)
+        hideNavigationBarStateChange,
+  }) {
+    return hideNavigationBarStateChange(hideNavigationBar);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool isDark)? themeChangeMode,
+    TResult? Function(Locale locale)? languageChange,
+    TResult? Function(bool driverNotActive)? driverStatusChange,
+    TResult? Function(bool hideNavigationBar)? hideNavigationBarStateChange,
+  }) {
+    return hideNavigationBarStateChange?.call(hideNavigationBar);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool isDark)? themeChangeMode,
+    TResult Function(Locale locale)? languageChange,
+    TResult Function(bool driverNotActive)? driverStatusChange,
+    TResult Function(bool hideNavigationBar)? hideNavigationBarStateChange,
+    required TResult orElse(),
+  }) {
+    if (hideNavigationBarStateChange != null) {
+      return hideNavigationBarStateChange(hideNavigationBar);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ThemeChangeModeState value) themeChangeMode,
+    required TResult Function(LanguageChangeState value) languageChange,
+    required TResult Function(_DriverStatusChange value) driverStatusChange,
+    required TResult Function(_HideNavigationBarStateChange value)
+        hideNavigationBarStateChange,
+  }) {
+    return hideNavigationBarStateChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ThemeChangeModeState value)? themeChangeMode,
+    TResult? Function(LanguageChangeState value)? languageChange,
+    TResult? Function(_DriverStatusChange value)? driverStatusChange,
+    TResult? Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
+  }) {
+    return hideNavigationBarStateChange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ThemeChangeModeState value)? themeChangeMode,
+    TResult Function(LanguageChangeState value)? languageChange,
+    TResult Function(_DriverStatusChange value)? driverStatusChange,
+    TResult Function(_HideNavigationBarStateChange value)?
+        hideNavigationBarStateChange,
+    required TResult orElse(),
+  }) {
+    if (hideNavigationBarStateChange != null) {
+      return hideNavigationBarStateChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HideNavigationBarStateChange implements AppLogicState {
+  const factory _HideNavigationBarStateChange(
+          {required final bool hideNavigationBar}) =
+      _$HideNavigationBarStateChangeImpl;
+
+  bool get hideNavigationBar;
+  @JsonKey(ignore: true)
+  _$$HideNavigationBarStateChangeImplCopyWith<
+          _$HideNavigationBarStateChangeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

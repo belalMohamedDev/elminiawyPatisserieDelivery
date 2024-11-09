@@ -11,4 +11,8 @@ class AppLogicState with _$AppLogicState {
    const factory AppLogicState.driverStatusChange(
       {required bool driverNotActive}) = _DriverStatusChange;
 
+
+         const factory AppLogicState.hideNavigationBarStateChange(
+      {required bool hideNavigationBar}) = _HideNavigationBarStateChange;
+
 }

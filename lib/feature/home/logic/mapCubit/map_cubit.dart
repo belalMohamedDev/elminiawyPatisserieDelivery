@@ -1,4 +1,3 @@
-
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; //
@@ -18,6 +17,8 @@ class MapCubit extends Cubit<MapState> {
   List<MarkerData> markers = []; // List to hold custom markers
 
   bool isMapStyleLoaded = false;
+
+  late LatLng driverLocation;
 
   late String _mapTheme;
 
@@ -57,6 +58,8 @@ class MapCubit extends Cubit<MapState> {
       const Duration(seconds: 10),
     );
 
+    driverLocation = LatLng(position!.latitude, position.longitude);
+
     return position;
   }
 
@@ -91,10 +94,9 @@ class MapCubit extends Cubit<MapState> {
   }
 
 // Add a marker for the current location
-  void adddriverLocationMarkerToMap(LatLng position) {
+  void adddriverLocationMarkerToMap(
+      {required LatLng position}) {
     targetPosition = position;
-
-    // Remove any existing marker for the current location and add the new one
     markers.removeWhere(
       (markerData) => markerData.marker.markerId == const MarkerId('driver'),
     );
@@ -103,11 +105,13 @@ class MapCubit extends Cubit<MapState> {
       marker: Marker(
         markerId: const MarkerId('driver'),
         position: position,
+    
       ),
       child: const CustomMapMarkerWidget(driver: true),
     );
 
     markers.add(marker);
+    emit(MapState.updatedMarkers(markers));
   }
 
   // Add a marker for the current location
@@ -130,36 +134,19 @@ class MapCubit extends Cubit<MapState> {
     markers.add(marker);
   }
 
-  List<LatLng> getIntermediatePoints(List<LatLng> points, int numPoints) {
-    List<LatLng> intermediatePoints = [];
-
-    for (int i = 0; i < points.length - 1; i++) {
-      LatLng point1 = points[i];
-      LatLng point2 = points[i + 1];
-
-      double latDiff = point2.latitude - point1.latitude;
-      double lngDiff = point2.longitude - point1.longitude;
-
-      for (int j = 1; j <= numPoints; j++) {
-        double lat = point1.latitude + (latDiff * j) / (numPoints + 1);
-        double lng = point1.longitude + (lngDiff * j) / (numPoints + 1);
-
-        intermediatePoints.add(LatLng(lat, lng));
-      }
-    }
-
-    return intermediatePoints;
-  }
-
-  
   // Move the map camera to the specified position
-  Future<void> moveToLocation({required LatLng position}) async {
+  Future<void> moveToLocation(
+      {required LatLng position, double? bearing}) async {
     emit(const MapState.loading());
 
     try {
       mapController.animateCamera(
         CameraUpdate.newCameraPosition(
-          CameraPosition(target: position, zoom: 18),
+          CameraPosition(
+            target: position,
+            zoom: 70,
+        bearing: bearing ?? 0,
+          ),
         ),
       );
     } catch (e) {

@@ -13,8 +13,9 @@ class MapState with _$MapState {
 
   const factory MapState.error(String message) = Error;
 
-  const factory MapState.toggleMapState(final MapType mapType) = ToggleMapState;
-
+const factory MapState.updatedMarkers(List<MarkerData> markers) =
+      UpdatedMarkers;
+ 
   const factory MapState.setStringHomeLocationState(String homeLocation) = SetStringHomeLocationState;
 
 

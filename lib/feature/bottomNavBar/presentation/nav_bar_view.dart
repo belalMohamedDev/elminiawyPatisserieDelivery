@@ -26,6 +26,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           stateManagement: false,
 
           controller: context.read<AppLogicCubit>().bottomNavBarController,
+          hideNavigationBar: context.read<AppLogicCubit>().hideNavigationBar,
 
           margin: EdgeInsets.only(left: 12.w, right: 12.w, bottom: 12.h),
 

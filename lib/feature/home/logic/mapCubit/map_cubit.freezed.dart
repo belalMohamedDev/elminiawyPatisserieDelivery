@@ -25,7 +25,7 @@ mixin _$MapState {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -41,7 +41,7 @@ mixin _$MapState {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -56,7 +56,7 @@ mixin _$MapState {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -71,7 +71,7 @@ mixin _$MapState {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -89,7 +89,7 @@ mixin _$MapState {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -106,7 +106,7 @@ mixin _$MapState {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -181,7 +181,7 @@ class _$InitialImpl implements Initial {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -200,7 +200,7 @@ class _$InitialImpl implements Initial {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -218,7 +218,7 @@ class _$InitialImpl implements Initial {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -239,7 +239,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -260,7 +260,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -280,7 +280,7 @@ class _$InitialImpl implements Initial {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -346,7 +346,7 @@ class _$LoadingImpl implements Loading {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -365,7 +365,7 @@ class _$LoadingImpl implements Loading {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -383,7 +383,7 @@ class _$LoadingImpl implements Loading {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -404,7 +404,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -425,7 +425,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -445,7 +445,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -553,7 +553,7 @@ class _$LoadedImpl implements Loaded {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -572,7 +572,7 @@ class _$LoadedImpl implements Loaded {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -590,7 +590,7 @@ class _$LoadedImpl implements Loaded {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -611,7 +611,7 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -632,7 +632,7 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -652,7 +652,7 @@ class _$LoadedImpl implements Loaded {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -760,7 +760,7 @@ class _$SearchResultsImpl implements SearchResults {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -779,7 +779,7 @@ class _$SearchResultsImpl implements SearchResults {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -797,7 +797,7 @@ class _$SearchResultsImpl implements SearchResults {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -818,7 +818,7 @@ class _$SearchResultsImpl implements SearchResults {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -839,7 +839,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -859,7 +859,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -957,7 +957,7 @@ class _$ErrorImpl implements Error {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -976,7 +976,7 @@ class _$ErrorImpl implements Error {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -994,7 +994,7 @@ class _$ErrorImpl implements Error {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1015,7 +1015,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -1036,7 +1036,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -1056,7 +1056,7 @@ class _$ErrorImpl implements Error {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -1083,65 +1083,72 @@ abstract class Error implements MapState {
 }
 
 /// @nodoc
-abstract class _$$ToggleMapStateImplCopyWith<$Res> {
-  factory _$$ToggleMapStateImplCopyWith(_$ToggleMapStateImpl value,
-          $Res Function(_$ToggleMapStateImpl) then) =
-      __$$ToggleMapStateImplCopyWithImpl<$Res>;
+abstract class _$$UpdatedMarkersImplCopyWith<$Res> {
+  factory _$$UpdatedMarkersImplCopyWith(_$UpdatedMarkersImpl value,
+          $Res Function(_$UpdatedMarkersImpl) then) =
+      __$$UpdatedMarkersImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({MapType mapType});
+  $Res call({List<MarkerData> markers});
 }
 
 /// @nodoc
-class __$$ToggleMapStateImplCopyWithImpl<$Res>
-    extends _$MapStateCopyWithImpl<$Res, _$ToggleMapStateImpl>
-    implements _$$ToggleMapStateImplCopyWith<$Res> {
-  __$$ToggleMapStateImplCopyWithImpl(
-      _$ToggleMapStateImpl _value, $Res Function(_$ToggleMapStateImpl) _then)
+class __$$UpdatedMarkersImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$UpdatedMarkersImpl>
+    implements _$$UpdatedMarkersImplCopyWith<$Res> {
+  __$$UpdatedMarkersImplCopyWithImpl(
+      _$UpdatedMarkersImpl _value, $Res Function(_$UpdatedMarkersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mapType = null,
+    Object? markers = null,
   }) {
-    return _then(_$ToggleMapStateImpl(
-      null == mapType
-          ? _value.mapType
-          : mapType // ignore: cast_nullable_to_non_nullable
-              as MapType,
+    return _then(_$UpdatedMarkersImpl(
+      null == markers
+          ? _value._markers
+          : markers // ignore: cast_nullable_to_non_nullable
+              as List<MarkerData>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ToggleMapStateImpl implements ToggleMapState {
-  const _$ToggleMapStateImpl(this.mapType);
+class _$UpdatedMarkersImpl implements UpdatedMarkers {
+  const _$UpdatedMarkersImpl(final List<MarkerData> markers)
+      : _markers = markers;
 
+  final List<MarkerData> _markers;
   @override
-  final MapType mapType;
+  List<MarkerData> get markers {
+    if (_markers is EqualUnmodifiableListView) return _markers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_markers);
+  }
 
   @override
   String toString() {
-    return 'MapState.toggleMapState(mapType: $mapType)';
+    return 'MapState.updatedMarkers(markers: $markers)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleMapStateImpl &&
-            (identical(other.mapType, mapType) || other.mapType == mapType));
+            other is _$UpdatedMarkersImpl &&
+            const DeepCollectionEquality().equals(other._markers, _markers));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, mapType);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_markers));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ToggleMapStateImplCopyWith<_$ToggleMapStateImpl> get copyWith =>
-      __$$ToggleMapStateImplCopyWithImpl<_$ToggleMapStateImpl>(
+  _$$UpdatedMarkersImplCopyWith<_$UpdatedMarkersImpl> get copyWith =>
+      __$$UpdatedMarkersImplCopyWithImpl<_$UpdatedMarkersImpl>(
           this, _$identity);
 
   @override
@@ -1154,14 +1161,14 @@ class _$ToggleMapStateImpl implements ToggleMapState {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
     required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
   }) {
-    return toggleMapState(mapType);
+    return updatedMarkers(markers);
   }
 
   @override
@@ -1173,13 +1180,13 @@ class _$ToggleMapStateImpl implements ToggleMapState {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
   }) {
-    return toggleMapState?.call(mapType);
+    return updatedMarkers?.call(markers);
   }
 
   @override
@@ -1191,15 +1198,15 @@ class _$ToggleMapStateImpl implements ToggleMapState {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
-    if (toggleMapState != null) {
-      return toggleMapState(mapType);
+    if (updatedMarkers != null) {
+      return updatedMarkers(markers);
     }
     return orElse();
   }
@@ -1212,7 +1219,7 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -1222,7 +1229,7 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     required TResult Function(GetRouteCoordinatesSuccess value)
         getRouteCoordinatesSuccess,
   }) {
-    return toggleMapState(this);
+    return updatedMarkers(this);
   }
 
   @override
@@ -1233,7 +1240,7 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -1242,7 +1249,7 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult? Function(GetRouteCoordinatesSuccess value)?
         getRouteCoordinatesSuccess,
   }) {
-    return toggleMapState?.call(this);
+    return updatedMarkers?.call(this);
   }
 
   @override
@@ -1253,7 +1260,7 @@ class _$ToggleMapStateImpl implements ToggleMapState {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -1263,19 +1270,20 @@ class _$ToggleMapStateImpl implements ToggleMapState {
         getRouteCoordinatesSuccess,
     required TResult orElse(),
   }) {
-    if (toggleMapState != null) {
-      return toggleMapState(this);
+    if (updatedMarkers != null) {
+      return updatedMarkers(this);
     }
     return orElse();
   }
 }
 
-abstract class ToggleMapState implements MapState {
-  const factory ToggleMapState(final MapType mapType) = _$ToggleMapStateImpl;
+abstract class UpdatedMarkers implements MapState {
+  const factory UpdatedMarkers(final List<MarkerData> markers) =
+      _$UpdatedMarkersImpl;
 
-  MapType get mapType;
+  List<MarkerData> get markers;
   @JsonKey(ignore: true)
-  _$$ToggleMapStateImplCopyWith<_$ToggleMapStateImpl> get copyWith =>
+  _$$UpdatedMarkersImplCopyWith<_$UpdatedMarkersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1354,7 +1362,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -1373,7 +1381,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1391,7 +1399,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1412,7 +1420,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -1433,7 +1441,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -1453,7 +1461,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -1528,7 +1536,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -1547,7 +1555,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1565,7 +1573,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1586,7 +1594,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -1607,7 +1615,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -1627,7 +1635,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -1723,7 +1731,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -1742,7 +1750,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1760,7 +1768,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1781,7 +1789,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -1802,7 +1810,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -1822,7 +1830,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?
@@ -1930,7 +1938,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
         loaded,
     required TResult Function(List<Prediction> predictions) searchResults,
     required TResult Function(String message) error,
-    required TResult Function(MapType mapType) toggleMapState,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
@@ -1949,7 +1957,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
         loaded,
     TResult? Function(List<Prediction> predictions)? searchResults,
     TResult? Function(String message)? error,
-    TResult? Function(MapType mapType)? toggleMapState,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1967,7 +1975,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
         loaded,
     TResult Function(List<Prediction> predictions)? searchResults,
     TResult Function(String message)? error,
-    TResult Function(MapType mapType)? toggleMapState,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
@@ -1988,7 +1996,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     required TResult Function(Loaded value) loaded,
     required TResult Function(SearchResults value) searchResults,
     required TResult Function(Error value) error,
-    required TResult Function(ToggleMapState value) toggleMapState,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
     required TResult Function(GetRouteCoordinatesLoading value)
@@ -2009,7 +2017,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult? Function(Loaded value)? loaded,
     TResult? Function(SearchResults value)? searchResults,
     TResult? Function(Error value)? error,
-    TResult? Function(ToggleMapState value)? toggleMapState,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult? Function(GetRouteCoordinatesLoading value)?
@@ -2029,7 +2037,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult Function(Loaded value)? loaded,
     TResult Function(SearchResults value)? searchResults,
     TResult Function(Error value)? error,
-    TResult Function(ToggleMapState value)? toggleMapState,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
     TResult Function(GetRouteCoordinatesLoading value)?

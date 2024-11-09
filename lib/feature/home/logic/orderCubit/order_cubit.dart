@@ -11,6 +11,8 @@ class OrderCubit extends Cubit<OrderState> {
 
   List<GetAllOrderData> orders = [];
 
+  OrderAcceptResponse? orderAcceptResponse;
+
   Future<void> fetchOrders(String latitude, String longitude) async {
     emit(const OrderState.getAllOrderLoading());
 
@@ -41,7 +43,7 @@ class OrderCubit extends Cubit<OrderState> {
 
     response.when(
       success: (dataResponse) {
-        orders.clear();
+        orders = [];
         saveOrderResponse(dataResponse);
         emit(OrderState.acceptOrderSuccess(dataResponse));
       },
@@ -63,7 +65,7 @@ class OrderCubit extends Cubit<OrderState> {
 
     response.when(
       success: (dataResponse) async {
-        orders.clear();
+        orders = [];
         if (orders.isEmpty) {
           await fetchOrders(latitude, longitude);
         }
@@ -80,23 +82,17 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
-  Future<void> saveOrderResponse(OrderAcceptResponse orderResponse) async {
-    // Convert to JSON string
-    String orderJson = orderResponse.toJson().toString();
-
-    // Save the JSON string
-    await SharedPrefHelper.setData('orderResponse', orderJson);
+  void saveOrderResponse(OrderAcceptResponse orderResponse) async {
+    String orderJson = jsonEncode(orderResponse.toJson());
+    SharedPrefHelper.setData('orderResponse', orderJson);
   }
 
-  Future<OrderAcceptResponse?> getOrderResponse() async {
-    // Retrieve the JSON string
-    String? orderJson = SharedPrefHelper.getString('orderResponse');
-
-    // Parse the JSON string back to the object
-    return OrderAcceptResponse.fromJson(jsonDecode(orderJson));
+  void getOrderResponse() async {
+    String orderJson = SharedPrefHelper.getString('orderResponse');
+    orderAcceptResponse = OrderAcceptResponse.fromJson(jsonDecode(orderJson));
   }
 
   Future<void> clearOrderResponse() async {
-    await SharedPrefHelper.removeData('orderResponse');
+    SharedPrefHelper.removeData('orderResponse');
   }
 }

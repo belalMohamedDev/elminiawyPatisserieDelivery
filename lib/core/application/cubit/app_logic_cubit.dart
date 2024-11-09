@@ -9,19 +9,22 @@ class AppLogicCubit extends Cubit<AppLogicState> {
   final PersistentTabController bottomNavBarController =
       PersistentTabController();
 
-
   String currentLangCode = 'en';
 
-
   bool driverActive = false;
+  bool hideNavigationBar = false;
 
-    // Toggle Driver Status
+  void toggleHideNavigationBarStatus(bool value) {
+    hideNavigationBar = value;
+    emit(AppLogicState.hideNavigationBarStateChange(
+        hideNavigationBar: hideNavigationBar));
+  }
+
+  // Toggle Driver Status
   void toggleDriverStatus(bool value) {
     driverActive = value;
     emit(AppLogicState.driverStatusChange(driverNotActive: driverActive));
   }
-
-
 
   // Get Saved Language from Shared Preferences
   void getSavedLanguage() {
