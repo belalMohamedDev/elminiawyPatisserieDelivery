@@ -49,9 +49,13 @@
   "photoGallery": "Photo from Gallery",
   "photoCamera": "Photo from Camera",
   "continueToCompleteYourProfile" :"Continue to complete your profile",
+  "deliveredOrder": "Order is Delivered",
 
   "loading": "Loading ....",
 
+  "addressDetails": "Address Details",
+
+  "clientData": "Client Data",
 
 
   "registrationProcess": "Registration Process",

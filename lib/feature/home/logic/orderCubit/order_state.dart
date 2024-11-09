@@ -12,13 +12,15 @@ class OrderState with _$OrderState {
   const factory OrderState.getAllOrderSuccess(GetAllOrderResponse data) =
       GetAllOrderSuccess;
 
-  const factory OrderState.acceptOrderLoading() =  AcceptOrderLoading;
+  const factory OrderState.acceptOrderLoading() = AcceptOrderLoading;
 
   const factory OrderState.acceptOrderError(ApiErrorModel apiErrorModel) =
-       AcceptOrderError;
+      AcceptOrderError;
 
   const factory OrderState.acceptOrderSuccess(OrderAcceptResponse data) =
       AcceptOrderSuccess;
+
+  const factory OrderState.updateLocalOrder(OrderAcceptResponse data) = UpdateLocalOrder;
 
   const factory OrderState.cancelOrderLoading() = CancelOrderLoading;
 
@@ -27,4 +29,8 @@ class OrderState with _$OrderState {
 
   const factory OrderState.cancelOrderSuccess(ApiSuccessGeneralModel data) =
       CancelOrderSuccess;
+
+
+        const factory OrderState.isExpanded(bool  isExpanded) =
+      IsExpanded;
 }

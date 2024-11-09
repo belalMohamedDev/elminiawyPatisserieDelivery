@@ -1,4 +1,3 @@
-
 import '../../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 class GoogleMapWidget extends StatelessWidget {
@@ -18,11 +17,10 @@ class GoogleMapWidget extends StatelessWidget {
           Polyline(
             polylineId: const PolylineId("route"),
             points: state.data,
-            color: Colors.orange,
+            color: ColorManger.orangeColor,
             width: 5,
           ),
         );
-
       }
 
       return CustomGoogleMapMarkerBuilder(

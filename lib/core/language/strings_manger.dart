@@ -13,6 +13,9 @@ class AppStrings {
   static const String passwordDigit = "passwordDigit";
   static const String passwordSpecialCharacter = "passwordSpecialCharacter";
   static const String uploadProfilePicture = "uploadProfilePicture";
+  static const String addressDetails = "addressDetails";
+  static const String clientData = "clientData";
+  static const String deliveredOrder = "deliveredOrder";
 
   static const String photoGallery = 'photoGallery';
   static const String photoCamera = 'photoCamera';

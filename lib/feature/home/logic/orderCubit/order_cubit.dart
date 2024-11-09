@@ -13,6 +13,15 @@ class OrderCubit extends Cubit<OrderState> {
 
   OrderAcceptResponse? orderAcceptResponse;
 
+  bool isExpanded = false;
+
+  void togelExpandedBottomSheet(){
+     isExpanded = !isExpanded;
+     emit(
+          OrderState.isExpanded(isExpanded),
+        );
+  }
+
   Future<void> fetchOrders(String latitude, String longitude) async {
     emit(const OrderState.getAllOrderLoading());
 
@@ -90,6 +99,7 @@ class OrderCubit extends Cubit<OrderState> {
   void getOrderResponse() async {
     String orderJson = SharedPrefHelper.getString('orderResponse');
     orderAcceptResponse = OrderAcceptResponse.fromJson(jsonDecode(orderJson));
+    emit(OrderState.updateLocalOrder(orderAcceptResponse!));
   }
 
   Future<void> clearOrderResponse() async {

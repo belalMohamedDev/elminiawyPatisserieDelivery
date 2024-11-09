@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; //
@@ -38,6 +40,43 @@ class MapCubit extends Cubit<MapState> {
           isMapStyleLoaded = true;
         },
       );
+    }
+  }
+
+  double calculateBearing(LatLng start, LatLng end) {
+    double lat1 = start.latitude * pi / 180;
+    double lon1 = start.longitude * pi / 180;
+    double lat2 = end.latitude * pi / 180;
+    double lon2 = end.longitude * pi / 180;
+
+    double dLon = lon2 - lon1;
+
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+
+    double initialBearing = atan2(y, x);
+    initialBearing =
+        (initialBearing * 180 / pi + 360) % 360; // تحويله لدرجات من 0° إلى 360°
+
+    return initialBearing;
+  }
+
+  void decodePolyline(String polylinePoints, LatLng driverLocation) {
+    PolylinePoints polylinePointsDecoder = PolylinePoints();
+    List<PointLatLng> decodedPathPoints =
+        polylinePointsDecoder.decodePolyline(polylinePoints);
+
+    List<LatLng> decodedPath = decodedPathPoints
+        .map((point) => LatLng(point.latitude, point.longitude))
+        .toList();
+
+    for (var point in decodedPath) {
+      print('Decoded Point: ${point.latitude}, ${point.longitude}');
+    }
+
+    if (decodedPath.isNotEmpty) {
+      double bearing = calculateBearing(driverLocation, decodedPath.first);
+      print('Bearing to next location: $bearing');
     }
   }
 
@@ -94,8 +133,7 @@ class MapCubit extends Cubit<MapState> {
   }
 
 // Add a marker for the current location
-  void adddriverLocationMarkerToMap(
-      {required LatLng position}) {
+  void adddriverLocationMarkerToMap({required LatLng position}) {
     targetPosition = position;
     markers.removeWhere(
       (markerData) => markerData.marker.markerId == const MarkerId('driver'),
@@ -105,7 +143,6 @@ class MapCubit extends Cubit<MapState> {
       marker: Marker(
         markerId: const MarkerId('driver'),
         position: position,
-    
       ),
       child: const CustomMapMarkerWidget(driver: true),
     );
@@ -145,7 +182,7 @@ class MapCubit extends Cubit<MapState> {
           CameraPosition(
             target: position,
             zoom: 70,
-        bearing: bearing ?? 0,
+            bearing: bearing ?? 0,
           ),
         ),
       );
@@ -157,5 +194,26 @@ class MapCubit extends Cubit<MapState> {
   // Determine the user's current position using Geolocator
   Future<Position?> _determinePosition(BuildContext context) async {
     return await AppUtils.determinePosition(context);
+  }
+
+  Future<void> handleAcceptOrderSuccess(
+      LatLng customerLocation, BuildContext context) async {
+    // Get the driver's current location
+    Position? position = await getDriverCurrentLocation(context);
+
+    if (position != null) {
+      // Fetch and display route coordinates between driver and customer
+      fetchRouteCoordinates(driverLocation, customerLocation);
+
+      // Add markers for driver and customer locations
+      adddriverLocationMarkerToMap(position: driverLocation);
+
+      addCustomerLocationMarkerToMap(customerLocation);
+
+      // Move camera to the driver location
+      await moveToLocation(
+        position: driverLocation,
+      );
+    }
   }
 }
