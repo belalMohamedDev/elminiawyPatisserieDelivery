@@ -12,35 +12,67 @@ class MapCubit extends Cubit<MapState> {
 
   final context = instance<GlobalKey<NavigatorState>>().currentState!.context;
 
-  late GoogleMapController mapController; // Controller to manage Google Map
+  final Completer<GoogleMapController> _controllerCompleter =
+      Completer<GoogleMapController>();
+
+  // late GoogleMapController mapController; // Controller to manage Google Map
 
   final HomeRepositoryImplement _homeRepositoryImplement;
 
   List<MarkerData> markers = []; // List to hold custom markers
 
-  bool isMapStyleLoaded = false;
+  Set<Polyline> polylines = {};
 
   late LatLng driverLocation;
 
-  late String _mapTheme;
+  String? mapTheme;
 
   // Default starting position on the map
   LatLng targetPosition = const LatLng(30.73148352751841, 31.79803739729101);
 
   MapType mapType = MapType.normal;
 
+  Timer? _driverLocationTimer;
+
+  LatLng? customerLocation;
+
+  void drawPolylines(List<LatLng> polylineCoordinates) {
+    polylines.add(
+      Polyline(
+        polylineId: const PolylineId("route"),
+        points: polylineCoordinates,
+        color: ColorManger.orangeColor,
+        width: 5,
+      ),
+    );
+  }
+
   void loadMapStyle() {
-    if (!isMapStyleLoaded) {
-      // Check if style is already loaded
-      DefaultAssetBundle.of(context)
-          .loadString("asset/json/map_theme.json")
-          .then(
-        (value) {
-          _mapTheme = value;
-          isMapStyleLoaded = true;
-        },
-      );
-    }
+    // Check if style is already loaded
+    DefaultAssetBundle.of(context).loadString(JsonAsset.map).then(
+      (value) {
+        mapTheme = value;
+        emit(MapState.loadThemeState(mapTheme!));
+      },
+    );
+  }
+
+  void startTrackingDriver() {
+    _driverLocationTimer =
+        Timer.periodic(const Duration(seconds: 5), (timer) async {
+      Position? position = await getDriverCurrentLocation(context);
+      if (position != null) {
+        driverLocation = LatLng(position.latitude, position.longitude);
+
+        moveToLocation(position: driverLocation);
+
+        addDriverLocationMarkerToMap(position: driverLocation);
+      }
+    });
+  }
+
+  void stopTrackingDriver() {
+    _driverLocationTimer?.cancel();
   }
 
   double calculateBearing(LatLng start, LatLng end) {
@@ -55,51 +87,9 @@ class MapCubit extends Cubit<MapState> {
     double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
 
     double initialBearing = atan2(y, x);
-    initialBearing =
-        (initialBearing * 180 / pi + 360) % 360; // تحويله لدرجات من 0° إلى 360°
+    initialBearing = (initialBearing * 180 / pi + 360) % 360;
 
     return initialBearing;
-  }
-
-  void decodePolyline(String polylinePoints, LatLng driverLocation) {
-    PolylinePoints polylinePointsDecoder = PolylinePoints();
-    List<PointLatLng> decodedPathPoints =
-        polylinePointsDecoder.decodePolyline(polylinePoints);
-
-    List<LatLng> decodedPath = decodedPathPoints
-        .map((point) => LatLng(point.latitude, point.longitude))
-        .toList();
-
-    for (var point in decodedPath) {
-      print('Decoded Point: ${point.latitude}, ${point.longitude}');
-    }
-
-    if (decodedPath.isNotEmpty) {
-      double bearing = calculateBearing(driverLocation, decodedPath.first);
-      print('Bearing to next location: $bearing');
-    }
-  }
-
-  // Set the map controller
-  void setMapController(GoogleMapController controller) async {
-    Completer<GoogleMapController> gmCompleter = Completer();
-    gmCompleter.complete(controller);
-    gmCompleter.future.then(
-      (gmController) {
-        mapController = gmController;
-        mapController.setMapStyle(_mapTheme);
-      },
-    );
-  }
-
-  Future<Position?> getDriverCurrentLocation(BuildContext context) async {
-    Position? position = await _determinePosition(context).timeout(
-      const Duration(seconds: 10),
-    );
-
-    driverLocation = LatLng(position!.latitude, position.longitude);
-
-    return position;
   }
 
   Future<void> fetchRouteCoordinates(LatLng origin, LatLng destination) async {
@@ -117,23 +107,50 @@ class MapCubit extends Cubit<MapState> {
 
         polylineCoordinates = polylinePoints
             .decodePolyline(encodedPoints)
-            .map(
-              (point) => LatLng(point.latitude, point.longitude),
-            )
+            .map((point) => LatLng(point.latitude, point.longitude))
             .toList();
 
-        emit(MapState.getRouteCoordinatesSuccess(polylineCoordinates));
+        if (polylineCoordinates.length > 1) {
+          double bearing = calculateBearing(
+              polylineCoordinates.first, polylineCoordinates[1]);
+
+          addDriverLocationMarkerToMap(position: polylineCoordinates.first);
+
+          moveToLocation(
+            position: polylineCoordinates.first,
+            bearing: bearing,
+          );
+
+          drawPolylines(polylineCoordinates);
+
+          emit(MapState.getRouteCoordinatesSuccess(polylineCoordinates));
+        }
       },
       failure: (error) {
-        emit(
-          MapState.getRouteCoordinatesError(error),
-        );
+        emit(MapState.getRouteCoordinatesError(error));
       },
     );
   }
 
+// Initialize mapController in the map's onMapCreated callback
+  void onMapCreated(GoogleMapController controller) {
+    if (!_controllerCompleter.isCompleted) {
+      _controllerCompleter.complete(controller);
+    }
+  }
+
+  Future<Position?> getDriverCurrentLocation(BuildContext context) async {
+    Position? position = await _determinePosition(context).timeout(
+      const Duration(seconds: 10),
+    );
+
+    driverLocation = LatLng(position!.latitude, position.longitude);
+
+    return position;
+  }
+
 // Add a marker for the current location
-  void adddriverLocationMarkerToMap({required LatLng position}) {
+  void addDriverLocationMarkerToMap({required LatLng position}) {
     targetPosition = position;
     markers.removeWhere(
       (markerData) => markerData.marker.markerId == const MarkerId('driver'),
@@ -152,9 +169,7 @@ class MapCubit extends Cubit<MapState> {
   }
 
   // Add a marker for the current location
-  void addCustomerLocationMarkerToMap(LatLng position) {
-    targetPosition = position;
-
+  void addCustomerLocationMarkerToMap() {
     // Remove any existing marker for the current location and add the new one
     markers.removeWhere(
       (markerData) => markerData.marker.markerId == const MarkerId('customer'),
@@ -163,7 +178,7 @@ class MapCubit extends Cubit<MapState> {
     final marker = MarkerData(
       marker: Marker(
         markerId: const MarkerId('customer'),
-        position: position,
+        position: customerLocation!,
       ),
       child: const CustomMapMarkerWidget(),
     );
@@ -173,15 +188,19 @@ class MapCubit extends Cubit<MapState> {
 
   // Move the map camera to the specified position
   Future<void> moveToLocation(
-      {required LatLng position, double? bearing}) async {
+      {required LatLng position, double? bearing,double tilt=60,
+      double zoom=21}) async {
     emit(const MapState.loading());
 
     try {
-      mapController.animateCamera(
+      final GoogleMapController controller = await _controllerCompleter.future;
+
+      await controller.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
             target: position,
-            zoom: 70,
+            zoom: zoom,
+             tilt: tilt,
             bearing: bearing ?? 0,
           ),
         ),
@@ -196,24 +215,19 @@ class MapCubit extends Cubit<MapState> {
     return await AppUtils.determinePosition(context);
   }
 
-  Future<void> handleAcceptOrderSuccess(
-      LatLng customerLocation, BuildContext context) async {
+  Future<void> handleAcceptOrderSuccess(BuildContext context) async {
     // Get the driver's current location
     Position? position = await getDriverCurrentLocation(context);
 
     if (position != null) {
       // Fetch and display route coordinates between driver and customer
-      fetchRouteCoordinates(driverLocation, customerLocation);
+      fetchRouteCoordinates(driverLocation, customerLocation!);
 
       // Add markers for driver and customer locations
-      adddriverLocationMarkerToMap(position: driverLocation);
 
-      addCustomerLocationMarkerToMap(customerLocation);
+      addCustomerLocationMarkerToMap();
 
       // Move camera to the driver location
-      await moveToLocation(
-        position: driverLocation,
-      );
     }
   }
 }

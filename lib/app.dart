@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
- bool _isDependenciesLoaded = false;
+  bool _isDependenciesLoaded = false;
 
   @override
   void initState() {
@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
+
 
     return MultiBlocProvider(
       providers: [
@@ -53,8 +54,6 @@ class _MyAppState extends State<MyApp> {
           if (snapshot.hasData && !snapshot.data!) {
             return const NoconnectionScreen();
           }
-
-
 
           return ScreenUtilInit(
             designSize: const Size(375, 812),

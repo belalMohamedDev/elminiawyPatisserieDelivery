@@ -9,6 +9,10 @@ class AppInitialRoute {
 
   static final AppInitialRoute _instance = AppInitialRoute._();
 
+
+
+
+
   static bool isLoggedInUser = false;
   static bool isOnBoardingScreen = false;
   static bool isNextToCompleteRgister = false;

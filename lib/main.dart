@@ -15,6 +15,7 @@ void main() async {
   );
 
   await initAppModule();
+  
 
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
   //   statusBarColor: ColorManger.white,

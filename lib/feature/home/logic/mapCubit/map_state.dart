@@ -19,6 +19,8 @@ const factory MapState.updatedMarkers(List<MarkerData> markers) =
   const factory MapState.setStringHomeLocationState(String homeLocation) = SetStringHomeLocationState;
 
 
+  const factory MapState.loadThemeState(String value) =
+      LoadThemeState;
 
 
 

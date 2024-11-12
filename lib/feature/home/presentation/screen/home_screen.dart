@@ -45,16 +45,18 @@ class _HomeScreenState extends State<HomeScreen> {
         // Hide the navigation bar
         context.read<AppLogicCubit>().toggleHideNavigationBarStatus(true);
 
-        // Get the customer's location from the order data
-        LatLng customerLocation = LatLng(
+        // Get the customerLocation's location from the order data
+        mapCubit.customerLocation = LatLng(
           orderCubit.orderAcceptResponse!.data!.shippingAddress!.location!
               .coordinates!.last,
           orderCubit.orderAcceptResponse!.data!.shippingAddress!.location!
               .coordinates!.first,
         );
 
-        // Handle the accepted order process
-        await mapCubit.handleAcceptOrderSuccess(customerLocation, context);
+        // add customer Location to map
+        mapCubit.addCustomerLocationMarkerToMap();
+        await mapCubit.moveToLocation(
+            position: mapCubit.customerLocation!, zoom: 18, tilt: 90);
       }
     });
   }
@@ -63,159 +65,189 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final mapCubit = context.read<MapCubit>();
     final responsive = ResponsiveUtils(context);
+    final orders = context.read<OrderCubit>().orders;
 
-    return Stack(
-      children: [
-        const Positioned.fill(
-          child: GoogleMapWidget(),
-        ),
-        BlocConsumer<OrderCubit, OrderState>(
-          listener: (context, state) async {
-            if (state is AcceptOrderSuccess) {
-              // Extract customer location coordinates
-              LatLng customerLocation = LatLng(
-                state.data.data!.shippingAddress!.location!.coordinates!.last,
-                state.data.data!.shippingAddress!.location!.coordinates!.first,
-              );
-              await mapCubit.handleAcceptOrderSuccess(
-                  customerLocation, context);
-            }
-          },
-          builder: (context, state) {
-            if (state is AcceptOrderSuccess) {
-              return const SizedBox();
-            }
-            if (state is CancelOrderLoading || state is AcceptOrderLoading) {
-              return const LoadingOverlay(isLoading: true);
-            }
+    return Scaffold(
+      body: Stack(
+        children: [
+          const Positioned.fill(
+            child: Expanded(
+              child: GoogleMapWidget(),
+            ),
+          ),
 
-            final orders = context.read<OrderCubit>().orders;
-            if (orders.isEmpty) {
-              return const SizedBox();
-            }
-            return ListView.builder(
-              itemCount: orders.length,
-              itemBuilder: (context, index) {
-                final order = orders[index];
-                return Padding(
-                  padding: responsive.setPadding(
-                    top: 1.5,
-                    left: 4,
-                    right: 4,
-                  ),
-                  child: Container(
-                    width: responsive.screenWidth,
-                    constraints: BoxConstraints(
-                      minHeight: responsive.setHeight(10.2),
-                      maxHeight: double.infinity,
-                    ),
-                    child: Slidable(
-                      endActionPane: ActionPane(
-                        motion: const BehindMotion(),
-                        children: [
-                          responsive.setSizeBox(width: 1.5),
-                          SlidableAction(
-                            onPressed: (_) async {
-                              Position? position = await mapCubit
-                                  .getDriverCurrentLocation(context);
-                              if (position != null) {
-                                context.read<OrderCubit>().fetchCanceledOrders(
-                                      order.sId!,
-                                      '${position.latitude}',
-                                      '${position.longitude}',
-                                    );
-                              }
-                            },
-                            backgroundColor: ColorManger.redError,
-                            foregroundColor: ColorManger.white,
-                            icon: IconlyBold.delete,
-                            borderRadius: BorderRadius.circular(
-                                responsive.setBorderRadius(2)),
-                          ),
-                          responsive.setSizeBox(width: 1.5),
-                          SlidableAction(
-                            onPressed: (context) {
-                              context
-                                  .read<OrderCubit>()
-                                  .fetchAcceptOrders(order.sId!);
-                            },
-                            backgroundColor: ColorManger.green,
-                            foregroundColor: ColorManger.white,
-                            icon: Icons.check_rounded,
-                            borderRadius: BorderRadius.circular(
-                                responsive.setBorderRadius(2)),
-                          ),
-                        ],
+          if (orders.isNotEmpty) ...[
+            BlocConsumer<OrderCubit, OrderState>(
+              listener: (context, state) async {
+                if (state is AcceptOrderSuccess) {
+                  // Extract customer location coordinates
+                  mapCubit.customerLocation = LatLng(
+                    state.data.data!.shippingAddress!.location!.coordinates!
+                        .last,
+                    state.data.data!.shippingAddress!.location!.coordinates!
+                        .first,
+                  );
+                  await mapCubit.handleAcceptOrderSuccess(context);
+                }
+              },
+              builder: (context, state) {
+                if (state is CancelOrderLoading ||
+                    state is AcceptOrderLoading) {
+                  return const LoadingOverlay(isLoading: true);
+                }
+
+                final orders = context.read<OrderCubit>().orders;
+
+                return ListView.builder(
+                  itemCount: orders.length,
+                  itemBuilder: (context, index) {
+                    final order = orders[index];
+                    return Padding(
+                      padding: responsive.setPadding(
+                        top: 1.5,
+                        left: 4,
+                        right: 4,
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: ColorManger.backgroundItem,
-                          borderRadius: BorderRadius.circular(
-                              responsive.setBorderRadius(2)),
+                        width: responsive.screenWidth,
+                        constraints: BoxConstraints(
+                          minHeight: responsive.setHeight(10.2),
+                          maxHeight: double.infinity,
                         ),
-                        child: Padding(
-                          padding: responsive.setPadding(
-                              left: 3, top: 1, bottom: 1, right: 3),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                        child: Slidable(
+                          endActionPane: ActionPane(
+                            motion: const BehindMotion(),
                             children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      order.shippingAddress!.region!,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge!
-                                          .copyWith(
-                                            fontSize: responsive.setTextSize(3),
-                                          ),
-                                    ),
-                                    responsive.setSizeBox(height: 1.5),
-                                    Row(
-                                      children: [
-                                        _buildInfoContainer(
-                                          context,
-                                          icon: IconlyBold.send,
-                                          text: order.distance!,
-                                        ),
-                                        responsive.setSizeBox(width: 2),
-                                        _buildInfoContainer(
-                                          context,
-                                          icon: IconlyBold.timeCircle,
-                                          text: order.duration!,
-                                        ),
-                                        responsive.setSizeBox(width: 2),
-                                        _buildInfoContainer(
-                                          context,
-                                          icon: IconlyBold.discount,
-                                          text: '${order.totalOrderPrice}',
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                              responsive.setSizeBox(width: 1.5),
+                              SlidableAction(
+                                onPressed: (_) async {
+                                  Position? position = await mapCubit
+                                      .getDriverCurrentLocation(context);
+                                  if (position != null) {
+                                    context
+                                        .read<OrderCubit>()
+                                        .fetchCanceledOrders(
+                                          order.sId!,
+                                          '${position.latitude}',
+                                          '${position.longitude}',
+                                        );
+                                  }
+                                },
+                                backgroundColor: ColorManger.redError,
+                                foregroundColor: ColorManger.white,
+                                icon: IconlyBold.delete,
+                                borderRadius: BorderRadius.circular(
+                                    responsive.setBorderRadius(2)),
+                              ),
+                              responsive.setSizeBox(width: 1.5),
+                              SlidableAction(
+                                onPressed: (context) {
+                                  context
+                                      .read<OrderCubit>()
+                                      .fetchAcceptOrders(order.sId!);
+                                },
+                                backgroundColor: ColorManger.green,
+                                foregroundColor: ColorManger.white,
+                                icon: Icons.check_rounded,
+                                borderRadius: BorderRadius.circular(
+                                    responsive.setBorderRadius(2)),
                               ),
                             ],
                           ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: ColorManger.backgroundItem,
+                              borderRadius: BorderRadius.circular(
+                                  responsive.setBorderRadius(2)),
+                            ),
+                            child: Padding(
+                              padding: responsive.setPadding(
+                                  left: 3, top: 1, bottom: 1, right: 3),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          order.shippingAddress!.region!,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge!
+                                              .copyWith(
+                                                fontSize:
+                                                    responsive.setTextSize(3),
+                                              ),
+                                        ),
+                                        responsive.setSizeBox(height: 1.5),
+                                        Row(
+                                          children: [
+                                            _buildInfoContainer(
+                                              context,
+                                              icon: IconlyBold.send,
+                                              text: order.distance!,
+                                            ),
+                                            responsive.setSizeBox(width: 2),
+                                            _buildInfoContainer(
+                                              context,
+                                              icon: IconlyBold.timeCircle,
+                                              text: order.duration!,
+                                            ),
+                                            responsive.setSizeBox(width: 2),
+                                            _buildInfoContainer(
+                                              context,
+                                              icon: IconlyBold.discount,
+                                              text: '${order.totalOrderPrice}',
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 );
               },
-            );
-          },
-        ),
-        BlocBuilder<OrderCubit, OrderState>(
-          builder: (context, state) {
-            return _buildOrderDetailsBottomSheet(
-              context,
-            );
-          },
-        )
-      ],
+            ),
+          ],
+
+          // Positioned(
+          //   bottom: 140,
+          //   right: 15,
+          //   child: InkWell(
+          //     onTap: () => mapCubit.startTrackingDriver(),
+          //     child: Container(
+          //       height: responsive.setHeight(8),
+          //       width: responsive.setWidth(17.5),
+          //       decoration: BoxDecoration(
+          //           color: ColorManger.orangeColor,
+          //           borderRadius:
+          //               BorderRadius.circular(responsive.setBorderRadius(50))),
+          //       child: Icon(
+          //         Icons.route_outlined,
+          //         color: ColorManger.white,
+          //         size: responsive.setIconSize(8),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return _buildOrderDetailsBottomSheet(
+                context,
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 
@@ -256,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
             duration: const Duration(milliseconds: 300),
             height: orderCubit.isExpanded
                 ? responsive.setHeight(70)
-                : responsive.setHeight(14),
+                : responsive.setHeight(16),
             width: responsive.screenWidth,
             decoration: BoxDecoration(
               color: ColorManger.backgroundBlue,
@@ -264,8 +296,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   BorderRadius.circular(responsive.setBorderRadius(2)),
             ),
             child: Padding(
-              padding:
-                  responsive.setPadding(top: 2, left: 3, right: 3, bottom: 1.5),
+              padding: responsive.setPadding(
+                  top: 2.2, left: 3, right: 3, bottom: 1.5),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -283,31 +315,29 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: orderCubit
                           .orderAcceptResponse!.data!.shippingAddress!.region!,
                     ),
-                    responsive.setSizeBox(height: 1.5),
+                    responsive.setSizeBox(height: 1.7),
                     if (!orderCubit.isExpanded) ...[
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           _buildInfoContainer(
                             context,
-                            icon: Icons.house_rounded,
-                            text: orderCubit.orderAcceptResponse!.data!
-                                .shippingAddress!.buildingName!,
+                            icon: Icons.call,
+                            text: 'Call',
                             isCardInformation: true,
                           ),
                           responsive.setSizeBox(width: 2),
                           _buildInfoContainer(
                             context,
-                            icon: Icons.phone_iphone_rounded,
-                            text: orderCubit.orderAcceptResponse!.data!
-                                .shippingAddress!.phone!,
+                            icon: Icons.navigation_rounded,
+                            text: 'Start',
                             isCardInformation: true,
                           ),
                           responsive.setSizeBox(width: 2),
                           _buildInfoContainer(
                             context,
-                            icon: IconlyBold.profile,
-                            text: orderCubit
-                                .orderAcceptResponse!.data!.user!.name!,
+                            icon: Icons.directions,
+                            text: 'Directions',
                             isCardInformation: true,
                           ),
                         ],
@@ -386,42 +416,38 @@ Widget _buildInfoContainer(
 }) {
   final responsive = ResponsiveUtils(context);
   return Container(
-      height: responsive.setHeight(3),
+      height: responsive.setHeight(isCardInformation ? 4.2 : 3),
       width:
           isCardInformation ? responsive.setWidth(30) : responsive.setWidth(20),
       decoration: BoxDecoration(
         color: isCardInformation
             ? ColorManger.orangeColor
             : ColorManger.brownLight,
-        borderRadius: BorderRadius.circular(responsive.setBorderRadius(1.2)),
+        borderRadius: BorderRadius.circular(
+            responsive.setBorderRadius(isCardInformation ? 5 : 1.2)),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Wrap(
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.start,
-            children: [
-              responsive.setSizeBox(width: 2),
-              Icon(
-                icon,
-                color: isCardInformation ? ColorManger.white : ColorManger.brun,
-                size: responsive.setIconSize(4),
-              ),
-              responsive.setSizeBox(width: 1.5),
-              Text(
-                text,
-                overflow: TextOverflow.ellipsis,
-                style: isCardInformation
-                    ? Theme.of(context).textTheme.headlineSmall!.copyWith(
-                          fontSize: responsive.setTextSize(3),
-                        )
-                    : Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontSize: responsive.setTextSize(3),
-                        ),
-                textAlign: TextAlign.start,
-              ),
-            ],
+          // responsive.setSizeBox(width: 2),
+          Text(
+            text,
+            overflow: TextOverflow.ellipsis,
+            style: isCardInformation
+                ? Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: responsive.setTextSize(4.3),
+                    )
+                : Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: responsive.setTextSize(3),
+                    ),
+            textAlign: TextAlign.start,
+          ),
+          responsive.setSizeBox(width: 1.5),
+          Icon(
+            icon,
+            color: isCardInformation ? ColorManger.white : ColorManger.brun,
+            size: responsive.setIconSize(isCardInformation ? 5 : 4),
           ),
         ],
       ));

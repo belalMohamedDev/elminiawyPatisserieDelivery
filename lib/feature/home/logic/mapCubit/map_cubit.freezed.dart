@@ -27,6 +27,7 @@ mixin _$MapState {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -43,6 +44,7 @@ mixin _$MapState {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -58,6 +60,7 @@ mixin _$MapState {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -74,6 +77,7 @@ mixin _$MapState {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -92,6 +96,7 @@ mixin _$MapState {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -109,6 +114,7 @@ mixin _$MapState {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -183,6 +189,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -202,6 +209,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -220,6 +228,7 @@ class _$InitialImpl implements Initial {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -242,6 +251,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -263,6 +273,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -283,6 +294,7 @@ class _$InitialImpl implements Initial {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -348,6 +360,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -367,6 +380,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -385,6 +399,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -407,6 +422,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -428,6 +444,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -448,6 +465,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -555,6 +573,7 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -574,6 +593,7 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -592,6 +612,7 @@ class _$LoadedImpl implements Loaded {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -614,6 +635,7 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -635,6 +657,7 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -655,6 +678,7 @@ class _$LoadedImpl implements Loaded {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -762,6 +786,7 @@ class _$SearchResultsImpl implements SearchResults {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -781,6 +806,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -799,6 +825,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -821,6 +848,7 @@ class _$SearchResultsImpl implements SearchResults {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -842,6 +870,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -862,6 +891,7 @@ class _$SearchResultsImpl implements SearchResults {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -959,6 +989,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -978,6 +1009,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -996,6 +1028,7 @@ class _$ErrorImpl implements Error {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1018,6 +1051,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -1039,6 +1073,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1059,6 +1094,7 @@ class _$ErrorImpl implements Error {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1163,6 +1199,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -1182,6 +1219,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1200,6 +1238,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1222,6 +1261,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -1243,6 +1283,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1263,6 +1304,7 @@ class _$UpdatedMarkersImpl implements UpdatedMarkers {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1364,6 +1406,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -1383,6 +1426,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1401,6 +1445,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1423,6 +1468,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -1444,6 +1490,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1464,6 +1511,7 @@ class _$SetStringHomeLocationStateImpl implements SetStringHomeLocationState {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1486,6 +1534,209 @@ abstract class SetStringHomeLocationState implements MapState {
   @JsonKey(ignore: true)
   _$$SetStringHomeLocationStateImplCopyWith<_$SetStringHomeLocationStateImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadThemeStateImplCopyWith<$Res> {
+  factory _$$LoadThemeStateImplCopyWith(_$LoadThemeStateImpl value,
+          $Res Function(_$LoadThemeStateImpl) then) =
+      __$$LoadThemeStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$LoadThemeStateImplCopyWithImpl<$Res>
+    extends _$MapStateCopyWithImpl<$Res, _$LoadThemeStateImpl>
+    implements _$$LoadThemeStateImplCopyWith<$Res> {
+  __$$LoadThemeStateImplCopyWithImpl(
+      _$LoadThemeStateImpl _value, $Res Function(_$LoadThemeStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$LoadThemeStateImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadThemeStateImpl implements LoadThemeState {
+  const _$LoadThemeStateImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'MapState.loadThemeState(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadThemeStateImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadThemeStateImplCopyWith<_$LoadThemeStateImpl> get copyWith =>
+      __$$LoadThemeStateImplCopyWithImpl<_$LoadThemeStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            LatLng currentPosition, Map<String, Marker> markers)
+        loaded,
+    required TResult Function(List<Prediction> predictions) searchResults,
+    required TResult Function(String message) error,
+    required TResult Function(List<MarkerData> markers) updatedMarkers,
+    required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
+    required TResult Function() getRouteCoordinatesLoading,
+    required TResult Function(ApiErrorModel apiErrorModel)
+        getRouteCoordinatesError,
+    required TResult Function(List<LatLng> data) getRouteCoordinatesSuccess,
+  }) {
+    return loadThemeState(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult? Function(List<Prediction> predictions)? searchResults,
+    TResult? Function(String message)? error,
+    TResult? Function(List<MarkerData> markers)? updatedMarkers,
+    TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
+    TResult? Function()? getRouteCoordinatesLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+  }) {
+    return loadThemeState?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(LatLng currentPosition, Map<String, Marker> markers)?
+        loaded,
+    TResult Function(List<Prediction> predictions)? searchResults,
+    TResult Function(String message)? error,
+    TResult Function(List<MarkerData> markers)? updatedMarkers,
+    TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
+    TResult Function()? getRouteCoordinatesLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
+    TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadThemeState != null) {
+      return loadThemeState(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(SearchResults value) searchResults,
+    required TResult Function(Error value) error,
+    required TResult Function(UpdatedMarkers value) updatedMarkers,
+    required TResult Function(SetStringHomeLocationState value)
+        setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
+    required TResult Function(GetRouteCoordinatesLoading value)
+        getRouteCoordinatesLoading,
+    required TResult Function(GetRouteCoordinatesError value)
+        getRouteCoordinatesError,
+    required TResult Function(GetRouteCoordinatesSuccess value)
+        getRouteCoordinatesSuccess,
+  }) {
+    return loadThemeState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(SearchResults value)? searchResults,
+    TResult? Function(Error value)? error,
+    TResult? Function(UpdatedMarkers value)? updatedMarkers,
+    TResult? Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
+    TResult? Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult? Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+  }) {
+    return loadThemeState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(SearchResults value)? searchResults,
+    TResult Function(Error value)? error,
+    TResult Function(UpdatedMarkers value)? updatedMarkers,
+    TResult Function(SetStringHomeLocationState value)?
+        setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
+    TResult Function(GetRouteCoordinatesLoading value)?
+        getRouteCoordinatesLoading,
+    TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
+    TResult Function(GetRouteCoordinatesSuccess value)?
+        getRouteCoordinatesSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadThemeState != null) {
+      return loadThemeState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadThemeState implements MapState {
+  const factory LoadThemeState(final String value) = _$LoadThemeStateImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$LoadThemeStateImplCopyWith<_$LoadThemeStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1538,6 +1789,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -1557,6 +1809,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1575,6 +1828,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1597,6 +1851,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -1618,6 +1873,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1638,6 +1894,7 @@ class _$GetRouteCoordinatesLoadingImpl implements GetRouteCoordinatesLoading {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1733,6 +1990,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -1752,6 +2010,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1770,6 +2029,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1792,6 +2052,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -1813,6 +2074,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1833,6 +2095,7 @@ class _$GetRouteCoordinatesErrorImpl implements GetRouteCoordinatesError {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -1940,6 +2203,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     required TResult Function(String message) error,
     required TResult Function(List<MarkerData> markers) updatedMarkers,
     required TResult Function(String homeLocation) setStringHomeLocationState,
+    required TResult Function(String value) loadThemeState,
     required TResult Function() getRouteCoordinatesLoading,
     required TResult Function(ApiErrorModel apiErrorModel)
         getRouteCoordinatesError,
@@ -1959,6 +2223,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult? Function(String message)? error,
     TResult? Function(List<MarkerData> markers)? updatedMarkers,
     TResult? Function(String homeLocation)? setStringHomeLocationState,
+    TResult? Function(String value)? loadThemeState,
     TResult? Function()? getRouteCoordinatesLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult? Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1977,6 +2242,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult Function(String message)? error,
     TResult Function(List<MarkerData> markers)? updatedMarkers,
     TResult Function(String homeLocation)? setStringHomeLocationState,
+    TResult Function(String value)? loadThemeState,
     TResult Function()? getRouteCoordinatesLoading,
     TResult Function(ApiErrorModel apiErrorModel)? getRouteCoordinatesError,
     TResult Function(List<LatLng> data)? getRouteCoordinatesSuccess,
@@ -1999,6 +2265,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     required TResult Function(UpdatedMarkers value) updatedMarkers,
     required TResult Function(SetStringHomeLocationState value)
         setStringHomeLocationState,
+    required TResult Function(LoadThemeState value) loadThemeState,
     required TResult Function(GetRouteCoordinatesLoading value)
         getRouteCoordinatesLoading,
     required TResult Function(GetRouteCoordinatesError value)
@@ -2020,6 +2287,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult? Function(UpdatedMarkers value)? updatedMarkers,
     TResult? Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult? Function(LoadThemeState value)? loadThemeState,
     TResult? Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult? Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,
@@ -2040,6 +2308,7 @@ class _$GetRouteCoordinatesSuccessImpl implements GetRouteCoordinatesSuccess {
     TResult Function(UpdatedMarkers value)? updatedMarkers,
     TResult Function(SetStringHomeLocationState value)?
         setStringHomeLocationState,
+    TResult Function(LoadThemeState value)? loadThemeState,
     TResult Function(GetRouteCoordinatesLoading value)?
         getRouteCoordinatesLoading,
     TResult Function(GetRouteCoordinatesError value)? getRouteCoordinatesError,

@@ -10,19 +10,7 @@ class GoogleMapWidget extends StatelessWidget {
     return BlocBuilder<MapCubit, MapState>(builder: (context, state) {
       final mapCubit = context.read<MapCubit>();
 
-      Set<Polyline> polylines = {};
-
-      if (state is GetRouteCoordinatesSuccess) {
-        polylines.add(
-          Polyline(
-            polylineId: const PolylineId("route"),
-            points: state.data,
-            color: ColorManger.orangeColor,
-            width: 5,
-          ),
-        );
-      }
-
+   
       return CustomGoogleMapMarkerBuilder(
         customMarkers: mapCubit.markers,
         builder: (p0, Set<Marker>? markers) {
@@ -32,9 +20,10 @@ class GoogleMapWidget extends StatelessWidget {
               target: mapCubit.targetPosition,
               zoom: 16,
             ),
-            onMapCreated: (controller) => mapCubit.setMapController(controller),
+            onMapCreated: (controller) => mapCubit.onMapCreated(controller),
             markers: markers ?? {},
-            polylines: polylines,
+            polylines:mapCubit.polylines,
+            style: mapCubit.mapTheme,
           );
         },
       );
@@ -43,20 +32,3 @@ class GoogleMapWidget extends StatelessWidget {
 }
 
 
-
-// void decodePolyline(String polylinePoints) {
-//   final polyline = Polyline.Decode(encodedString: polylinePoints);
-//   List<LatLng> decodedPath = polyline.decodedCoords
-//       .map((coord) => LatLng(coord[0], coord[1]))
-//       .toList();
-
-//   calculateDirection(driverLocation, decodedPath);
-// }
-
-// void calculateDirection(LatLng driverLocation, List<LatLng> route) {
-//   if (route.isNotEmpty) {
-//     LatLng nextLocation = route.first;
-//     double bearing = _calculateBearing(driverLocation, nextLocation);
-//     print('Direction (Bearing) between driver and next location: $bearing');
-//   }
-// }
