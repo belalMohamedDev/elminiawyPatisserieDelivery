@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:driver/core/common/shared/shared_imports.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'order_state.dart';
 part 'order_cubit.freezed.dart';
@@ -15,11 +16,22 @@ class OrderCubit extends Cubit<OrderState> {
 
   bool isExpanded = false;
 
-  void togelExpandedBottomSheet(){
-     isExpanded = !isExpanded;
-     emit(
-          OrderState.isExpanded(isExpanded),
-        );
+  Future<void> launchPhoneDialer() async {
+    final Uri phoneUri = Uri(
+        scheme: 'tel',
+        path: '${orderAcceptResponse!.data!.shippingAddress!.phone!}');
+    if (await canLaunchUrl(phoneUri)) {
+      await launchUrl(phoneUri);
+    } else {
+      print("Could not launch phone dialer.");
+    }
+  }
+
+  void togelExpandedBottomSheet() {
+    isExpanded = !isExpanded;
+    emit(
+      OrderState.isExpanded(isExpanded),
+    );
   }
 
   Future<void> fetchOrders(String latitude, String longitude) async {
@@ -30,12 +42,10 @@ class OrderCubit extends Cubit<OrderState> {
 
     response.when(
       success: (dataResponse) {
-        if (dataResponse.data!.isNotEmpty) {
-          orders = [];
-          orders.addAll(dataResponse.data!);
-        }
+        orders = [];
+        orders.addAll(dataResponse.data!);
 
-        emit(OrderState.getAllOrderSuccess(dataResponse));
+        emit(OrderState.getAllOrderSuccess(orders));
       },
       failure: (error) {
         emit(
@@ -97,9 +107,17 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getOrderResponse() async {
-    String orderJson = SharedPrefHelper.getString('orderResponse');
-    orderAcceptResponse = OrderAcceptResponse.fromJson(jsonDecode(orderJson));
-    emit(OrderState.updateLocalOrder(orderAcceptResponse!));
+    // Retrieve the JSON string from SharedPreferences
+    String? orderJson = SharedPrefHelper.getString('orderResponse');
+
+    // Check if orderJson is null or empty before proceeding
+    if (orderJson.isNotEmpty) {
+      // Decode the JSON and create the OrderAcceptResponse object
+      orderAcceptResponse = OrderAcceptResponse.fromJson(jsonDecode(orderJson));
+
+      // Emit the new state with the updated orderAcceptResponse
+      emit(OrderState.updateLocalOrder(orderAcceptResponse!));
+    }
   }
 
   Future<void> clearOrderResponse() async {

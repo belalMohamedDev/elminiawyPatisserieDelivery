@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       orderCubit.getOrderResponse();
 
-      if (orderCubit.orderAcceptResponse!.data == null) {
+      if (orderCubit.orderAcceptResponse == null) {
         // Periodically check and fetch orders if none exist
         Timer.periodic(const Duration(seconds: 30), (timer) async {
           if (orderCubit.orders.isEmpty) {
@@ -65,15 +65,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final mapCubit = context.read<MapCubit>();
     final responsive = ResponsiveUtils(context);
-    final orders = context.read<OrderCubit>().orders;
+    final orders = context.watch<OrderCubit>().orders; // Watch for changes
+    final orderAcceptResponse = context.watch<OrderCubit>().orderAcceptResponse;
 
     return Scaffold(
       body: Stack(
         children: [
           const Positioned.fill(
-            child: Expanded(
-              child: GoogleMapWidget(),
-            ),
+            child: GoogleMapWidget(),
           ),
 
           if (orders.isNotEmpty) ...[
@@ -239,13 +238,16 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ),
           //   ),
           // ),
-          BlocBuilder<OrderCubit, OrderState>(
-            builder: (context, state) {
-              return _buildOrderDetailsBottomSheet(
-                context,
-              );
-            },
-          )
+
+          if (orderAcceptResponse != null) ...[
+            BlocBuilder<OrderCubit, OrderState>(
+              builder: (context, state) {
+                return _buildOrderDetailsBottomSheet(
+                  context,
+                );
+              },
+            )
+          ]
         ],
       ),
     );
@@ -253,6 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildOrderDetailsBottomSheet(BuildContext context) {
     final orderCubit = context.read<OrderCubit>();
+    final mapCubit = context.read<MapCubit>();
     final responsive = ResponsiveUtils(context);
 
     Widget buildRow(
@@ -279,176 +282,203 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
-    if (orderCubit.orderAcceptResponse != null) {
-      return Positioned(
-        bottom: 0,
-        child: GestureDetector(
-          onTap: () => orderCubit.togelExpandedBottomSheet(),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            height: orderCubit.isExpanded
-                ? responsive.setHeight(70)
-                : responsive.setHeight(16),
-            width: responsive.screenWidth,
-            decoration: BoxDecoration(
-              color: ColorManger.backgroundBlue,
-              borderRadius:
-                  BorderRadius.circular(responsive.setBorderRadius(2)),
-            ),
-            child: Padding(
-              padding: responsive.setPadding(
-                  top: 2.2, left: 3, right: 3, bottom: 1.5),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (orderCubit.isExpanded) ...[
-                      buildRow(
-                          icon: IconlyBold.location,
-                          text: (context.translate(AppStrings.addressDetails)),
-                          textSize: 4.5),
-                      responsive.setSizeBox(height: 3),
-                    ],
+    return Positioned(
+      bottom: 0,
+      child: GestureDetector(
+        onTap: () => orderCubit.togelExpandedBottomSheet(),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          height: orderCubit.isExpanded
+              ? responsive.setHeight(70)
+              : responsive.setHeight(16),
+          width: responsive.screenWidth,
+          decoration: BoxDecoration(
+            color: ColorManger.backgroundBlue,
+            borderRadius: BorderRadius.circular(responsive.setBorderRadius(2)),
+          ),
+          child: Padding(
+            padding:
+                responsive.setPadding(top: 2.2, left: 3, right: 3, bottom: 1.5),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (orderCubit.isExpanded) ...[
                     buildRow(
-                      icon: IconlyBold.location,
-                      text: orderCubit
-                          .orderAcceptResponse!.data!.shippingAddress!.region!,
-                    ),
-                    responsive.setSizeBox(height: 1.7),
-                    if (!orderCubit.isExpanded) ...[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _buildInfoContainer(
-                            context,
-                            icon: Icons.call,
-                            text: 'Call',
-                            isCardInformation: true,
-                          ),
-                          responsive.setSizeBox(width: 2),
-                          _buildInfoContainer(
-                            context,
-                            icon: Icons.navigation_rounded,
-                            text: 'Start',
-                            isCardInformation: true,
-                          ),
-                          responsive.setSizeBox(width: 2),
-                          _buildInfoContainer(
-                            context,
-                            icon: Icons.directions,
-                            text: 'Directions',
-                            isCardInformation: true,
-                          ),
-                        ],
-                      ),
-                    ],
-                    if (orderCubit.isExpanded) ...[
-                      buildRow(
-                        icon: Icons.house_rounded,
-                        text: orderCubit.orderAcceptResponse!.data!
-                            .shippingAddress!.buildingName!,
-                      ),
-                      responsive.setSizeBox(height: 1.5),
-                      buildRow(
-                        icon: Icons.radar_outlined,
-                        text: orderCubit.orderAcceptResponse!.data!
-                            .shippingAddress!.streetName!,
-                      ),
-                      responsive.setSizeBox(height: 1.5),
-                      buildRow(
-                        icon: Icons.radar_outlined,
-                        text: orderCubit
-                            .orderAcceptResponse!.data!.shippingAddress!.floor!,
-                      ),
-                      responsive.setSizeBox(height: 1.5),
-                      buildRow(
-                        icon: Icons.phone_android_rounded,
-                        text: orderCubit
-                            .orderAcceptResponse!.data!.shippingAddress!.phone!,
-                      ),
-                      responsive.setSizeBox(height: 1),
-                      Padding(
-                        padding: responsive.setPadding(left: 5, right: 2),
-                        child: const Divider(),
-                      ),
-                      responsive.setSizeBox(height: 1),
-                      buildRow(
-                          icon: IconlyBold.user2,
-                          textSize: 4.5,
-                          text: context.translate(AppStrings.clientData)),
-                      responsive.setSizeBox(height: 3),
-                      buildRow(
-                        icon: IconlyBold.profile,
-                        text: orderCubit.orderAcceptResponse!.data!.user!.name!,
-                      ),
-                      responsive.setSizeBox(height: 1.5),
-                      buildRow(
-                        icon: Icons.phone_android_rounded,
-                        text:
-                            orderCubit.orderAcceptResponse!.data!.user!.phone!,
-                      ),
-                      responsive.setSizeBox(height: 3),
-                      CustomButton(
-                        onPressed: () {},
-                        color: ColorManger.orangeColor,
-                        defaultText:
-                            (context.translate(AppStrings.deliveredOrder)),
-                      ),
-                    ],
+                        icon: IconlyBold.location,
+                        text: (context.translate(AppStrings.addressDetails)),
+                        textSize: 4.5),
+                    responsive.setSizeBox(height: 3),
                   ],
-                ),
+                  buildRow(
+                    icon: IconlyBold.location,
+                    text: orderCubit
+                        .orderAcceptResponse!.data!.shippingAddress!.region!,
+                  ),
+                  responsive.setSizeBox(height: 1.7),
+                  if (!orderCubit.isExpanded) ...[
+                    BlocBuilder<MapCubit, MapState>(
+                      builder: (context, state) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildInfoContainer(
+                              onPressed: () =>
+                                  mapCubit.handleDirectorButton(context),
+                              context,
+                              icon: Icons.directions,
+                              text: 'Directions',
+                              isCardInformation: true,
+                            ),
+                            responsive.setSizeBox(width: 2),
+                            state is StartLoadingState
+                                ? Container(
+                                    height: responsive.setHeight(4.2),
+                                    width: responsive.setWidth(29),
+                                    decoration: BoxDecoration(
+                                      color: ColorManger.orangeColor,
+                                      borderRadius: BorderRadius.circular(
+                                          responsive.setBorderRadius(5)),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Center(
+                                        child: CircularProgressIndicator(
+                                          color: ColorManger.white,
+                                          strokeWidth: 3,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : _buildInfoContainer(
+                                    onPressed: () =>
+                                        mapCubit.startTrackingDriver(),
+                                    context,
+                                    icon: IconlyBold.send,
+                                    text: 'Start',
+                                    isCardInformation: true,
+                                  ),
+                            responsive.setSizeBox(width: 2),
+                            _buildInfoContainer(
+                              context,
+                              onPressed: () => orderCubit.launchPhoneDialer(),
+                              icon: Icons.call,
+                              text: 'Call',
+                              isCardInformation: true,
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                  if (orderCubit.isExpanded) ...[
+                    buildRow(
+                      icon: Icons.house_rounded,
+                      text: orderCubit.orderAcceptResponse!.data!
+                          .shippingAddress!.buildingName!,
+                    ),
+                    responsive.setSizeBox(height: 1.5),
+                    buildRow(
+                      icon: Icons.radar_outlined,
+                      text: orderCubit.orderAcceptResponse!.data!
+                          .shippingAddress!.streetName!,
+                    ),
+                    responsive.setSizeBox(height: 1.5),
+                    buildRow(
+                      icon: Icons.radar_outlined,
+                      text: orderCubit
+                          .orderAcceptResponse!.data!.shippingAddress!.floor!,
+                    ),
+                    responsive.setSizeBox(height: 1.5),
+                    buildRow(
+                      icon: Icons.phone_android_rounded,
+                      text: orderCubit
+                          .orderAcceptResponse!.data!.shippingAddress!.phone!,
+                    ),
+                    responsive.setSizeBox(height: 1),
+                    Padding(
+                      padding: responsive.setPadding(left: 5, right: 2),
+                      child: const Divider(),
+                    ),
+                    responsive.setSizeBox(height: 1),
+                    buildRow(
+                        icon: IconlyBold.user2,
+                        textSize: 4.5,
+                        text: context.translate(AppStrings.clientData)),
+                    responsive.setSizeBox(height: 3),
+                    buildRow(
+                      icon: IconlyBold.profile,
+                      text: orderCubit.orderAcceptResponse!.data!.user!.name!,
+                    ),
+                    responsive.setSizeBox(height: 1.5),
+                    buildRow(
+                      icon: Icons.phone_android_rounded,
+                      text: orderCubit.orderAcceptResponse!.data!.user!.phone!,
+                    ),
+                    responsive.setSizeBox(height: 3),
+                    CustomButton(
+                      onPressed: () {},
+                      color: ColorManger.orangeColor,
+                      defaultText:
+                          (context.translate(AppStrings.deliveredOrder)),
+                    ),
+                  ],
+                ],
               ),
             ),
           ),
         ),
-      );
-    }
-    return const SizedBox();
+      ),
+    );
   }
 }
 
 Widget _buildInfoContainer(
   BuildContext context, {
+  VoidCallback? onPressed,
   required IconData icon,
   required String text,
   bool isCardInformation = false,
 }) {
   final responsive = ResponsiveUtils(context);
-  return Container(
-      height: responsive.setHeight(isCardInformation ? 4.2 : 3),
-      width:
-          isCardInformation ? responsive.setWidth(30) : responsive.setWidth(20),
-      decoration: BoxDecoration(
-        color: isCardInformation
-            ? ColorManger.orangeColor
-            : ColorManger.brownLight,
-        borderRadius: BorderRadius.circular(
-            responsive.setBorderRadius(isCardInformation ? 5 : 1.2)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // responsive.setSizeBox(width: 2),
-          Text(
-            text,
-            overflow: TextOverflow.ellipsis,
-            style: isCardInformation
-                ? Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: responsive.setTextSize(4.3),
-                    )
-                : Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontSize: responsive.setTextSize(3),
-                    ),
-            textAlign: TextAlign.start,
-          ),
-          responsive.setSizeBox(width: 1.5),
-          Icon(
-            icon,
-            color: isCardInformation ? ColorManger.white : ColorManger.brun,
-            size: responsive.setIconSize(isCardInformation ? 5 : 4),
-          ),
-        ],
-      ));
+  return InkWell(
+    onTap: onPressed,
+    child: Container(
+        height: responsive.setHeight(isCardInformation ? 4.2 : 3),
+        width: isCardInformation
+            ? responsive.setWidth(29)
+            : responsive.setWidth(20),
+        decoration: BoxDecoration(
+          color: isCardInformation
+              ? ColorManger.orangeColor
+              : ColorManger.brownLight,
+          borderRadius: BorderRadius.circular(
+              responsive.setBorderRadius(isCardInformation ? 5 : 1.2)),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: isCardInformation ? ColorManger.white : ColorManger.brun,
+              size: responsive.setIconSize(isCardInformation ? 5 : 4),
+            ),
+            responsive.setSizeBox(width: 1.5),
+            Text(
+              text,
+              overflow: TextOverflow.ellipsis,
+              style: isCardInformation
+                  ? Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontSize: responsive.setTextSize(4),
+                      )
+                  : Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: responsive.setTextSize(3),
+                      ),
+              textAlign: TextAlign.start,
+            ),
+          ],
+        )),
+  );
 }

@@ -57,18 +57,128 @@ class MapCubit extends Cubit<MapState> {
     );
   }
 
-  void startTrackingDriver() {
-    _driverLocationTimer =
-        Timer.periodic(const Duration(seconds: 5), (timer) async {
-      Position? position = await getDriverCurrentLocation(context);
-      if (position != null) {
-        driverLocation = LatLng(position.latitude, position.longitude);
+  Future<void> handleDirectorButton(BuildContext context) async {
+    stopTrackingDriver();
+    // Get the driver's current location
+    Position? position = await getDriverCurrentLocation(context);
 
-        moveToLocation(position: driverLocation);
+    if (position != null) {
+      // Fetch and display route coordinates between driver and customer
+      fetchRouteCoordinates(driverLocation, customerLocation!);
 
-        addDriverLocationMarkerToMap(position: driverLocation);
+      // Add markers for driver  locations
+
+      addDriverLocationMarkerToMap(position: driverLocation);
+
+      // Move camera to the driver location
+
+      LatLng centerPoint = LatLng(
+        (driverLocation.latitude + customerLocation!.latitude) / 2,
+        (driverLocation.longitude + customerLocation!.longitude) / 2,
+      );
+
+      await moveToLocation(
+          position: centerPoint, zoom: 14, bearing: 60, tilt: 12);
+    }
+  }
+
+  bool isFirstStep = true;
+
+  Future<void> startTrackingDriver() async {
+    emit(const MapState.startLoadingState());
+    _driverLocationTimer = Timer.periodic(
+      Duration(
+          seconds: isFirstStep
+              ? 0
+              : 5), // Initial delay if first step, then 5 seconds
+      (timer) async {
+        if (isFirstStep) {
+          isFirstStep =
+              false; // Set to false after the first call to ensure 5-second interval
+          timer.cancel(); // Cancel current timer
+          await startTrackingDriver(); // Restart timer with 5-second interval
+          return;
+        }
+
+        Position? position = await getDriverCurrentLocation(context);
+        if (position != null) {
+          driverLocation = LatLng(position.latitude, position.longitude);
+          if (polylines.isEmpty) {
+            // Fetch and display route coordinates between driver and customer
+            fetchRouteCoordinates(driverLocation, customerLocation!);
+          }
+
+          // Find the closest point on the polyline to the current driver location
+          LatLng nearestPoint =
+              getNearestPointOnPolyline(driverLocation, polylineCoordinates);
+
+          // Get the next point on the polyline for bearing calculation
+          int nextIndex = polylineCoordinates.indexOf(nearestPoint) + 1;
+          if (nextIndex < polylineCoordinates.length) {
+            LatLng nextPoint = polylineCoordinates[nextIndex];
+            double bearing = calculateBearing(nearestPoint, nextPoint);
+
+            // Add/update marker for driver’s current location
+            addDriverLocationMarkerToMap(position: driverLocation);
+
+            // Move the map to the driver's location with the correct bearing
+            moveToLocation(
+              position: driverLocation,
+              bearing: bearing,
+            );
+
+            // Update the polyline to only show the remaining path from the driver’s position
+            updateRemainingPolyline(driverLocation);
+          }
+        }
+        emit(const MapState.startLoadedState());
+      },
+    );
+  }
+
+  LatLng getNearestPointOnPolyline(
+      LatLng driverLocation, List<LatLng> polylineCoordinates) {
+    double minDistance = double.infinity;
+    LatLng nearestPoint = polylineCoordinates.first;
+
+    for (LatLng point in polylineCoordinates) {
+      double distance = calculateDistance(driverLocation, point);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestPoint = point;
       }
-    });
+    }
+    return nearestPoint;
+  }
+
+
+
+  void updateRemainingPolyline(LatLng driverLocation) {
+    List<LatLng> remainingPolyline = [driverLocation];
+
+    remainingPolyline
+        .addAll(polylineCoordinates.where((point) => point != driverLocation));
+
+    drawPolylines(remainingPolyline);
+  }
+
+  double calculateDistance(LatLng point1, LatLng point2) {
+    final double lat1 = point1.latitude;
+    final double lon1 = point1.longitude;
+    final double lat2 = point2.latitude;
+    final double lon2 = point2.longitude;
+
+    // Simple haversine formula for distance
+    final double dLat = (lat2 - lat1) * (3.141592653589793 / 180);
+    final double dLon = (lon2 - lon1) * (3.141592653589793 / 180);
+    final double a = 0.5 -
+        cos(dLat) / 2 +
+        cos(lat1 * (3.141592653589793 / 180)) *
+            cos(lat2 * (3.141592653589793 / 180)) *
+            (1 - cos(dLon)) /
+            2;
+
+    return 12742 * asin(sqrt(a)); // 2 * R * asin
   }
 
   void stopTrackingDriver() {
@@ -92,6 +202,7 @@ class MapCubit extends Cubit<MapState> {
     return initialBearing;
   }
 
+  List<LatLng> polylineCoordinates = [];
   Future<void> fetchRouteCoordinates(LatLng origin, LatLng destination) async {
     emit(const MapState.getRouteCoordinatesLoading());
 
@@ -100,7 +211,6 @@ class MapCubit extends Cubit<MapState> {
 
     response.when(
       success: (dataResponse) {
-        List<LatLng> polylineCoordinates = [];
         PolylinePoints polylinePoints = PolylinePoints();
         String encodedPoints =
             dataResponse.routes![0].overviewPolyline!.points!;
@@ -111,16 +221,6 @@ class MapCubit extends Cubit<MapState> {
             .toList();
 
         if (polylineCoordinates.length > 1) {
-          double bearing = calculateBearing(
-              polylineCoordinates.first, polylineCoordinates[1]);
-
-          addDriverLocationMarkerToMap(position: polylineCoordinates.first);
-
-          moveToLocation(
-            position: polylineCoordinates.first,
-            bearing: bearing,
-          );
-
           drawPolylines(polylineCoordinates);
 
           emit(MapState.getRouteCoordinatesSuccess(polylineCoordinates));
@@ -188,8 +288,10 @@ class MapCubit extends Cubit<MapState> {
 
   // Move the map camera to the specified position
   Future<void> moveToLocation(
-      {required LatLng position, double? bearing,double tilt=60,
-      double zoom=21}) async {
+      {required LatLng position,
+      double? bearing,
+      double tilt = 60,
+      double zoom = 21}) async {
     emit(const MapState.loading());
 
     try {
@@ -200,7 +302,7 @@ class MapCubit extends Cubit<MapState> {
           CameraPosition(
             target: position,
             zoom: zoom,
-             tilt: tilt,
+            tilt: tilt,
             bearing: bearing ?? 0,
           ),
         ),

@@ -9,7 +9,7 @@ class OrderState with _$OrderState {
   const factory OrderState.getAllOrderError(ApiErrorModel apiErrorModel) =
       GetAllOrderError;
 
-  const factory OrderState.getAllOrderSuccess(GetAllOrderResponse data) =
+  const factory OrderState.getAllOrderSuccess(List<GetAllOrderData> data) =
       GetAllOrderSuccess;
 
   const factory OrderState.acceptOrderLoading() = AcceptOrderLoading;
