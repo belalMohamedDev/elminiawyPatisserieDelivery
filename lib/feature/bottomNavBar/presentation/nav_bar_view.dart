@@ -10,8 +10,6 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
-  
-
     super.initState();
   }
 
@@ -59,21 +57,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<PersistentTabConfig> _navBarsItems(ResponsiveUtils responsive) {
     return [
       PersistentTabConfig(
-        screen: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => instance<OrderCubit>(),
-            ),
-            BlocProvider(
-              create: (context) => instance<MapCubit>(),
-            ),
-          ],
-          child: const HomeScreen(),
-        ),
+        screen: const OrdersScreens(),
         item: ItemConfig(
-          icon: Icon(IconlyBold.home, size: 20.sp),
-          inactiveIcon: Icon(IconlyBroken.home, size: 20.sp),
-          title: (context.translate(AppStrings.home)),
+          icon: Padding(
+            padding: responsive.setPadding(left: 1, right: 1),
+            child: Icon(IconlyBold.bag2, size: 20.sp),
+          ),
+          inactiveIcon: Icon(IconlyBroken.bag2, size: 20.sp),
+          title: (context.translate(AppStrings.myOrders)),
           textStyle: Theme.of(context)
               .textTheme
               .titleLarge!
@@ -82,13 +73,40 @@ class _BottomNavBarState extends State<BottomNavBar> {
           inactiveForegroundColor: ColorManger.brun,
         ),
       ),
+      // PersistentTabConfig(
+      //   screen: MultiBlocProvider(
+      //     providers: [
+      //       BlocProvider(
+      //         create: (context) => instance<OrderCubit>(),
+      //       ),
+      //       BlocProvider(
+      //         create: (context) => instance<MapCubit>(),
+      //       ),
+      //     ],
+      //     child: const HomeScreen(),
+      //   ),
+      //   item: ItemConfig(
+      //     icon: Icon(IconlyBold.home, size: 20.sp),
+      //     inactiveIcon: Icon(IconlyBroken.home, size: 20.sp),
+      //     title: (context.translate(AppStrings.home)),
+      //     textStyle: Theme.of(context)
+      //         .textTheme
+      //         .titleLarge!
+      //         .copyWith(fontSize: responsive.setTextSize(3.5)),
+      //     activeForegroundColor: ColorManger.brun,
+      //     inactiveForegroundColor: ColorManger.brun,
+      //   ),
+      // ),
       PersistentTabConfig(
         screen: BlocProvider(
           create: (context) => instance<UserNotificationCubit>(),
           child: const NotificationScreen(),
         ),
         item: ItemConfig(
-          icon: Icon(IconlyBold.notification, size: 20.sp),
+          icon: Padding(
+            padding: responsive.setPadding(left: 1, right: 1),
+            child: Icon(IconlyBold.notification, size: 20.sp),
+          ),
           inactiveIcon: Icon(IconlyBroken.notification, size: 20.sp),
           title: (context.translate(AppStrings.notification)),
           textStyle: Theme.of(context)
@@ -99,6 +117,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           inactiveForegroundColor: ColorManger.brun,
         ),
       ),
+
       PersistentTabConfig(
         screen: MultiBlocProvider(
           providers: [
@@ -115,7 +134,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           child: const ProfileView(),
         ),
         item: ItemConfig(
-          icon: Icon(IconlyBold.setting, size: 20.sp),
+          icon: Padding(
+            padding: responsive.setPadding(left: 0.5, right: 0.5),
+            child: Icon(IconlyBold.setting, size: 20.sp),
+          ),
           inactiveIcon: Icon(IconlyBroken.setting, size: 20.sp),
           title: (context.translate(AppStrings.profile)),
           textStyle: Theme.of(context)

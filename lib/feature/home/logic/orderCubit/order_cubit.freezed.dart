@@ -29,7 +29,7 @@ mixin _$OrderState {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,7 +45,7 @@ mixin _$OrderState {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,7 +61,7 @@ mixin _$OrderState {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,7 +183,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return initial();
   }
@@ -202,7 +202,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return initial?.call();
   }
@@ -221,7 +221,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -345,7 +345,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return getAllOrderLoading();
   }
@@ -364,7 +364,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return getAllOrderLoading?.call();
   }
@@ -383,7 +383,7 @@ class _$GetAllOrderLoadingImpl implements GetAllOrderLoading {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (getAllOrderLoading != null) {
@@ -535,7 +535,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return getAllOrderError(apiErrorModel);
   }
@@ -554,7 +554,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return getAllOrderError?.call(apiErrorModel);
   }
@@ -573,7 +573,7 @@ class _$GetAllOrderErrorImpl implements GetAllOrderError {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (getAllOrderError != null) {
@@ -737,7 +737,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return getAllOrderSuccess(data);
   }
@@ -756,7 +756,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return getAllOrderSuccess?.call(data);
   }
@@ -775,7 +775,7 @@ class _$GetAllOrderSuccessImpl implements GetAllOrderSuccess {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (getAllOrderSuccess != null) {
@@ -905,7 +905,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return acceptOrderLoading();
   }
@@ -924,7 +924,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return acceptOrderLoading?.call();
   }
@@ -943,7 +943,7 @@ class _$AcceptOrderLoadingImpl implements AcceptOrderLoading {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (acceptOrderLoading != null) {
@@ -1095,7 +1095,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return acceptOrderError(apiErrorModel);
   }
@@ -1114,7 +1114,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return acceptOrderError?.call(apiErrorModel);
   }
@@ -1133,7 +1133,7 @@ class _$AcceptOrderErrorImpl implements AcceptOrderError {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (acceptOrderError != null) {
@@ -1290,7 +1290,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return acceptOrderSuccess(data);
   }
@@ -1309,7 +1309,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return acceptOrderSuccess?.call(data);
   }
@@ -1328,7 +1328,7 @@ class _$AcceptOrderSuccessImpl implements AcceptOrderSuccess {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (acceptOrderSuccess != null) {
@@ -1485,7 +1485,7 @@ class _$UpdateLocalOrderImpl implements UpdateLocalOrder {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return updateLocalOrder(data);
   }
@@ -1504,7 +1504,7 @@ class _$UpdateLocalOrderImpl implements UpdateLocalOrder {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return updateLocalOrder?.call(data);
   }
@@ -1523,7 +1523,7 @@ class _$UpdateLocalOrderImpl implements UpdateLocalOrder {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (updateLocalOrder != null) {
@@ -1653,7 +1653,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return cancelOrderLoading();
   }
@@ -1672,7 +1672,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return cancelOrderLoading?.call();
   }
@@ -1691,7 +1691,7 @@ class _$CancelOrderLoadingImpl implements CancelOrderLoading {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (cancelOrderLoading != null) {
@@ -1843,7 +1843,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return cancelOrderError(apiErrorModel);
   }
@@ -1862,7 +1862,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return cancelOrderError?.call(apiErrorModel);
   }
@@ -1881,7 +1881,7 @@ class _$CancelOrderErrorImpl implements CancelOrderError {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (cancelOrderError != null) {
@@ -2038,7 +2038,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return cancelOrderSuccess(data);
   }
@@ -2057,7 +2057,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return cancelOrderSuccess?.call(data);
   }
@@ -2076,7 +2076,7 @@ class _$CancelOrderSuccessImpl implements CancelOrderSuccess {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (cancelOrderSuccess != null) {
@@ -2163,7 +2163,7 @@ abstract class _$$IsExpandedImplCopyWith<$Res> {
           _$IsExpandedImpl value, $Res Function(_$IsExpandedImpl) then) =
       __$$IsExpandedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isExpanded});
+  $Res call({int isExpanded});
 }
 
 /// @nodoc
@@ -2183,7 +2183,7 @@ class __$$IsExpandedImplCopyWithImpl<$Res>
       null == isExpanded
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as int,
     ));
   }
 }
@@ -2194,7 +2194,7 @@ class _$IsExpandedImpl implements IsExpanded {
   const _$IsExpandedImpl(this.isExpanded);
 
   @override
-  final bool isExpanded;
+  final int isExpanded;
 
   @override
   String toString() {
@@ -2233,7 +2233,7 @@ class _$IsExpandedImpl implements IsExpanded {
     required TResult Function() cancelOrderLoading,
     required TResult Function(ApiErrorModel apiErrorModel) cancelOrderError,
     required TResult Function(ApiSuccessGeneralModel data) cancelOrderSuccess,
-    required TResult Function(bool isExpanded) isExpanded,
+    required TResult Function(int isExpanded) isExpanded,
   }) {
     return isExpanded(this.isExpanded);
   }
@@ -2252,7 +2252,7 @@ class _$IsExpandedImpl implements IsExpanded {
     TResult? Function()? cancelOrderLoading,
     TResult? Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult? Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult? Function(bool isExpanded)? isExpanded,
+    TResult? Function(int isExpanded)? isExpanded,
   }) {
     return isExpanded?.call(this.isExpanded);
   }
@@ -2271,7 +2271,7 @@ class _$IsExpandedImpl implements IsExpanded {
     TResult Function()? cancelOrderLoading,
     TResult Function(ApiErrorModel apiErrorModel)? cancelOrderError,
     TResult Function(ApiSuccessGeneralModel data)? cancelOrderSuccess,
-    TResult Function(bool isExpanded)? isExpanded,
+    TResult Function(int isExpanded)? isExpanded,
     required TResult orElse(),
   }) {
     if (isExpanded != null) {
@@ -2343,9 +2343,9 @@ class _$IsExpandedImpl implements IsExpanded {
 }
 
 abstract class IsExpanded implements OrderState {
-  const factory IsExpanded(final bool isExpanded) = _$IsExpandedImpl;
+  const factory IsExpanded(final int isExpanded) = _$IsExpandedImpl;
 
-  bool get isExpanded;
+  int get isExpanded;
   @JsonKey(ignore: true)
   _$$IsExpandedImplCopyWith<_$IsExpandedImpl> get copyWith =>
       throw _privateConstructorUsedError;

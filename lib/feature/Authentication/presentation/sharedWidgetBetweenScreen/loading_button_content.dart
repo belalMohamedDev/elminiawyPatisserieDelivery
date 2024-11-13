@@ -1,5 +1,4 @@
 
-import 'package:driver/feature/Authentication/logic/completeRgistrationProcess/complete_registration_process_cubit.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; // Import shared utilities
 
@@ -53,7 +52,7 @@ class LoadingButtonContent extends StatelessWidget {
         state is SignUpButtonLoadingData ||
         state is ForgetPasswordLoadingData ||
         state is VerifyCodeLoadingData ||
-        state is CompleteRegisterLoading ||
+  //      state is CompleteRegisterLoading ||
         state is NewPasswordLoadingData) {
       return loadingWidget();
     } else {

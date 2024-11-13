@@ -10,6 +10,7 @@ class ImageAsset {
   static const String apple = "$imagePath/apple.png";
   static const String google = "$imagePath/google.png";
 
+
   static const String newItem = "$imagePath/newItem.png";
   static const String guestIconGreen = "$imagePath/guest_icon.png";
   static const String pickMarker = "$imagePath/pick_marker.png";

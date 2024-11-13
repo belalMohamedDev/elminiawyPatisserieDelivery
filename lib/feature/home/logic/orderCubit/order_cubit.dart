@@ -18,17 +18,18 @@ class OrderCubit extends Cubit<OrderState> {
 
   Future<void> launchPhoneDialer() async {
     final Uri phoneUri = Uri(
-        scheme: 'tel',
-        path: orderAcceptResponse!.data!.shippingAddress!.phone);
+        scheme: 'tel', path: orderAcceptResponse!.data!.shippingAddress!.phone);
     if (await canLaunchUrl(phoneUri)) {
       await launchUrl(phoneUri);
-    } 
+    }
   }
 
-  void togelExpandedBottomSheet() {
-    isExpanded = !isExpanded;
+  int? expandedIndex;
+
+  void togelExpandedBottomSheet(int index) {
+    expandedIndex = (expandedIndex == index) ? -1 : index;
     emit(
-      OrderState.isExpanded(isExpanded),
+      OrderState.isExpanded(expandedIndex!),
     );
   }
 

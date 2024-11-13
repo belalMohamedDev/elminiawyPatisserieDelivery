@@ -296,6 +296,7 @@ class AppStrings {
   static const String trackOrder = "trackOrder";
   static const String myOrders = "myOrders";
   static const String currentOrders = "currentOrders";
+  static const String cancelledOrders = "cancelledOrders";
   static const String previousOrders = "previousOrders";
   static const String accountInformation = "accountInformation";
   static const String changePassword = "changePassword";

@@ -285,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Positioned(
       bottom: 0,
       child: GestureDetector(
-        onTap: () => orderCubit.togelExpandedBottomSheet(),
+        onTap: () => orderCubit.togelExpandedBottomSheet(5),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           height: orderCubit.isExpanded
