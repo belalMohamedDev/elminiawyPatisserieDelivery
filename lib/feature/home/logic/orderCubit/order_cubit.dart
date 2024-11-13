@@ -19,12 +19,10 @@ class OrderCubit extends Cubit<OrderState> {
   Future<void> launchPhoneDialer() async {
     final Uri phoneUri = Uri(
         scheme: 'tel',
-        path: '${orderAcceptResponse!.data!.shippingAddress!.phone!}');
+        path: orderAcceptResponse!.data!.shippingAddress!.phone);
     if (await canLaunchUrl(phoneUri)) {
       await launchUrl(phoneUri);
-    } else {
-      print("Could not launch phone dialer.");
-    }
+    } 
   }
 
   void togelExpandedBottomSheet() {

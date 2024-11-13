@@ -109,14 +109,14 @@ class MapCubit extends Cubit<MapState> {
           }
 
           // Find the closest point on the polyline to the current driver location
-          LatLng nearestPoint =
-              getNearestPointOnPolyline(driverLocation, polylineCoordinates);
+          updateRemainingPolyline(driverLocation);
 
           // Get the next point on the polyline for bearing calculation
-          int nextIndex = polylineCoordinates.indexOf(nearestPoint) + 1;
-          if (nextIndex < polylineCoordinates.length) {
-            LatLng nextPoint = polylineCoordinates[nextIndex];
-            double bearing = calculateBearing(nearestPoint, nextPoint);
+          LatLng? nextPoint = getNextPoint(driverLocation);
+
+          if (nextPoint != null) {
+            // LatLng nextPoint = polylineCoordinates[nextIndex];
+            double bearing = calculateBearing(driverLocation, nextPoint);
 
             // Add/update marker for driver’s current location
             addDriverLocationMarkerToMap(position: driverLocation);
@@ -136,6 +136,45 @@ class MapCubit extends Cubit<MapState> {
     );
   }
 
+  LatLng? getNextPoint(LatLng driverLocation) {
+    if (polylineCoordinates.isEmpty) return null;
+
+    // Find the closest point in the polyline to the driver’s current location
+    LatLng nearestPoint = polylineCoordinates[0];
+    double minDistance = calculateDistance(driverLocation, nearestPoint);
+
+    for (LatLng point in polylineCoordinates) {
+      double distance = calculateDistance(driverLocation, point);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestPoint = point;
+      }
+    }
+
+    // Get the index of the nearest point and return the next point if it exists
+    int nearestIndex = polylineCoordinates.indexOf(nearestPoint);
+    if (nearestIndex != -1 && nearestIndex + 1 < polylineCoordinates.length) {
+      return polylineCoordinates[nearestIndex + 1];
+    }
+
+    // If the driver is at the last point, there's no "next" point, so return null
+    return null;
+  }
+
+// Helper function to calculate distance between two points using Haversine formula
+  double calculateDistance(LatLng point1, LatLng point2) {
+    const double earthRadius = 6371000; // Radius of Earth in meters
+    double dLat = (point2.latitude - point1.latitude) * (pi / 180);
+    double dLon = (point2.longitude - point1.longitude) * (pi / 180);
+    double a = (sin(dLat / 2) * sin(dLat / 2)) +
+        cos(point1.latitude * (pi / 180)) *
+            cos(point2.latitude * (pi / 180)) *
+            sin(dLon / 2) *
+            sin(dLon / 2);
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    return earthRadius * c;
+  }
+
   LatLng getNearestPointOnPolyline(
       LatLng driverLocation, List<LatLng> polylineCoordinates) {
     double minDistance = double.infinity;
@@ -151,8 +190,6 @@ class MapCubit extends Cubit<MapState> {
     return nearestPoint;
   }
 
-
-
   void updateRemainingPolyline(LatLng driverLocation) {
     List<LatLng> remainingPolyline = [driverLocation];
 
@@ -160,25 +197,6 @@ class MapCubit extends Cubit<MapState> {
         .addAll(polylineCoordinates.where((point) => point != driverLocation));
 
     drawPolylines(remainingPolyline);
-  }
-
-  double calculateDistance(LatLng point1, LatLng point2) {
-    final double lat1 = point1.latitude;
-    final double lon1 = point1.longitude;
-    final double lat2 = point2.latitude;
-    final double lon2 = point2.longitude;
-
-    // Simple haversine formula for distance
-    final double dLat = (lat2 - lat1) * (3.141592653589793 / 180);
-    final double dLon = (lon2 - lon1) * (3.141592653589793 / 180);
-    final double a = 0.5 -
-        cos(dLat) / 2 +
-        cos(lat1 * (3.141592653589793 / 180)) *
-            cos(lat2 * (3.141592653589793 / 180)) *
-            (1 - cos(dLon)) /
-            2;
-
-    return 12742 * asin(sqrt(a)); // 2 * R * asin
   }
 
   void stopTrackingDriver() {

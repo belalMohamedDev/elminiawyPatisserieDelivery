@@ -30,7 +30,7 @@ class LoadingOverlay extends StatelessWidget {
               width: responsive.setWidth(22),
               decoration: BoxDecoration(
                 color: ColorManger.brun,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(responsive.setBorderRadius(2)),
               ),
               child: Center(
                 child: CircularProgressIndicator(

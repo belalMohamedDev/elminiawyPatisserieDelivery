@@ -1,65 +1,30 @@
 import 'package:driver/core/common/shared/shared_imports.dart';
 
-/// [UserNotificationBody] is a StatelessWidget responsible for displaying the list of notifications.
-/// It also handles the loading, error, and deletion states of user notifications.
 class UserNotificationBody extends StatelessWidget {
   const UserNotificationBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Initialize the ResponsiveUtils to handle responsive layout adjustments
-    final responsive = ResponsiveUtils(context);
-    bool isEnLocale = AppLocalizations.of(context)?.isEnLocale ?? true;
     return BlocBuilder<UserNotificationCubit, UserNotificationState>(
       builder: (context, state) {
-        // Handle loading and error states with a common method
         if (state is UserNotificationLoading ||
-            state is UserNotificationError) {
-          return _userNotificationErrorAndLoadingState(responsive, isEnLocale);
-        }
-
-        // Handle the case when the notification list is empty
-        if (context.read<UserNotificationCubit>().dataList.isEmpty) {
+            state is UserNotificationError ||
+            context.read<UserNotificationCubit>().dataList.isEmpty) {
           return const EmptyNotificationsScreen();
         }
 
-        // Get the notification data list from the UserNotificationCubit
-        final userNotification = context.read<UserNotificationCubit>().dataList;
+        if (state is DeleteUserNotificationLoading) {
+          return const LoadingOverlay(isLoading: true);
+        }
 
-        return Stack(
-          children: [
-            // Display the list of notifications
-            _userNotificationLoadedState(userNotification, responsive),
-
-            // Show a loading indicator when a notification is being deleted
-            state is DeleteUserNotificationLoading
-                ? Center(
-                    child: Container(
-                      height: responsive.setHeight(10),
-                      width: responsive.setWidth(22),
-                      decoration: BoxDecoration(
-                          color: ColorManger.brun,
-                          borderRadius: BorderRadius.circular(
-                              responsive.setBorderRadius(2))),
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2.5,
-                          color: ColorManger.white,
-                        ),
-                      ),
-                    ),
-                  )
-                : const SizedBox(),
-          ],
-        );
+        return _userNotificationLoadedState(context);
       },
     );
   }
 
-  /// Displays the list of loaded notifications using a ListView.builder.
-  /// Each notification can be slid to the left to reveal a delete action.
-  Padding _userNotificationLoadedState(
-      List<UserNotificationData> userNotification, ResponsiveUtils responsive) {
+  Padding _userNotificationLoadedState(BuildContext context) {
+    final userNotification = context.read<UserNotificationCubit>().dataList;
+    final responsive = ResponsiveUtils(context);
     return Padding(
       padding: responsive.setPadding(left: 4, right: 4, top: 2),
       child: ListView.builder(
@@ -155,70 +120,6 @@ class UserNotificationBody extends StatelessWidget {
               ),
               responsive.setSizeBox(height: 2),
             ],
-          );
-        },
-      ),
-    );
-  }
-
-  /// Displays a shimmer effect for loading states or an error placeholder.
-  Padding _userNotificationErrorAndLoadingState(
-      ResponsiveUtils responsive, bool isEnLocale) {
-    return Padding(
-      padding: responsive.setPadding(
-          left: isEnLocale ? 6 : 9, right: isEnLocale ? 9 : 6, top: 2),
-      child: ListView.builder(
-        itemCount: 12, // Arbitrary count for loading placeholders
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.only(
-              bottom: responsive.setHeight(1.5),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: responsive.setHeight(5),
-                  width: responsive.setWidth(11),
-                  decoration: BoxDecoration(
-                    color: ColorManger.brownLight,
-                    borderRadius:
-                        BorderRadius.circular(responsive.setBorderRadius(10)),
-                  ),
-                  child: Center(
-                    child: Image.asset(
-                      ImageAsset.orderDelivered,
-                      height: responsive.setHeight(4),
-                    ),
-                  ),
-                ),
-                responsive.setSizeBox(width: 3),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Shimmer effect for loading title
-                      LoadingShimmer(
-                        height: responsive.setHeight(0.7),
-                        width: double.infinity,
-                      ),
-                      responsive.setSizeBox(height: 0.5),
-                      // Shimmer effect for loading description
-                      LoadingShimmer(
-                        height: responsive.setHeight(0.7),
-                        width: responsive.setWidth(50),
-                      ),
-                      responsive.setSizeBox(height: 0.5),
-                      LoadingShimmer(
-                        height: responsive.setHeight(0.7),
-                        width: responsive.setWidth(30),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
           );
         },
       ),
