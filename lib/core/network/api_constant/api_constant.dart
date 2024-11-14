@@ -17,6 +17,11 @@ class ApiConstants {
   static const String logOut = '/v1/api/auth/logout';
 
   static const String getOrders = '/v1/api/driver/getNewOrders';
+
+  static const String getDeliveredOrder = '/v1/api/driver/deliveredOrder';
+  static const String getCancelledOrder = '/v1/api/driver/cancelledOrder';
+  static const String getAcceptedDeliveredOrder = '/v1/api/driver/acceptedDeliveredOrder';
+
   static const String driver = '/v1/api/driver';
 
   static const String updateMyImage = '/v1/api/user/updateMyImage';

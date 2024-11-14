@@ -42,7 +42,7 @@ class _MyOrdersBodyState extends State<MyOrdersBody>
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                             responsive.setBorderRadius(50)),
-                        color: ColorManger.brunLight),
+                        color: ColorManger.brun),
                     child: Center(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(
@@ -159,12 +159,8 @@ class _MyOrdersBodyState extends State<MyOrdersBody>
               controller: _tabController,
               children: const [
                 CurrentOrders(),
-                Center(
-                  child: Text('Previous Orders Placeholder'),
-                ), // استبدل المحتوى بالويدجيت الفعلي
-                Center(
-                  child: Text('Cancelled Orders Placeholder'),
-                ), // استبدل المحتوى بالويدجيت الفعلي
+                PreviousOrders(),
+                CancelledOrders(),
               ],
             ),
           ),
@@ -180,6 +176,278 @@ class _MyOrdersBodyState extends State<MyOrdersBody>
   }
 }
 
+class PreviousOrders extends StatelessWidget {
+  const PreviousOrders({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = ResponsiveUtils(context);
+
+    return BlocBuilder<OrderCubit, OrderState>(
+      builder: (context, state) {
+        final orderCubit = context.read<OrderCubit>();
+
+        return ListView.builder(
+          itemCount: orderCubit.deliveredOrders.length,
+          itemBuilder: (context, index) {
+            final order = orderCubit.deliveredOrders[index];
+            final isExpanded = orderCubit.expandedDeliveredIndex == index;
+            return Padding(
+              padding: responsive.setPadding(bottom: 1, left: 1, right: 1),
+              child: GestureDetector(
+                onTap: () =>
+                    orderCubit.togelExpandedDeliveredOrderBottomSheet(index),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  height: isExpanded
+                      ? responsive.setHeight(17.5)
+                      : responsive.setHeight(10),
+                  width: responsive.screenWidth,
+                  decoration: BoxDecoration(
+                    color: ColorManger.brunLight,
+                    borderRadius:
+                        BorderRadius.circular(responsive.setBorderRadius(2)),
+                  ),
+                  child: Padding(
+                    padding: responsive.setPadding(
+                        left: 3, top: 1.5, bottom: 1.5, right: 3),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Text(
+                            order.shippingAddress!.region!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .copyWith(
+                                  fontSize: responsive.setTextSize(3),
+                                ),
+                          ),
+                          responsive.setSizeBox(height: 1.5),
+                          Row(
+                            children: [
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.user2,
+                                text: '${order.user!.name}',
+                              ),
+                              responsive.setSizeBox(width: 2),
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.calling,
+                                text: '${order.shippingAddress!.phone}',
+                              ),
+                              responsive.setSizeBox(width: 2),
+                              _buildInfoContainer(
+                                context,
+                                icon: IconlyBold.location,
+                                text: '${order.shippingAddress!.buildingName}',
+                              ),
+                            ],
+                          ),
+                          if (isExpanded) ...[
+                            responsive.setSizeBox(height: 1),
+                            Row(
+                              children: [
+                                _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.buy,
+                                  text:
+                                      'عدد العناصر الطلب   ${order.cartItems!.length}',
+                                ),
+                                responsive.setSizeBox(width: 2),
+                                _buildInfoContainer(
+                                  context,
+                                  icon: Icons.monetization_on_sharp,
+                                  text:
+                                      'المبلغ المدفوع   ${order.totalOrderPrice}',
+                                ),
+                              ],
+                            ),
+                            responsive.setSizeBox(height: 1),
+                            Row(
+                              children: [
+                                _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.location,
+                                  text:
+                                      'شارع  ${order.shippingAddress!.streetName}',
+                                ),
+                                responsive.setSizeBox(width: 2),
+                                _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.location,
+                                  text:
+                                      'عملية الدفع  ${order.paymentMethodType}',
+                                ),
+                                responsive.setSizeBox(width: 2),
+                                _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.location,
+                                  isPaied: order.isPaid!,
+                                  text: order.isPaid!
+                                      ? "تم الدفع"
+                                      : "لم يتم الدفع",
+                                ),
+                              ],
+                            ),
+                          ]
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+class CancelledOrders extends StatelessWidget {
+  const CancelledOrders({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = ResponsiveUtils(context);
+
+    return BlocBuilder<OrderCubit, OrderState>(
+      builder: (context, state) {
+        final orderCubit = context.read<OrderCubit>();
+
+        return ListView.builder(
+          itemCount: orderCubit.cancelledOrders.length,
+          itemBuilder: (context, index) {
+            final order = orderCubit.cancelledOrders[index];
+            final isExpanded = orderCubit.expandedDeliveredIndex == index;
+            return Padding(
+              padding: responsive.setPadding(bottom: 1, left: 1, right: 1),
+              child: GestureDetector(
+                onTap: () =>
+                    orderCubit.togelExpandedDeliveredOrderBottomSheet(index),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  // height: isExpanded
+                  //     ? responsive.setHeight(17.5)
+                  //     : responsive.setHeight(10),
+                  width: responsive.screenWidth,
+                  decoration: BoxDecoration(
+                    color: ColorManger.brunLight,
+                    borderRadius:
+                        BorderRadius.circular(responsive.setBorderRadius(2)),
+                  ),
+                  child: Padding(
+                    padding: responsive.setPadding(
+                        left: 3, top: 1.5, bottom: 1.5, right: 3),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            order.shippingAddress!.region!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .copyWith(
+                                  fontSize: responsive.setTextSize(3),
+                                ),
+                          ),
+                          responsive.setSizeBox(height: 1.5),
+                          Wrap(
+                            spacing: responsive.setWidth(2),
+                            runSpacing: responsive.setHeight(1),
+                            children: [
+                              Expanded(
+                                child: _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.user2,
+                                  text: '${order.user!.name}',
+                                ),
+                              ),
+                              Expanded(
+                                child: _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.calling,
+                                  text: '${order.shippingAddress!.phone}',
+                                ),
+                              ),
+                              Expanded(
+                                child: _buildInfoContainer(
+                                  context,
+                                  icon: IconlyBold.location,
+                                  text:
+                                      '${order.shippingAddress!.buildingName}',
+                                ),
+                              ),
+                            ],
+                          ),
+                          if (isExpanded) ...[
+                            responsive.setSizeBox(height: 1),
+                            Wrap(
+                              spacing: responsive.setWidth(2),
+                              runSpacing: responsive.setHeight(1),
+                              children: [
+                                Expanded(
+                                  child: _buildInfoContainer(
+                                    context,
+                                    icon: IconlyBold.buy,
+                                    text:
+                                        'عدد العناصر الطلب   ${order.cartItems!.length}',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildInfoContainer(
+                                    context,
+                                    icon: Icons.monetization_on_sharp,
+                                    text:
+                                        'المبلغ المدفوع   ${order.totalOrderPrice}',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildInfoContainer(
+                                    context,
+                                    icon: IconlyBold.location,
+                                    text:
+                                        'شارع  ${order.shippingAddress!.streetName}',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildInfoContainer(
+                                    context,
+                                    icon: IconlyBold.location,
+                                    text:
+                                        'عملية الدفع  ${order.paymentMethodType}',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: _buildInfoContainer(
+                                    context,
+                                    icon: IconlyBold.location,
+                                    isPaied: order.isPaid!,
+                                    text: order.isPaid!
+                                        ? "تم الدفع"
+                                        : "لم يتم الدفع",
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ]
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
 class CurrentOrders extends StatelessWidget {
   const CurrentOrders({super.key});
 
@@ -188,8 +456,7 @@ class CurrentOrders extends StatelessWidget {
     final responsive = ResponsiveUtils(context);
     final mapCubit = context.read<MapCubit>();
 
-    return BlocConsumer<OrderCubit, OrderState>(
-      listener: (context, state) async {},
+    return BlocBuilder<OrderCubit, OrderState>(
       builder: (context, state) {
         final orderCubit = context.read<OrderCubit>();
 
@@ -200,9 +467,7 @@ class CurrentOrders extends StatelessWidget {
             final isExpanded = orderCubit.expandedIndex == index;
 
             return Padding(
-              padding: EdgeInsets.only(
-                bottom: 10.h,
-              ),
+              padding: responsive.setPadding(bottom: 1, left: 1, right: 1),
               child: GestureDetector(
                 onTap: () => orderCubit.togelExpandedBottomSheet(index),
                 child: AnimatedContainer(
@@ -257,7 +522,7 @@ class CurrentOrders extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: responsive.setPadding(
-                            left: 3, top: 2, bottom: 1, right: 3),
+                            left: 3, top: 1.5, bottom: 1.5, right: 3),
                         child: SingleChildScrollView(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -292,7 +557,7 @@ class CurrentOrders extends StatelessWidget {
                                 ),
                               ],
                               if (isExpanded) ...[
-                                responsive.setSizeBox(height: 3),
+                                responsive.setSizeBox(height: 2),
                               ],
                               Row(
                                 children: [
@@ -329,75 +594,76 @@ class CurrentOrders extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget buildRow(BuildContext context,
-      {required IconData icon, required String text, double? textSize}) {
-    final responsive = ResponsiveUtils(context);
-    return Row(
-      children: [
-        Icon(
-          icon,
-          color: ColorManger.white,
-          size: responsive.setIconSize(5),
+Widget _buildInfoContainer(
+  BuildContext context, {
+  VoidCallback? onPressed,
+  required IconData icon,
+  required String text,
+  bool isCardInformation = false,
+  bool isPaied = false,
+}) {
+  final responsive = ResponsiveUtils(context);
+  return InkWell(
+    onTap: onPressed,
+    child: Container(
+        height: responsive.setHeight(isCardInformation ? 4.2 : 3),
+        decoration: BoxDecoration(
+          color: isPaied ? ColorManger.green : ColorManger.brownLight,
+          borderRadius: BorderRadius.circular(
+              responsive.setBorderRadius(isCardInformation ? 5 : 1.2)),
         ),
-        responsive.setSizeBox(width: 4),
-        Expanded(
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  fontSize: responsive.setTextSize(textSize ?? 3.5),
-                ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildInfoContainer(
-    BuildContext context, {
-    VoidCallback? onPressed,
-    required IconData icon,
-    required String text,
-    bool isCardInformation = false,
-  }) {
-    final responsive = ResponsiveUtils(context);
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-          height: responsive.setHeight(isCardInformation ? 4.2 : 3),
-          width: isCardInformation
-              ? responsive.setWidth(29)
-              : responsive.setWidth(20),
-          decoration: BoxDecoration(
-            color: isCardInformation
-                ? ColorManger.orangeColor
-                : ColorManger.brownLight,
-            borderRadius: BorderRadius.circular(
-                responsive.setBorderRadius(isCardInformation ? 5 : 1.2)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                color: ColorManger.white,
-                size: responsive.setIconSize(isCardInformation ? 5 : 4),
-              ),
-              responsive.setSizeBox(width: 1.5),
-              Text(
+        padding: EdgeInsets.symmetric(horizontal: responsive.setWidth(2)),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: ColorManger.white,
+              size: responsive.setIconSize(isCardInformation ? 5 : 4),
+            ),
+            responsive.setSizeBox(width: 1.5),
+            Flexible(
+              child: Text(
                 text,
                 overflow: TextOverflow.ellipsis,
+                maxLines: 1,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       fontSize:
                           responsive.setTextSize(isCardInformation ? 4 : 3),
                     ),
                 textAlign: TextAlign.start,
               ),
-            ],
-          )),
-    );
-  }
+            ),
+          ],
+        )),
+  );
+}
+
+Widget buildRow(BuildContext context,
+    {required IconData icon, required String text, double? textSize}) {
+  final responsive = ResponsiveUtils(context);
+  return Row(
+    children: [
+      Icon(
+        icon,
+        color: ColorManger.white,
+        size: responsive.setIconSize(5),
+      ),
+      responsive.setSizeBox(width: 4),
+      Expanded(
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontSize: responsive.setTextSize(textSize ?? 3.5),
+              ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+        ),
+      ),
+    ],
+  );
 }

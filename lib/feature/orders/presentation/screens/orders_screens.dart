@@ -19,6 +19,11 @@ class _OrdersScreensState extends State<OrdersScreens> {
       final mapCubit = context.read<MapCubit>();
       final orderCubit = context.read<OrderCubit>();
 
+      await Future.wait([
+        // orderCubit.fetchGetAcceptedOrders(),
+        orderCubit.fetchGetCancellOrders(),
+        orderCubit.fetchGetOrdersDelivered(),
+      ]);
       // Periodically check and fetch orders if none exist
       Timer.periodic(const Duration(seconds: 30), (timer) async {
         if (orderCubit.orders.isEmpty) {

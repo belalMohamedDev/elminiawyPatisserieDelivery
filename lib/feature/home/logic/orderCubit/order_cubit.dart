@@ -11,6 +11,9 @@ class OrderCubit extends Cubit<OrderState> {
   final HomeRepositoryImplement _homeRepositoryImplement;
 
   List<GetAllOrderData> orders = [];
+  List<GetAllOrderData> acceptedOrders = [];
+  List<GetAllOrderData> cancelledOrders = [];
+  List<GetAllOrderData> deliveredOrders = [];
 
   OrderAcceptResponse? orderAcceptResponse;
 
@@ -25,11 +28,19 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   int? expandedIndex;
+  int? expandedDeliveredIndex;
 
   void togelExpandedBottomSheet(int index) {
     expandedIndex = (expandedIndex == index) ? -1 : index;
     emit(
       OrderState.isExpanded(expandedIndex!),
+    );
+  }
+
+    void togelExpandedDeliveredOrderBottomSheet(int index) {
+    expandedDeliveredIndex = (expandedDeliveredIndex == index) ? -1 : index;
+    emit(
+      OrderState.isExpanded(expandedDeliveredIndex!),
     );
   }
 
@@ -53,6 +64,75 @@ class OrderCubit extends Cubit<OrderState> {
       },
     );
   }
+
+//////////////////////////////////////
+
+  Future<void> fetchGetCancellOrders() async {
+    emit(const OrderState.getAllCancelOrderLoading());
+
+    final response = await _homeRepositoryImplement.getCancelledOrderRepo();
+
+    response.when(
+      success: (dataResponse) {
+        cancelledOrders = [];
+        cancelledOrders.addAll(dataResponse.data!);
+
+        emit(OrderState.getAllCancelOrderSuccess(orders));
+      },
+      failure: (error) {
+        emit(
+          OrderState.getAllCancelOrderError(error),
+        );
+      },
+    );
+  }
+
+  Future<void> fetchGetAcceptedOrders() async {
+    emit(const OrderState.getAllAcceptOrderLoading());
+
+    final response =
+        await _homeRepositoryImplement.getAcceptedDeliveredOrderRepo();
+
+    response.when(
+      success: (dataResponse) {
+        acceptedOrders = [];
+        acceptedOrders.addAll(dataResponse.data!);
+
+        emit(OrderState.getAllAcceptOrderSuccess(orders));
+      },
+      failure: (error) {
+        emit(
+          OrderState.getAllAcceptOrderError(error),
+        );
+      },
+    );
+  }
+
+  Future<void> fetchGetOrdersDelivered() async {
+    emit(const OrderState.getAllDeliverdOrderLoading());
+
+    final response = await _homeRepositoryImplement.getDeliveredOrderRepo();
+
+    response.when(
+      success: (dataResponse) {
+        deliveredOrders = [];
+        deliveredOrders.addAll(dataResponse.data!);
+
+    
+
+        emit(OrderState.getAllDeliverdOrderSuccess(orders));
+      },
+      failure: (error) {
+
+
+        emit(
+          OrderState.getAllDeliverdOrderError(error),
+        );
+      },
+    );
+  }
+
+  /////////////////////////////////////
 
   Future<void> fetchAcceptOrders(String orderId) async {
     emit(const OrderState.acceptOrderLoading());

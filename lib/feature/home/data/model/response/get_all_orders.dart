@@ -25,11 +25,16 @@ class GetAllOrderData {
   List<CartOrderItems>? cartItems;
   ShippingAddressOrder? shippingAddress;
   double? totalOrderPrice;
+  String? paymentMethodType;
+  bool? isPaid;
+
   String? distance;
   String? duration;
 
   GetAllOrderData(
       {this.sId,
+      this.isPaid,
+      this.paymentMethodType,
       this.user,
       this.cartItems,
       this.shippingAddress,
@@ -52,7 +57,7 @@ class GetUserOrderData {
   String? email;
   String? phone;
 
-  GetUserOrderData({this.sId, this.email, this.phone,this.name});
+  GetUserOrderData({this.sId, this.email, this.phone, this.name});
 
   //from json
   factory GetUserOrderData.fromJson(Map<String, dynamic> json) =>
