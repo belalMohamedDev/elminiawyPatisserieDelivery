@@ -264,6 +264,7 @@
   "myOrders": "Orders",
   "currentOrders": "Current Orders",
   "previousOrders": "Previous Orders",
+  "acceptedOrders": "Accepted Orders",
   "cancelledOrders": "Cancelled Orders",
   "accountInformation": "Account Information",
   "changePassword": "Change Password",

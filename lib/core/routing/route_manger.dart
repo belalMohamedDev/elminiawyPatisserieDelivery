@@ -22,6 +22,31 @@ class RouteGenerator {
           builder: (_) => const OnBoardingView(),
         );
 
+      case Routes.notification:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => instance<UserNotificationCubit>(),
+            child: const NotificationScreen(),
+          ),
+        );
+      case Routes.profile:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => instance<LogOutCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => instance<ChangeUserDeliveryImageCubit>(),
+              ),
+              BlocProvider.value(
+                value: instance<MapCubit>(),
+              ),
+            ],
+            child: const ProfileView(),
+          ),
+        );
+
       case Routes.registerRoute:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -61,8 +86,6 @@ class RouteGenerator {
           ),
         );
 
-   
-
       case Routes.completeRegister:
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
@@ -70,9 +93,6 @@ class RouteGenerator {
             child: const DeliveryManRegistration(),
           ),
         );
-
-
-    
 
       case Routes.accountInfomation:
         return MaterialPageRoute(

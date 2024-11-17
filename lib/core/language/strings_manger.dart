@@ -300,6 +300,8 @@ class AppStrings {
   static const String previousOrders = "previousOrders";
   static const String accountInformation = "accountInformation";
   static const String changePassword = "changePassword";
+  static const String acceptedOrders = "acceptedOrders";
+  
 
   static const String one = "1";
   static const String two = "2";

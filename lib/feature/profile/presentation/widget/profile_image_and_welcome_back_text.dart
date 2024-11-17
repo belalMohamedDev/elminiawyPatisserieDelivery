@@ -10,6 +10,7 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = ResponsiveUtils(context);
+    bool isEnLocale = AppLocalizations.of(context)?.isEnLocale ?? true;
 
     return Container(
       height: responsive.setHeight(28),
@@ -20,7 +21,7 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
           return Row(
             children: [
               responsive.setSizeBox(
-                width: 6,
+                width: 4,
               ),
               Stack(
                 children: [
@@ -43,12 +44,12 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      height: responsive.setHeight(15),
-                      width: responsive.setWidth(32),
+                      height: responsive.setHeight(12),
+                      width: responsive.setWidth(26),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               responsive.setBorderRadius(50)),
-                          color: Colors.white70),
+                          color: Colors.white),
                       child: Center(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(
@@ -60,16 +61,16 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
                               ? Image.asset(
                                   ImageAsset.guestIconGreen,
                                   color: ColorManger.white,
-                                  height: 100.h,
+                                  height: 80.h,
                                 )
                               : CachedNetworkImage(
                                   imageUrl: context
                                       .read<ChangeUserDeliveryImageCubit>()
                                       .initialUserImage!,
                                   fit: BoxFit.fitHeight,
-                                  width: responsive.setWidth(31),
+                                  width: responsive.setWidth(25.7),
                                   cacheManager: CustomCacheManager.instance,
-                                  height: responsive.setHeight(14),
+                                  height: responsive.setHeight(11.7),
                                   placeholder: (context, url) => LoadingShimmer(
                                         height: responsive.setHeight(
                                             15), // Placeholder height while loading
@@ -95,8 +96,8 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
                               responsive.setBorderRadius(50))),
                       child: Icon(
                         IconlyBroken.edit,
-                        color: Colors.white70,
-                        size: responsive.setIconSize(9),
+                        color: ColorManger.white,
+                        size: responsive.setIconSize(6),
                       ),
                     ),
                   ),
@@ -128,9 +129,35 @@ class ProfileImageAndWelcomeBackText extends StatelessWidget {
                 context.translate(
                     AppStrings.welcomeBackLetsAchieveGreatThingsToday),
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: responsive.setTextSize(4),
+                      fontSize: responsive.setTextSize(3.5),
                     ),
               ),
+              const Spacer(),
+              Padding(
+                padding: responsive.setPadding(left: 5, top: 5.5),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: InkWell(
+                    onTap: () {
+                      context.pop();
+                    },
+                    child: Container(
+                        height: responsive.setHeight(4),
+                        width: responsive.setWidth(9),
+                        decoration: BoxDecoration(
+                            color: ColorManger.white,
+                            borderRadius: BorderRadius.circular(
+                                responsive.setBorderRadius(2))),
+                        child: Icon(
+                          isEnLocale
+                              ? IconlyBroken.arrowRight2
+                              : IconlyBroken.arrowLeft2,
+                          color: ColorManger.brun,
+                          size: responsive.setIconSize(6),
+                        )),
+                  ),
+                ),
+              )
             ],
           );
         },

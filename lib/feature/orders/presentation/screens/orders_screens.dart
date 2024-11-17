@@ -43,9 +43,8 @@ class _OrdersScreensState extends State<OrdersScreens> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManger.offWhite,
-      body: const SafeArea(child: MyOrdersBody()),
+    return const Scaffold(
+      body: SafeArea(child: MyOrdersBody()),
     );
   }
 }

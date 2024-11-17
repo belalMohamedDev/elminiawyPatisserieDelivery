@@ -254,6 +254,8 @@
   "myOrders": "الطلبات",
   "currentOrders": "الطلبات الحالية",
   "previousOrders": "الطلبات السابقة",
+    "acceptedOrders": "طلبات التوصيل",
+
   "cancelledOrders": "الطلبات الملغاة",
   "accountInformation": "معلومات الحساب",
   "changePassword": "تغيير كلمة المرور",
