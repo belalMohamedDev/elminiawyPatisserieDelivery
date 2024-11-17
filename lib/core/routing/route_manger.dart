@@ -29,6 +29,26 @@ class RouteGenerator {
             child: const NotificationScreen(),
           ),
         );
+
+      case Routes.orders:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => instance<OrderCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => instance<MapCubit>(),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    instance<ChangeUserDeliveryImageCubit>()..getUserImage(),
+              ),
+            ],
+            child: const OrdersScreens(),
+          ),
+        );
+
       case Routes.profile:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -119,11 +139,6 @@ class RouteGenerator {
             create: (context) => instance<ChangeMyPasswordCubit>(),
             child: const ChangePasswordScreen(),
           ),
-        );
-
-      case Routes.bottomNavBarRoute:
-        return MaterialPageRoute(
-          builder: (_) => const BottomNavBar(),
         );
 
       case Routes.noRoute:

@@ -35,7 +35,9 @@ class CancelledOrders extends StatelessWidget {
                       children: [
                         responsive.setSizeBox(width: 1.5),
                         SlidableAction(
-                          onPressed: (context) {},
+                          onPressed: (context) {
+                            orderCubit.fetchAcceptOrders(order.sId!);
+                          },
                           backgroundColor: ColorManger.green,
                           foregroundColor: ColorManger.white,
                           icon: Icons.replay_rounded,

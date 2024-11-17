@@ -152,8 +152,6 @@ export '../../../feature/profile/presentation/screen/change_email_screen.dart';
 export '../../../feature/profile/presentation/screen/change_password_screen.dart';
 export '../../../../feature/notification/presentation/screen/notification_screen.dart';
 export '../../../feature/Authentication/logic/signUpBloc/sign_up_bloc.dart';
-
-export '../../../../feature/bottomNavBar/presentation/nav_bar_view.dart';
 export '../../../feature/Authentication/logic/forgetPassword/forget_password_bloc.dart';
 export '../../../feature/Authentication/logic/loginBloc/login_bloc.dart';
 export '../../../feature/Authentication/presentation/screens/sign_in_view.dart';

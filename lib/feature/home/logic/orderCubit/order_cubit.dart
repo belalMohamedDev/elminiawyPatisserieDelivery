@@ -37,7 +37,7 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
-    void togelExpandedDeliveredOrderBottomSheet(int index) {
+  void togelExpandedDeliveredOrderBottomSheet(int index) {
     expandedDeliveredIndex = (expandedDeliveredIndex == index) ? -1 : index;
     emit(
       OrderState.isExpanded(expandedDeliveredIndex!),
@@ -118,13 +118,9 @@ class OrderCubit extends Cubit<OrderState> {
         deliveredOrders = [];
         deliveredOrders.addAll(dataResponse.data!);
 
-    
-
         emit(OrderState.getAllDeliverdOrderSuccess(orders));
       },
       failure: (error) {
-
-
         emit(
           OrderState.getAllDeliverdOrderError(error),
         );
@@ -142,6 +138,7 @@ class OrderCubit extends Cubit<OrderState> {
     response.when(
       success: (dataResponse) {
         orders = [];
+        cancelledOrders.removeWhere((order) => order.sId == orderId);
         saveOrderResponse(dataResponse);
         emit(OrderState.acceptOrderSuccess(dataResponse));
       },

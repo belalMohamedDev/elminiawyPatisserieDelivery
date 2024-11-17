@@ -19,7 +19,7 @@ class SignInButton extends StatelessWidget {
                     message: authResponse.message!, context: context);
                 AppLogin().storeData(authResponse);
 
-                await context.pushNamedAndRemoveUntil(Routes.bottomNavBarRoute);
+                await context.pushNamedAndRemoveUntil(Routes.orders);
               } else {
                 // Navigate to the map screen after a successful login
                 AppLogin().storeData(authResponse);

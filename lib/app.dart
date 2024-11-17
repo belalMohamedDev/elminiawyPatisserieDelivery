@@ -38,16 +38,6 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => instance<AppLogicCubit>()..getSavedLanguage(),
         ),
-        BlocProvider(
-          create: (context) => instance<OrderCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => instance<MapCubit>(),
-        ),
-        BlocProvider(
-          create: (context) =>
-              instance<ChangeUserDeliveryImageCubit>()..getUserImage(),
-        ),
       ],
       child: StreamBuilder<bool>(
         stream: ConnectivityController.instance.connectivityStream,
@@ -85,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                         ? 'driver Patisserie'
                         : 'حلوانى المنياوى',
                     debugShowCheckedModeBanner: false,
-                    // initialRoute: _getInitialRoute(),
+                    initialRoute: _getInitialRoute(),
                     onGenerateRoute: RouteGenerator.getRoute,
                     home: const OrdersScreens(),
                     theme: getApplicationTheme(context),
@@ -115,19 +105,19 @@ class _MyAppState extends State<MyApp> {
   }
 
   // Extracted logic for determining the initial route
-  // String _getInitialRoute() {
-  //   if (AppInitialRoute.isOnBoardingScreen) {
-  //     if (AppInitialRoute.isLoggedInUser) {
-  //       if (AppInitialRoute.isNextToCompleteRgister) {
-  //         return Routes.completeRegister;
-  //       } else {
-  //         return Routes.bottomNavBarRoute;
-  //       }
-  //     } else {
-  //       return Routes.loginRoute;
-  //     }
-  //   } else {
-  //     return Routes.onBoardingRoute;
-  //   }
-  // }
+  String _getInitialRoute() {
+    if (AppInitialRoute.isOnBoardingScreen) {
+      if (AppInitialRoute.isLoggedInUser) {
+        if (AppInitialRoute.isNextToCompleteRgister) {
+          return Routes.completeRegister;
+        } else {
+          return Routes.orders;
+        }
+      } else {
+        return Routes.loginRoute;
+      }
+    } else {
+      return Routes.onBoardingRoute;
+    }
+  }
 }
